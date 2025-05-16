@@ -4,251 +4,266 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>お支払いシミュレーション</title> <!-- タイトルを元に戻す -->
-        <meta name='robots' content='max-image-preview:large'/> <!-- 標準的なメタタグに戻す -->
+        <title>お支払いシミュレーション</title>
+        <meta name='robots' content='max-image-preview:large'/>
         <meta name="description" content="お支払いシミュレーション"/>
         <!-- 外部CSSの読み込みは行いません -->
 
-        <!-- シミュレーター専用スタイル (シンプル青基調) -->
+        <!-- シミュレーター専用スタイル (洗練された青基調) -->
         <style type="text/css">
+            /* CSS カスタムプロパティ (変数) */
+            :root {
+                --color-primary: #007bff; /* メインの青 */
+                --color-primary-dark: #0056b3; /* 濃い青 */
+                --color-accent: #17a2b8; /* アクセントに使うターコイズ系 */
+                --color-text: #343a40; /* 標準的なテキスト色 */
+                --color-text-secondary: #6c757d; /* 副次的なテキスト色 */
+                --color-border: #ced4da; /* 標準的なボーダー色 */
+                --color-border-light: #e9ecef; /* 薄いボーダー色 */
+                --color-background-light: #f8f9fa; /* 薄い背景色 */
+                --color-success: #28a745; /* 成功やOKを示す色 */
+                --color-warning: #ffc107; /* 警告色 */
+                --color-danger: #dc3545; /* エラー色 */
+
+                --spacing-small: 8px;
+                --spacing-medium: 16px;
+                --spacing-large: 24px;
+            }
+
             /* 基本リセットと全体スタイル */
             body {
-                font-family: Meiryo, "Hiragino Sans", "Noto Sans JP", sans-serif; /* 一般的なゴシック体 */
+                font-family: "Segoe UI", "メイリオ", Meiryo, system-ui, -apple-system, BlinkMacSystemFont, sans-serif; /* モダンで読みやすいシステムフォント優先 */
                 line-height: 1.6;
-                color: #333; /* 標準的な文字色 */
+                color: var(--color-text);
                 background-color: #ffffff; /* 白背景 */
                 margin: 0;
-                padding: 20px;
-                display: block; /* flexbox中央寄せをやめる */
-                overflow-x: auto; /* 必要ならスクロール */
-                cursor: auto; /* 標準カーソルに戻す */
-                 filter: none; /* フィルターを解除 */
-                 text-shadow: none; /* テキスト影を解除 */
+                padding: var(--spacing-medium);
             }
 
-            .container { /* 元のサイト構造に寄せたクラス名を再現 */
-                max-width: 800px; /* コンテンツの最大幅 */
-                margin: 0 auto; /* 中央寄せ */
-                padding: 0 15px; /* 左右のパディング */
-                background-color: #ffffff; /* コンテナ背景も白 */
-                border: none; /* ボーダーなし */
-                box-shadow: none; /* 影なし */
-                border-radius: 0;
-                box-sizing: border-box;
-                position: static; /* 歪み基準を解除 */
-                 transform: none; /* 歪みを解除 */
+            .container {
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 0; /* コンテナ自体のパディングはなし */
             }
-             .container::before { /* オーバーレイを削除 */
-                 display: none;
-             }
-
 
             h1, h2 {
-                color: #333; /* 標準的な見出し色 */
-                border-bottom: 2px solid #007bff; /* 元画像に近い青の下線 */
-                padding-bottom: 8px;
-                margin-top: 20px;
-                margin-bottom: 25px;
+                color: var(--color-primary-dark); /* 濃い青を見出し色に */
+                border-bottom: 2px solid var(--color-primary); /* メインの青で下線 */
+                padding-bottom: var(--spacing-small);
+                margin-top: var(--spacing-large);
+                margin-bottom: var(--spacing-large);
                 font-size: 1.8rem;
                 font-weight: bold;
-                text-align: left; /* 左寄せに */
-                text-shadow: none; /* テキスト影を解除 */
-                transform: none; /* 歪みを解除 */
             }
 
             h2 {
                  font-size: 1.4rem;
-                 border-bottom-width: 2px;
-                 margin-top: 30px;
-                 margin-bottom: 20px;
-                 transform: none; /* 歪みを解除 */
+                 border-bottom-width: 1px; /* h2の下線は細く */
+                 margin-top: var(--spacing-large);
+                 margin-bottom: var(--spacing-medium);
             }
 
             p {
-                margin-bottom: 15px;
-                 color: #333; /* 標準的な文字色 */
+                margin-bottom: var(--spacing-medium);
+                 color: var(--color-text);
                  font-size: 1rem;
             }
 
             dl {
-                margin-bottom: 25px;
-                border: none; /* ボーダーなし */
-                padding: 0; /* パディングなし */
-                background-color: transparent; /* 背景なし */
+                margin-bottom: var(--spacing-large);
+                 background-color: var(--color-background-light); /* 薄い背景色 */
+                 padding: var(--spacing-medium);
+                 border: 1px solid var(--color-border-light); /* 薄いボーダー */
+                 border-radius: 4px;
             }
             dl dt {
                 font-weight: bold;
-                margin-top: 10px;
-                color: #333; /* 標準的な文字色 */
-                text-shadow: none; /* テキスト影を解除 */
+                margin-top: var(--spacing-small);
+                color: var(--color-primary); /* 青色に */
             }
             dl dd {
-                margin-bottom: 8px;
-                margin-left: 20px;
-                color: #333; /* 標準的な文字色 */
-                font-size: 1rem;
+                margin-bottom: var(--spacing-small);
+                margin-left: var(--spacing-large);
+                color: var(--color-text-secondary); /* 副次的なテキスト色 */
+                font-size: 0.95rem;
             }
+             dl dt:first-of-type {
+                 margin-top: 0;
+             }
 
-            /* シミュレーターフォームのスタイル (青基調の座布団風) */
+
+            /* シミュレーターフォームのスタイル */
             .calc-form {
-                margin-top: 30px;
-                margin-bottom: 30px;
-                background-color: #e9f5ff; /* 薄い青の座布団背景 */
-                padding: 20px;
-                 border: 1px solid #b3d4ff; /* 薄い青のボーダー */
-                 box-shadow: none;
-                 border-radius: 5px; /* 少し角丸 */
-                 transform: none; /* 歪みを解除 */
+                margin-top: var(--spacing-large);
+                margin-bottom: var(--spacing-large);
+                background-color: var(--color-background-light); /* 薄い青の座布団背景 */
+                padding: var(--spacing-large);
+                 border: 1px solid var(--color-border); /* 標準的なボーダー */
+                 border-radius: 5px;
             }
 
              .calc-form fieldset {
-                 margin-bottom: 20px;
-                 padding: 15px;
-                 border: 1px solid #ccc; /* 標準的なグレーのボーダー */
+                 margin-bottom: var(--spacing-medium);
+                 padding: var(--spacing-medium);
+                 border: 1px solid var(--color-border); /* 標準的なグレーのボーダー */
                  border-radius: 4px;
                  background-color: #ffffff; /* フィールドセット内は白背景 */
             }
              .calc-form legend {
                  font-weight: bold;
-                 padding: 0 5px;
-                 color: #333;
+                 padding: 0 var(--spacing-small);
+                 color: var(--color-text);
                  font-size: 1rem;
-                 text-shadow: none;
             }
 
-            /* フォーム項目のレイアウト (元の画像に近いスタイル) */
+            /* フォーム項目のレイアウト (Flexboxを使用) */
             .form-item {
-                margin-bottom: 10px; /* 元画像に近い余白 */
+                display: flex; /* Flexboxコンテナ */
+                align-items: center; /* 中央揃え */
+                margin-bottom: var(--spacing-small); /* 項目間の余白 */
+                 flex-wrap: wrap; /* 狭い画面では折り返す */
             }
 
             .form-item label {
-                display: inline-block;
+                display: block; /* Flexアイテムとして扱うためブロックに */
                 font-weight: bold;
-                width: 180px; /* ラベル幅を固定 */
-                margin-right: 10px;
-                vertical-align: middle;
-                 color: #333; /* 標準的な文字色 */
-                 text-shadow: none;
+                width: 200px; /* ラベル幅を固定 */
+                margin-right: var(--spacing-small);
+                flex-shrink: 0; /* 縮小しない */
+                 color: var(--color-text-secondary); /* 副次的なテキスト色 */
             }
-             /* 円マークなどの単位ラベル */
+             /* 単位ラベル */
              .form-item label.unit {
-                 width: auto;
+                 width: auto; /* 幅固定を解除 */
                  margin-right: 0;
-                 margin-left: 5px;
+                 margin-left: var(--spacing-small);
                  font-weight: normal;
-                 vertical-align: middle;
-                 color: #333;
+                 color: var(--color-text-secondary);
              }
 
             .form-item input[type="number"],
             .form-item select,
             .form-item input[type="date"] {
-                 display: inline-block;
-                 width: 180px; /* 入力フィールドの幅を固定 */
-                 padding: 5px;
-                 border: 1px solid #ccc; /* 標準的なグレーのボーダー */
-                 border-radius: 4px; /* 少し角丸 */
+                 display: block; /* Flexアイテムとして扱うためブロックに */
+                 flex-grow: 1; /* 残りの幅を占める */
+                 min-width: 150px; /* 最小幅を設定 */
+                 max-width: 250px; /* 最大幅を設定 */
+                 padding: var(--spacing-small);
+                 border: 1px solid var(--color-border);
+                 border-radius: 4px;
                  box-sizing: border-box;
                  font-size: 1rem;
-                 vertical-align: middle;
-                 background-color: #fff; /* 白背景 */
-                 color: #333; /* 標準的な文字色 */
-                 box-shadow: none; /* 影なし */
+                 background-color: #fff;
+                 color: var(--color-text);
+                 transition: border-color 0.2s ease, box-shadow 0.2s ease; /* 滑らかな変化 */
             }
+             /* 日付入力フィールドの幅は固定でも良い */
              .form-item input[type="date"] {
-                 width: 180px;
+                 flex-grow: 0; /* 日付フィールドは拡大しない */
+                 max-width: 200px;
              }
-             /* フォーカス時のスタイルを標準に */
+
+             /* フォーカス時のスタイル */
              .form-item input[type="number"]:focus,
              .form-item select:focus,
              .form-item input[type="date"]:focus {
-                 outline: 2px solid #007bff; /* 青いアウトライン */
-                 border-color: #007bff;
-                 box-shadow: none;
+                 outline: none;
+                 border-color: var(--color-primary); /* 青いボーダー */
+                 box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* 青い光のような影 */
              }
 
+             /* 狭い画面で折り返した場合のスタイル調整 */
+             .form-item input[type="number"],
+             .form-item select,
+             .form-item input[type="date"],
+             .form-item label.unit {
+                 margin-top: var(--spacing-small); /* 折り返した際に上部に余白 */
+             }
+             .form-item label {
+                 margin-bottom: 0; /* 折り返した際にラベルの下余白を調整 */
+             }
+              .form-item:last-child {
+                  margin-bottom: 0; /* 最後の項目は下余白なし */
+              }
 
-            /* ボタンのスタイル (シンプル青基調) */
+
+            /* ボタンのスタイル */
              .button-group {
-                 margin-top: 15px;
-                 text-align: left; /* 左寄せに戻す */
+                 margin-top: var(--spacing-large);
+                 text-align: center; /* ボタンを中央寄せ */
              }
 
             .calc-form input[type="button"] {
-                 padding: 8px 15px;
-                 background-color: #007bff; /* 標準的な青 */
+                 padding: var(--spacing-small) var(--spacing-medium);
+                 background-color: var(--color-primary); /* メインの青 */
                  color: white;
-                 border: none;
+                 border: 1px solid var(--color-primary);
                  border-radius: 4px;
                  cursor: pointer;
                  font-size: 1rem;
-                 font-weight: normal; /* 太字を解除 */
-                 text-shadow: none; /* テキスト影を解除 */
-                 transition: background-color 0.2s ease;
-                 margin-right: 10px;
-                 box-shadow: none; /* 影なし */
-                 transform: none; /* 歪みを解除 */
+                 transition: background-color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+                 margin: 0 var(--spacing-small); /* ボタン間の隙間 */
             }
-             .calc-form input[type="button"]:last-child {
-                  margin-right: 0;
-             }
              .calc-form input[type="button"]:hover {
-                 background-color: #0056b3; /* ホバーで少し濃く */
+                 background-color: var(--color-primary-dark); /* ホバーで濃く */
+                 border-color: var(--color-primary-dark);
              }
               .calc-form input[type="button"]:active {
                  background-color: #004085; /* クリックでさらに濃く */
+                 border-color: #004085;
+              }
+             /* セカンダリボタン風スタイル (例: クリアボタン) */
+             .calc-form input[type="button"]:last-child {
+                  background-color: #6c757d; /* グレー */
+                  border-color: #6c757d;
+             }
+              .calc-form input[type="button"]:last-child:hover {
+                   background-color: #5a6268;
+                   border-color: #545b62;
+              }
+              .calc-form input[type="button"]:last-child:active {
+                   background-color: #4e555b;
+                   border-color: #495057;
               }
 
 
              .calc-form ul {
-                 margin-top: 20px;
+                 margin-top: var(--spacing-medium);
                  font-size: 0.9rem;
-                 color: #555;
-                 padding-left: 20px;
-                 border-top: none; /* ボーダーを削除 */
-                 padding-top: 0; /* パディングを削除 */
+                 color: var(--color-text-secondary);
+                 padding-left: var(--spacing-large);
              }
              .calc-form ul li {
-                 margin-bottom: 5px;
-                 list-style-type: disc; /* 標準リストマーカーに戻す */
-                 position: static; /* 位置指定を解除 */
-                 padding-left: 0; /* パディングを解除 */
-                 color: #555; /* 標準的な文字色に戻す */
-             }
-             .calc-form ul li::before { /* カスタムマーカーを削除 */
-                 content: none;
+                 margin-bottom: var(--spacing-small);
+                 list-style-type: disc;
              }
 
-            /* シミュレーターの結果表示エリアのスタイル (青基調の座布団風) */
+            /* シミュレーターの結果表示エリアのスタイル */
             .calculation-result {
-                margin-top: 30px;
-                padding: 20px;
-                border: 1px solid #b3d4ff; /* 薄い青のボーダー */
-                border-radius: 5px; /* 少し角丸 */
-                background-color: #e9f5ff; /* 薄い青の座布団背景 */
+                margin-top: var(--spacing-large);
+                padding: var(--spacing-large);
+                border: 1px solid var(--color-border); /* 標準的なボーダー */
+                border-radius: 5px;
+                background-color: var(--color-background-light); /* 薄い背景色 */
                 font-size: 1rem;
                 line-height: 1.6;
-                color: #333; /* 標準的な文字色 */
-                text-shadow: none; /* テキスト影を解除 */
-                box-shadow: none; /* 影なし */
-                 filter: none; /* フィルターを解除 */
+                color: var(--color-text);
             }
 
             .calculation-result h3 {
                 margin-top: 0;
-                margin-bottom: 15px;
-                border-bottom: 1px dashed #ccc; /* 点線の下線 */
-                padding-bottom: 5px;
+                margin-bottom: var(--spacing-medium);
+                border-bottom: 1px solid var(--color-border-light); /* 薄い点線の下線 */
+                padding-bottom: var(--spacing-small);
                 font-size: 1.2rem;
-                 color: #333; /* 標準的な文字色 */
-                 text-shadow: none; /* テキスト影を解除 */
+                 color: var(--color-primary-dark); /* 濃い青 */
             }
 
              .calculation-result p {
-                margin-bottom: 10px;
-                padding-bottom: 0; /* パディングを削除 */
+                margin-bottom: var(--spacing-small); /* 項目間の余白 */
+                padding-bottom: 0;
                 border-bottom: none; /* 下線を削除 */
-                color: #333; /* 標準的な文字色 */
+                color: var(--color-text);
              }
              .calculation-result p:last-child {
                 margin-bottom: 0;
@@ -256,25 +271,86 @@
 
             .calculation-result strong {
                 display: inline-block;
-                min-width: 180px; /* ラベル幅に合わせて揃える */
-                margin-right: 10px;
-                color: #333; /* 標準的な文字色 */
-                text-shadow: none; /* テキスト影を解除 */
+                min-width: 180px; /* 項目名を揃える */
+                margin-right: var(--spacing-small);
+                color: var(--color-text); /* 標準的な文字色 */
                 font-weight: bold;
             }
 
             .calculation-result .note {
                 font-size: 0.9rem;
-                color: #d35400; /* オレンジ系の注意色 */
-                margin-top: 10px;
-                border-top: none; /* ボーダーを削除 */
-                padding-top: 0; /* パディングを削除 */
-                text-shadow: none; /* テキスト影を解除 */
-                font-weight: normal; /* 太字を解除 */
+                color: var(--color-warning); /* 警告色 */
+                margin-top: var(--spacing-medium);
+                border-top: 1px dashed var(--color-border); /* 点線ボーダー */
+                padding-top: var(--spacing-small);
+                font-weight: normal;
              }
-             .calculation-result .note:before { /* 警告マークを削除 */
-                 content: none;
+
+             /* レスポンシブ対応 */
+             @media (max-width: 600px) {
+                 body {
+                     padding: var(--spacing-medium); /* スマホでの余白 */
+                 }
+                 .container {
+                     padding: 0; /* スマホではコンテナのパディングなし */
+                 }
+                 .calc-form {
+                     padding: var(--spacing-medium); /* スマホでのフォーム内パディング */
+                 }
+                 .calc-form fieldset {
+                     padding: var(--spacing-small); /* スマホでのフィールドセット内パディング */
+                 }
+
+                 .form-item {
+                     flex-direction: column; /* 縦積み */
+                     align-items: stretch; /* 幅を伸ばす */
+                 }
+                 .form-item label {
+                     width: auto; /* 幅固定を解除 */
+                     margin-right: 0;
+                     margin-bottom: var(--spacing-small); /* ラベルの下に余白 */
+                     color: var(--color-text); /* ラベルの色を標準に */
+                 }
+                  .form-item label.unit {
+                      margin-left: 0;
+                      margin-top: var(--spacing-small);
+                      align-self: flex-end; /* 単位だけ右寄せ */
+                  }
+                 .form-item input[type="number"],
+                 .form-item select,
+                 .form-item input[type="date"] {
+                     width: 100%; /* 幅を100%に */
+                     max-width: none; /* 最大幅制限解除 */
+                     margin-top: 0; /* 縦積みなので上部余白なし */
+                 }
+                  .form-item input[type="date"] {
+                      max-width: 100%;
+                      flex-grow: 1; /* 日付フィールドも幅を伸ばす */
+                  }
+
+
+                 .calculation-result {
+                     padding: var(--spacing-medium); /* スマホでの結果エリア内パディング */
+                 }
+                 .calculation-result strong {
+                     min-width: auto; /* 幅固定を解除 */
+                     display: block; /* ブロック要素に */
+                     margin-bottom: var(--spacing-small); /* 項目名の下に余白 */
+                 }
+                 .calculation-result p {
+                     /* スマホでは項目ごとに区切り線を復活させるなどしても良い */
+                      border-bottom: 1px dashed var(--color-border-light);
+                      padding-bottom: var(--spacing-small);
+                      margin-bottom: var(--spacing-small);
+                 }
+                 .calculation-result p:last-child {
+                     border-bottom: none;
+                 }
+                  .calculation-result .note {
+                       border-top: 1px dashed var(--color-border-light);
+                  }
              }
+
 
         </style>
 
@@ -410,24 +486,24 @@
 
                 // バリデーション
                 if (isNaN(price) || isNaN(frequency) || isNaN(dpay) || isNaN(bmonth1) || isNaN(bmonth2) || isNaN(baddpay) || !interviewDateValue) {
-                    resultDiv.innerHTML = '<p style="color: red;">全ての項目に数値を入力し、記入面談日を選択してください。</p>';
+                    resultDiv.innerHTML = `<p style="color: var(--color-danger);">全ての項目に数値を入力し、記入面談日を選択してください。</p>`;
                     return;
                 }
 
                 // 詳細な数値バリデーション
                 if (price < 50000 || price > 5000000 || frequency < 3 || frequency > 60 || dpay < 0 || baddpay < 0) {
-                     resultDiv.innerHTML = '<p style="color: red;">入力された数値が条件を満たしていません。<br>商品金額: 5万円以上500万円以下, 支払回数: 3～60回, 頭金・ボーナス加算額: 0円以上</p>';
+                     resultDiv.innerHTML = `<p style="color: var(--color-danger);">入力された数値が条件を満たしていません。<br>商品金額: 5万円以上500万円以下, 支払回数: 3～60回, 頭金・ボーナス加算額: 0円以上</p>`;
                      return;
                  }
 
                 if (dpay > price) {
-                     resultDiv.innerHTML = '<p style="color: red;">頭金は商品金額以下である必要があります。</p>';
+                     resultDiv.innerHTML = `<p style="color: var(--color-danger);">頭金は商品金額以下である必要があります。</p>`;
                      return;
                  }
 
                  const interviewDay = parseInt(interviewDateValue.split('-')[2], 10);
                  if (isNaN(interviewDay) || interviewDay < 1 || interviewDay > 31) { // 簡易的な日付数値チェック
-                     resultDiv.innerHTML = '<p style="color: red;">無効な記入面談日が入力されました。</p>';
+                     resultDiv.innerHTML = `<p style="color: var(--color-danger);">無効な記入面談日が入力されました。</p>`;
                      return;
                  }
 
@@ -629,13 +705,13 @@
                                 <label for="price_emp">商品金額</label>
                                 <input id="price_emp" type="number" name="price" value="500000" min="50000" max="5000000">
                                 <label for="price_emp" class="unit">円</label>
-                            </div><br>
+                            </div>
 
                             <div class="form-item">
                                 <label for="dpay_emp">頭金</label>
                                 <input id="dpay_emp" type="number" name="dpay" value="0" min="0">
                                 <label for="dpay_emp" class="unit">円</label>
-                            </div><br>
+                            </div>
 
                             <div class="form-item">
                                 <label for="bmonth1_emp">ボーナス月1</label>
@@ -645,7 +721,7 @@
                                     <option value="7">7月</option>
                                     <option value="8">8月</option>
                                 </select>
-                            </div><br>
+                            </div>
 
                             <div class="form-item">
                                 <label for="bmonth2_emp">ボーナス月2</label>
@@ -654,24 +730,24 @@
                                     <option value="12">12月</option>
                                     <option value="1">1月</option>
                                 </select>
-                            </div><br>
+                            </div>
 
                             <div class="form-item">
                                 <label for="baddpay_emp">ボーナス月加算額</label>
                                 <input id="baddpay_emp" type="number" name="baddpay" value="0" min="0">
                                 <label for="baddpay_emp" class="unit">円</label>
-                            </div><br>
+                            </div>
 
                              <div class="form-item">
                                  <label for="interviewDateEMP">記入面談日</label>
                                  <input id="interviewDateEMP" type="date" name="interviewDate" value="">
-                             </div><br>
+                             </div>
 
                             <div class="form-item">
                                 <label for="frequency-select">お支払回数</label>
                                 <select id="frequency-select" name="frequency"></select>
                                 <label for="frequency-select" class="unit">回</label>
-                            </div><br>
+                            </div>
 
                             <div class="button-group">
                                 <input onclick="calcEMP()" type="button" value="計算">
