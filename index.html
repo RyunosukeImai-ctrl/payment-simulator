@@ -137,6 +137,7 @@
             // frequency2per関数は元のコードから変更なし
             function frequency2per(frequency) {
                 var p = new Array(1.67,2.51,3.35,4.2,5.06,5.91,6.78,7.64,8.52,9.39,10.28,11.16,12.05,12.95,13.85,14.75,15.66,16.57,17.49,18.41,19.34,20.27,21.21,22.15,23.1,24.04,25,25.96,26.92,27.89,28.86,29.84,30.82,31.8,32.79,33.79,34.79,35.79,36.8,37.81,38.83,39.85,40.87,41.9,42.94,43.98,45.02,46.07,47.12,48.17,49.23,50.3,51.37,52.44,53.52,54.6,55.68,56.77,57.87,58.96);
+                //frequency は 1から60の想定
                 if (frequency < 1 || frequency > p.length) {
                      console.warn(`Invalid frequency: ${frequency}. Returning 0.`);
                      return 0;
@@ -183,9 +184,20 @@
                 }
 
                 const dateParts = interviewDateValue.split('-');
+                if (dateParts.length !== 3) {
+                    firstPaymentDateElement.innerHTML = "<strong>初回支払日:</strong> 無効な日付形式です。";
+                    return;
+                }
+
                 const year = parseInt(dateParts[0], 10);
                 const month = parseInt(dateParts[1], 10);
                 const day = parseInt(dateParts[2], 10);
+
+                if (isNaN(year) || isNaN(month) || isNaN(day)) {
+                     firstPaymentDateElement.innerHTML = "<strong>初回支払日:</strong> 無効な日付が入力されました。";
+                    return;
+                }
+
 
                  let firstPaymentMonthCalc = month; // 1-12
                  let firstPaymentYearCalc = year;
@@ -198,16 +210,19 @@
                      }
                  }
 
-                const firstPaymentDay = 27;
+                const firstPaymentDay = 27; // 支払日は固定で27日と仮定
                 firstPaymentDateElement.innerHTML = `<strong>初回支払日:</strong> ${firstPaymentYearCalc}年${firstPaymentMonthCalc}月${firstPaymentDay}日`;
             }
 
             // calcBCount関数は元のコードから変更なし
             function calcBCount(frequency, bmonth1, bmonth2, interviewDay) {
                 let count = 0;
-                const firstPaymentMonth = calcFDate(interviewDay);
+                const firstPaymentMonth = calcFDate(interviewDay); // 1-12
 
-                for (let i = 0; i < frequency; i++) {
+                // frequency2perのテーブルは60回まで対応しているため、frequencyの上限を60回とする
+                const effectiveFrequency = Math.min(frequency, 60);
+
+                for (let i = 0; i < effectiveFrequency; i++) {
                     let currentMonth = firstPaymentMonth + i;
                     while (currentMonth > 12) {
                         currentMonth -= 12;
@@ -242,6 +257,7 @@
                     return;
                 }
 
+                // 商品金額の上限を500万円に修正
                 if (price < 50000 || price > 5000000 || frequency < 3 || frequency > 60 || dpay < 0 || baddpay < 0) {
                      resultDiv.innerHTML = '<p style="color: red;">入力された数値が条件を満たしていません。<br>商品金額: 5万円以上500万円以下, 支払回数: 3～60回, 頭金・ボーナス加算額: 0円以上</p>';
                      return;
@@ -253,13 +269,19 @@
                  }
 
                  const interviewDay = parseInt(interviewDateValue.split('-')[2], 10);
+                 if (isNaN(interviewDay)) {
+                      resultDiv.innerHTML = '<p style="color: red;">無効な記入面談日が入力されました。</p>';
+                     return;
+                 }
 
                 const advance = price - dpay;
 
                 // 元コードの payment 計算ロジックを採用 (frequency2perの引数はfrequency-1のまま)
-                const payment = advance + Math.floor(advance * (frequency2per(frequency - 1) * 100) / 10000);
+                // frequency2perは1-60のインデックスに対応するため、frequencyは1-60の範囲を想定
+                // 配列アクセスとしてはfrequency-1が正しい
+                const payment = advance + Math.floor(advance * (frequency2per(frequency) * 100) / 10000);
 
-                // 手数料は payment - advance で計算
+                // 修正: 手数料は payment - advance で計算し表示に追加
                 const fee = payment - advance;
 
                 const total = payment + dpay;
@@ -273,22 +295,30 @@
                 let totalMonthlyPay = payment - bcount * baddpay;
                 if (totalMonthlyPay < 0) totalMonthlyPay = 0; // 念のためマイナスにならないように
 
-                rest = Math.floor(totalMonthlyPay / frequency / 100) * 100;
+                // frequencyが0になることは通常ないが、念のためチェック
+                rest = frequency > 0 ? Math.floor(totalMonthlyPay / frequency / 100) * 100 : 0;
 
                 // 初回支払額の計算 (元コードのロジックに合わせる)
                  const firstPaymentMonth = calcFDate(interviewDay);
                  const isFirstMonthBonus = (firstPaymentMonth === bmonth1 || firstPaymentMonth === bmonth2);
 
-                first = payment - rest * (frequency - 1) - bcount * baddpay;
-                 if (isFirstMonthBonus) {
-                      first = first + baddpay;
-                 }
+                // 初回支払額 = 分割支払金合計 - 通常回支払額 * (総回数 - 1) - ボーナス月加算額 * (ボーナス回数 - 初回がボーナス月か？)
+                first = payment - rest * (frequency - 1);
+                // 初回がボーナス月の場合のみボーナス加算額を足す
+                if (isFirstMonthBonus) {
+                     first += baddpay;
+                }
+                 // 残りのボーナス回数分のボーナス加算額を引く
+                 const remainingBonusCount = bcount - (isFirstMonthBonus ? 1 : 0);
+                 first -= remainingBonusCount * baddpay;
+
 
                  // --- 結果表示 ---
                  let resultsHtml = '<h3>計算結果</h3>';
                  resultsHtml += `<p class="first-payment-date"></p>`; // 初回支払日表示用
 
-                 resultsHtml += `<p><strong>手数料額:</strong> ${fee.toLocaleString()} 円</p>`; // 手数料表示を追加
+                 // 修正: 手数料表示を追加
+                 resultsHtml += `<p><strong>手数料額:</strong> ${fee.toLocaleString()} 円</p>`;
 
                  resultsHtml += `<p><strong>第1回目お支払い額:</strong> ${first.toLocaleString()} 円`;
                  if (isFirstMonthBonus && baddpay > 0) {
@@ -296,13 +326,18 @@
                  }
                  resultsHtml += `</p>`;
 
-                 let normalCount = frequency - bcount; // 通常回数 = 総回数 - ボーナス回数
-                 // 元コードの表示に合わせる
-                 let displayNormalCount = frequency - 1;
+                 // 通常回数 = 総回数 - ボーナス回数 (ただし初回を除いて表示する場合は frequency - 1)
+                 let displayNormalCount = frequency - 1; // 元コードの表示に合わせる
+                 // 初回がボーナス月でない場合の通常回数
+                 if (!isFirstMonthBonus) {
+                     // 初回を含まない通常回数
+                     // 特に表示上の調整は不要か？ 元コードのfrequency-1に合わせる
+                 }
+                 // frequency=1の場合は通常回数0回
+                 if (frequency === 1) displayNormalCount = 0;
 
 
                  resultsHtml += `<p><strong>通常回(${Math.max(0, displayNormalCount)}回)のお支払い額:</strong> ${rest.toLocaleString()} 円</p>`;
-
 
                  if (bcount > 0 && baddpay > 0) {
                     // ボーナス加算額が0より大きい場合のみ表示
@@ -325,13 +360,8 @@
 
                  resultsHtml += `<p><strong>お支払い総額(頭金を含む):</strong> ${total.toLocaleString()} 円</p>`;
 
-                 let paymentValue = payment;
-                 if (payment > 1589600) {
-                     paymentValue = payment.toLocaleString() + "(当社ご契約条件外)";
-                 } else {
-                     paymentValue = payment.toLocaleString();
-                 }
-                 resultsHtml += `<p><strong>分割支払金合計(当社へのお支払い):</strong> ${paymentValue} 円</p>`;
+                 // 修正: 1589600の判定を削除し、単純に表示
+                 resultsHtml += `<p><strong>分割支払金合計(当社へのお支払い):</strong> ${payment.toLocaleString()} 円</p>`;
 
 
                  resultDiv.innerHTML = resultsHtml;
@@ -346,7 +376,8 @@
                 }
 
                  // 通常回お支払い額が3千円以上かのチェック (計算ロジックではないが条件として考慮)
-                 if (rest < 3000 && (bmonth1 === 0 && bmonth2 === 0 || baddpay === 0)) { // ボーナス加算がない場合のみチェック
+                 // ボーナス加算額がある場合でも、通常回支払額が3000円未満の場合は注意書きを表示
+                 if (rest < 3000) {
                      const checkMsg = document.createElement('p');
                      checkMsg.style.color = 'orange';
                      checkMsg.innerText = `※ 注意: 計算結果の通常回のお支払い額(${rest.toLocaleString()}円)は、当社の契約条件である3千円を下回っています。`;
@@ -375,6 +406,7 @@
                     resultDiv.innerHTML = '<p style="color: red;">全ての項目に数値を入力し、記入面談日を選択してください。</p>';
                     return;
                 }
+                 // 商品金額の上限を500万円に修正
                  if (price < 50000 || price > 5000000 || expect <= 0 || dpay < 0 || baddpay < 0) {
                       resultDiv.innerHTML = '<p style="color: red;">入力された数値が条件を満たしていません。<br>商品金額: 5万円以上500万円以下, 月々のご希望支払額: 1円以上, 頭金・ボーナス加算額: 0円以上</p>';
                      return;
@@ -387,14 +419,23 @@
 
                 const advance = price - dpay;
                 const interviewDay = parseInt(interviewDateValue.split('-')[2], 10);
+                 if (isNaN(interviewDay)) {
+                     resultDiv.innerHTML = '<p style="color: red;">無効な記入面談日が入力されました。</p>';
+                     return;
+                 }
+
 
                 let KSfreq = -1; // 最適な回数
                 let minDiff = Infinity; // 希望額との差の絶対値の最小値
+                let bestRest = 0; // 最適な回数での通常回支払額
+                let bestPayment = 0; // 最適な回数での分割支払金合計
 
                 for (let i = 0; i < KSfrequency.length; i++) {
                     let currentFrequency = KSfrequency[i];
                      // 元コードの payment 計算ロジックを採用 (frequency2perの引数はcurrentFrequency-1のまま)
-                    let tmp_payment = advance + Math.floor(advance * (frequency2per(currentFrequency - 1) * 100) / 10000);
+                     // frequency2perは1-60のインデックスに対応するため、currentFrequencyは1-60の範囲を想定
+                     // 配列アクセスとしてはcurrentFrequency-1が正しい
+                    let tmp_payment = advance + Math.floor(advance * (frequency2per(currentFrequency) * 100) / 10000);
 
                     let tmp_bcount = calcBCount(currentFrequency, bmonth1, bmonth2, interviewDay);
 
@@ -402,19 +443,21 @@
                     let tmp_totalMonthlyPay = tmp_payment - tmp_bcount * baddpay;
                     if (tmp_totalMonthlyPay < 0) tmp_totalMonthlyPay = 0;
 
-                    tmp_rest = Math.floor(tmp_totalMonthlyPay / currentFrequency / 100) * 100;
+                     // currentFrequencyが0になることは通常ないが、念のためチェック
+                    tmp_rest = currentFrequency > 0 ? Math.floor(tmp_totalMonthlyPay / currentFrequency / 100) * 100 : 0;
 
 
                     // 希望額との差の絶対値で比較
                     const diff = Math.abs(tmp_rest - expect);
 
                     // より差が小さい場合を優先
+                    // 元コードの挙動に倣い、差が同じ場合はリストの前（回数が少ない方）を優先
                     if (diff < minDiff) {
                         minDiff = diff;
                         KSfreq = currentFrequency;
+                        bestRest = tmp_rest;
+                        bestPayment = tmp_payment;
                     }
-                     // 同じ差の場合、回数が少ない方を優先するなどのロジックは元コードに無いため、差が小さい方を単純に優先する。
-                     // 差が全く同じ場合は、先にリストに出てくる回数（少ない回数）が優先される
                 }
 
                  if (KSfreq === -1) {
@@ -422,33 +465,31 @@
                      return;
                  }
 
+                // 最適な回数 (KSfreq) で最終計算結果を設定
+                const frequency = KSfreq;
+                const payment = bestPayment;
+                const rest = bestRest;
 
-                // 最適な回数 (KSfreq) で再度計算
-                frequency = KSfreq;
-                 // 元コードの payment 計算ロジックを採用 (frequency2perの引数はfrequency-1のまま)
-                payment = advance + Math.floor(advance * (frequency2per(frequency - 1) * 100) / 10000);
-
-                // 手数料は payment - advance で計算
+                // 修正: 手数料は payment - advance で計算し表示に追加
                 const fee = payment - advance;
 
-                total = payment + dpay;
+                const total = payment + dpay;
 
-                bcount = calcBCount(frequency, bmonth1, bmonth2, interviewDay);
+                const bcount = calcBCount(frequency, bmonth1, bmonth2, interviewDay);
 
-                // 通常回支払額の計算
-                 let totalMonthlyPay = payment - bcount * baddpay;
-                 if (totalMonthlyPay < 0) totalMonthlyPay = 0;
-
-                 rest = Math.floor(totalMonthlyPay / frequency / 100) * 100;
-
-                 // 初回支払額の計算 (元コードのロジックに合わせる)
+                // 初回支払額の計算 (元コードのロジックに合わせる)
                  const firstPaymentMonth = calcFDate(interviewDay);
                  const isFirstMonthBonus = (firstPaymentMonth === bmonth1 || firstPaymentMonth === bmonth2);
 
-                 first = payment - rest * (frequency - 1) - bcount * baddpay;
+                 // 初回支払額 = 分割支払金合計 - 通常回支払額 * (総回数 - 1) - ボーナス月加算額 * (ボーナス回数 - 初回がボーナス月か？)
+                 first = payment - rest * (frequency - 1);
+                 // 初回がボーナス月の場合のみボーナス加算額を足す
                  if (isFirstMonthBonus) {
-                     first = first + baddpay;
+                      first += baddpay;
                  }
+                  // 残りのボーナス回数分のボーナス加算額を引く
+                 const remainingBonusCount = bcount - (isFirstMonthBonus ? 1 : 0);
+                 first -= remainingBonusCount * baddpay;
 
 
                 // --- 計算結果の表示 ---
@@ -456,8 +497,8 @@
                  resultsHtml += `<p>当社で選択出来る支払回数のうち、ご希望のお支払い額に近くなるのは<strong>${KSfreq}回</strong>になります。</p>`;
                  resultsHtml += `<p class="first-payment-date"></p>`;
 
-                 resultsHtml += `<p><strong>手数料額:</strong> ${fee.toLocaleString()} 円</p>`; // 手数料表示を追加
-
+                 // 修正: 手数料表示を追加
+                 resultsHtml += `<p><strong>手数料額:</strong> ${fee.toLocaleString()} 円</p>`;
 
                  resultsHtml += `<p><strong>第1回目お支払い額:</strong> ${first.toLocaleString()} 円`;
                  if (isFirstMonthBonus && baddpay > 0) {
@@ -465,8 +506,9 @@
                  }
                  resultsHtml += `</p>`;
 
-                  let normalCount = frequency - bcount;
                   let displayNormalCount = frequency - 1; // 元コードの表示に合わせる
+                  if (frequency === 1) displayNormalCount = 0;
+
 
                  resultsHtml += `<p><strong>通常回(${Math.max(0, displayNormalCount)}回)のお支払い額:</strong> ${rest.toLocaleString()} 円</p>`;
 
@@ -488,20 +530,16 @@
 
                  resultsHtml += `<p><strong>お支払い総額(頭金を含む):</strong> ${total.toLocaleString()} 円</p>`;
 
-                 let paymentValue = payment;
-                 if (payment > 1589600) {
-                     paymentValue = payment.toLocaleString() + "(当社ご契約条件外)";
-                 } else {
-                     paymentValue = payment.toLocaleString();
-                 }
-                 resultsHtml += `<p><strong>分割支払金合計(当社へのお支払い):</strong> ${paymentValue} 円</p>`;
+                 // 修正: 1589600の判定を削除し、単純に表示
+                 resultsHtml += `<p><strong>分割支払金合計(当社へのお支払い):</strong> ${payment.toLocaleString()} 円</p>`;
 
                  resultDiv.innerHTML = resultsHtml;
 
                  displayFirstPaymentDate('KS_calcMPF');
 
                  // 通常回お支払い額が3千円以上かのチェック (計算ロジックではないが条件として考慮)
-                 if (rest < 3000 && (bmonth1 === 0 && bmonth2 === 0 || baddpay === 0)) { // ボーナス加算がない場合のみチェック
+                  // ボーナス加算額がある場合でも、通常回支払額が3000円未満の場合は注意書きを表示
+                 if (rest < 3000) {
                      const checkMsg = document.createElement('p');
                      checkMsg.style.color = 'orange';
                      checkMsg.innerText = `※ 注意: 計算結果の通常回のお支払い額(${rest.toLocaleString()}円)は、当社の契約条件である3千円を下回っています。`;
@@ -527,20 +565,42 @@
                  const today = new Date().toISOString().split('T')[0];
                  const interviewDateInputs = document.querySelectorAll('input[type="date"]');
                  interviewDateInputs.forEach(input => {
+                     // input要素に初期値が設定されていない場合のみtodayを設定
                      if (!input.value) {
                         input.value = today;
                      }
+                     // 初回読み込み時に初回支払日を表示
+                     if (input.name === 'interviewDate') {
+                          // 少し遅延させて、他の処理（特にfrequencyプルダウンの生成）が終わってから実行する
+                         setTimeout(() => {
+                             const formId = input.closest('form').id;
+                             displayFirstPaymentDate(formId);
+                         }, 0);
+                     }
                  });
 
-                // 支払回数プルダウンの生成
+                // 支払回数プルダウンの生成 (KS_calcEMP フォームのみ)
                  const frequencySelect = document.getElementById('frequency-select');
-                 const frequencies = [3, 6, 10, 12, 15, 18, 20, 24, 30, 36, 42, 48, 54, 60];
-                 let optionsHtml = '';
-                 frequencies.forEach(freq => {
-                     optionsHtml += `<option value="${freq}">${freq}回</option>`;
+                 // frequencySelect が存在する場合のみ処理を実行
+                 if (frequencySelect) {
+                     const frequencies = [3, 6, 10, 12, 15, 18, 20, 24, 30, 36, 42, 48, 54, 60];
+                     let optionsHtml = '';
+                     frequencies.forEach(freq => {
+                         optionsHtml += `<option value="${freq}">${freq}回</option>`;
+                     });
+                     frequencySelect.innerHTML = optionsHtml;
+                     frequencySelect.value = 12; // デフォルト値として12回を選択
+                 }
+
+                 // 記入面談日の入力値が変更されたら初回支払日を更新
+                 interviewDateInputs.forEach(input => {
+                     if (input.name === 'interviewDate') {
+                         input.addEventListener('change', (event) => {
+                             const formId = event.target.closest('form').id;
+                             displayFirstPaymentDate(formId);
+                         });
+                     }
                  });
-                 frequencySelect.innerHTML = optionsHtml;
-                 frequencySelect.value = 12; // デフォルト値として12回を選択
              };
 
         </script>
@@ -582,33 +642,37 @@
                             <form id="KS_calcEMP" action="#" name="KS_calcEMP" class="calc-form">
                                 <fieldset>
                                     <legend>入力項目</legend>
-                                    <label for="price">商品金額</label>
-                                    <!-- 修正: maxを500万円に設定 -->
-                                    <input id="price" type="number" name="price" value="500000" min="50000" max="5000000">
-                                    <label for="price">円</label>
+                                    <label for="price_emp">商品金額</label>
+                                    <!-- 修正: maxを500万円に設定, idをユニークに修正 -->
+                                    <input id="price_emp" type="number" name="price" value="500000" min="50000" max="5000000">
+                                    <label for="price_emp">円</label>
                                     <br>
-                                    <label for="dpay">頭金</label>
-                                    <input id="dpay" type="number" name="dpay" value="0" min="0">
-                                    <label for="dpay">円</label>
+                                    <label for="dpay_emp">頭金</label>
+                                    <!-- idをユニークに修正 -->
+                                    <input id="dpay_emp" type="number" name="dpay" value="0" min="0">
+                                    <label for="dpay_emp">円</label>
                                     <br>
-                                    <label for="bmonth1">ボーナス月1</label>
-                                    <select id="bmonth1" name="bmonth1">
+                                    <label for="bmonth1_emp">ボーナス月1</label>
+                                    <!-- idをユニークに修正 -->
+                                    <select id="bmonth1_emp" name="bmonth1">
                                         <option selected="selected" value="0">利用しない</option>
                                         <option value="6">6月</option>
                                         <option value="7">7月</option>
                                         <option value="8">8月</option>
                                     </select>
                                     <br>
-                                    <label for="bmonth2">ボーナス月2</label>
-                                    <select id="bmonth2" name="bmonth2">
+                                    <label for="bmonth2_emp">ボーナス月2</label>
+                                    <!-- idをユニークに修正 -->
+                                    <select id="bmonth2_emp" name="bmonth2">
                                         <option selected="selected" value="0">利用しない</option>
                                         <option value="12">12月</option>
                                         <option value="1">1月</option>
                                     </select>
                                     <br>
-                                    <label for="baddpay">ボーナス月加算額</label>
-                                    <input id="baddpay" type="number" name="baddpay" value="0" min="0">
-                                    <label for="baddpay">円</label>
+                                    <label for="baddpay_emp">ボーナス月加算額</label>
+                                    <!-- idをユニークに修正 -->
+                                    <input id="baddpay_emp" type="number" name="baddpay" value="0" min="0">
+                                    <label for="baddpay_emp">円</label>
                                     <br>
                                      <label for="interviewDateEMP">記入面談日</label>
                                      <input id="interviewDateEMP" type="date" name="interviewDate" value="">
@@ -633,37 +697,42 @@
                             <form id="KS_calcMPF" action="#" name="KS_calcMPF" class="calc-form">
                                 <fieldset>
                                     <legend>入力項目</legend>
-                                    <label for="price">商品金額</label>
-                                     <!-- 修正: maxを500万円に設定 -->
-                                    <input id="price" type="number" name="price" value="500000" min="50000" max="5000000">
-                                    <label for="price">円</label>
+                                    <label for="price_mpf">商品金額</label>
+                                     <!-- 修正: maxを500万円に設定, idをユニークに修正 -->
+                                    <input id="price_mpf" type="number" name="price" value="500000" min="50000" max="5000000">
+                                    <label for="price_mpf">円</label>
                                     <br>
-                                    <label for="dpay">頭金</label>
-                                    <input id="dpay" type="number" name="dpay" value="0" min="0">
-                                    <label for="dpay">円</label>
+                                    <label for="dpay_mpf">頭金</label>
+                                     <!-- idをユニークに修正 -->
+                                    <input id="dpay_mpf" type="number" name="dpay" value="0" min="0">
+                                    <label for="dpay_mpf">円</label>
                                     <br>
-                                    <label for="expect">ご希望される月々のお支払い額(通常回)</label>
-                                    <input id="expect" type="number" name="expect" value="15000" min="3000">
-                                    <label for="expect">円/月</label>
+                                    <label for="expect_mpf">ご希望される月々のお支払い額(通常回)</label>
+                                     <!-- idをユニークに修正 -->
+                                    <input id="expect_mpf" type="number" name="expect" value="15000" min="1">
+                                    <label for="expect_mpf">円/月</label>
                                     <br>
-                                    <label for="bmonth1">ボーナス月1</label>
-                                    <select id="bmonth1" name="bmonth1">
+                                    <label for="bmonth1_mpf">ボーナス月1</label>
+                                     <!-- idをユニークに修正 -->
+                                    <select id="bmonth1_mpf" name="bmonth1">
                                         <option selected="selected" value="0">利用しない</option>
                                         <option value="6">6月</option>
                                         <option value="7">7月</option>
                                         <option value="8">8月</option>
                                     </select>
                                     <br>
-                                    <label for="bmonth2">ボーナス月2</label>
-                                    <select id="bmonth2" name="bmonth2">
+                                    <label for="bmonth2_mpf">ボーナス月2</label>
+                                     <!-- idをユニークに修正 -->
+                                    <select id="bmonth2_mpf" name="bmonth2">
                                         <option selected="selected" value="0">利用しない</option>
                                         <option value="12">12月</option>
                                         <option value="1">1月</option>
                                     </select>
                                     <br>
-                                    <label for="baddpay">ボーナス月加算額</label>
-                                    <input id="baddpay" type="number" name="baddpay" value="0" min="0">
-                                    <label for="baddpay">円</label>
+                                    <label for="baddpay_mpf">ボーナス月加算額</label>
+                                     <!-- idをユニークに修正 -->
+                                    <input id="baddpay_mpf" type="number" name="baddpay" value="0" min="0">
+                                    <label for="baddpay_mpf">円</label>
                                     <br>
                                      <label for="interviewDateMPF">記入面談日</label>
                                      <input id="interviewDateMPF" type="date" name="interviewDate" value="">
