@@ -4,127 +4,121 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>お支払いシミュレーション - 負債の深淵へようこそ</title> <!-- タイトルもそれっぽく変更 -->
-        <meta name='robots' content='noindex, nofollow'/> <!-- 検索エンジンには絶対表示しない -->
+        <title>お支払いシミュレーション</title> <!-- タイトルを元に戻す -->
+        <meta name='robots' content='max-image-preview:large'/> <!-- 標準的なメタタグに戻す -->
         <meta name="description" content="お支払いシミュレーション"/>
         <!-- 外部CSSの読み込みは行いません -->
 
-        <!-- シミュレーター専用スタイル (借金地獄デザイン) -->
+        <!-- シミュレーター専用スタイル (シンプル青基調) -->
         <style type="text/css">
             /* 基本リセットと全体スタイル */
             body {
-                font-family: 'Courier New', Courier, monospace; /* 不安定な感じのフォント */
-                line-height: 1.4;
-                color: #8b0000; /* 深い赤 (血や負債の色) */
-                background: repeating-linear-gradient(-45deg, #1a0000, #1a0000 10px, #330000 10px, #330000 20px); /* 血痕のようなストライプ */
+                font-family: Meiryo, "Hiragino Sans", "Noto Sans JP", sans-serif; /* 一般的なゴシック体 */
+                line-height: 1.6;
+                color: #333; /* 標準的な文字色 */
+                background-color: #ffffff; /* 白背景 */
                 margin: 0;
-                padding: 10px; /* 余白を狭く */
-                display: flex;
-                justify-content: center;
-                align-items: flex-start;
-                min-height: 100vh;
-                overflow-x: hidden; /* 横スクロールを抑制 */
-                cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%238B0000" d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2zm-.21 4.727l-2.828 9.999L14 10.857l2.828 9.999-4.909-4.909-4.909 4.909 2.828-9.999z"/></svg>') 12 12, auto; /* 奇妙なカーソル */
-                 filter: sepia(0.3) contrast(1.2); /* セピアとコントラストで古びて不気味な質感 */
+                padding: 20px;
+                display: block; /* flexbox中央寄せをやめる */
+                overflow-x: auto; /* 必要ならスクロール */
+                cursor: auto; /* 標準カーソルに戻す */
+                 filter: none; /* フィルターを解除 */
+                 text-shadow: none; /* テキスト影を解除 */
             }
 
-            .container {
-                max-width: 700px; /* 幅を元に戻す */
-                margin: 0 auto;
-                padding: 20px;
-                background-color: rgba(0, 0, 0, 0.9); /* 真っ黒に近い背景 */
-                border: 3px dashed #8b0000; /* 深い赤の点線ボーダー */
-                box-shadow: 0 0 15px rgba(139, 0, 0, 0.8), inset 0 0 10px rgba(139, 0, 0, 0.5); /* 赤い影 */
+            .container { /* 元のサイト構造に寄せたクラス名を再現 */
+                max-width: 800px; /* コンテンツの最大幅 */
+                margin: 0 auto; /* 中央寄せ */
+                padding: 0 15px; /* 左右のパディング */
+                background-color: #ffffff; /* コンテナ背景も白 */
+                border: none; /* ボーダーなし */
+                box-shadow: none; /* 影なし */
                 border-radius: 0;
                 box-sizing: border-box;
-                position: relative; /* 歪みの基準 */
-                 /*transform: skewX(-2deg); /* 全体を少し歪める */
+                position: static; /* 歪み基準を解除 */
+                 transform: none; /* 歪みを解除 */
             }
-             .container::before { /* ノイズや汚れのオーバーレイ */
-                 content: "";
-                 position: absolute;
-                 top: 0; left: 0; right: 0; bottom: 0;
-                 background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAWlBMVEUAAAD/AAD/mf//zP/M/wD/AP//AP8v+/8OQO0XG9oXAAAAAWJLR0QAw/FWwQAAABNJREFUCNdjYGBgYGD4z8DAwMAAAAFkAGs53XwLAAAAAElFTkSuQmCC') repeat; /* 簡易ノイズパターン */
-                 opacity: 0.1;
-                 pointer-events: none;
+             .container::before { /* オーバーレイを削除 */
+                 display: none;
              }
 
 
             h1, h2 {
-                color: #ff4500; /* 派手なオレンジ赤 */
-                border-bottom: 3px solid #8b0000; /* 深い赤の下線 */
+                color: #333; /* 標準的な見出し色 */
+                border-bottom: 2px solid #007bff; /* 元画像に近い青の下線 */
                 padding-bottom: 8px;
                 margin-top: 20px;
                 margin-bottom: 25px;
-                font-size: 2.2rem; /* サイズ調整 */
+                font-size: 1.8rem;
                 font-weight: bold;
                 text-align: left; /* 左寄せに */
-                text-shadow: 1px 1px 3px #000, 0 0 5px #ff4500; /* ギラつく影 */
-                transform: translateX(-5px) rotate(-0.5deg); /* 少しずらして歪める */
+                text-shadow: none; /* テキスト影を解除 */
+                transform: none; /* 歪みを解除 */
             }
 
             h2 {
-                 font-size: 1.6rem;
+                 font-size: 1.4rem;
                  border-bottom-width: 2px;
                  margin-top: 30px;
-                 transform: translateX(5px) rotate(0.5deg); /* 逆方向に歪める */
+                 margin-bottom: 20px;
+                 transform: none; /* 歪みを解除 */
             }
 
             p {
                 margin-bottom: 15px;
-                 color: #AAAAAA; /* グレー */
-                 font-size: 0.95rem;
+                 color: #333; /* 標準的な文字色 */
+                 font-size: 1rem;
             }
 
             dl {
                 margin-bottom: 25px;
-                border: 1px solid #550000; /* 暗い赤 */
-                padding: 10px;
-                background-color: rgba(51, 0, 0, 0.6); /* 暗い赤の半透明背景 */
+                border: none; /* ボーダーなし */
+                padding: 0; /* パディングなし */
+                background-color: transparent; /* 背景なし */
             }
             dl dt {
                 font-weight: bold;
-                margin-top: 8px;
-                color: #ff6347; /* トマト色のような赤 */
-                text-shadow: 1px 1px 1px #000;
+                margin-top: 10px;
+                color: #333; /* 標準的な文字色 */
+                text-shadow: none; /* テキスト影を解除 */
             }
             dl dd {
-                margin-bottom: 6px;
+                margin-bottom: 8px;
                 margin-left: 20px;
-                color: #CCCCCC; /* 明るめのグレー */
-                font-size: 0.9rem;
+                color: #333; /* 標準的な文字色 */
+                font-size: 1rem;
             }
 
-            /* シミュレーターフォームのスタイル (借金地獄デザイン) */
+            /* シミュレーターフォームのスタイル (青基調の座布団風) */
             .calc-form {
-                margin-top: 30px; /* 上部に隙間 */
+                margin-top: 30px;
                 margin-bottom: 30px;
-                background-color: rgba(0, 0, 0, 0.7); /* 暗い背景 */
+                background-color: #e9f5ff; /* 薄い青の座布団背景 */
                 padding: 20px;
-                 border: 2px solid #ff4500; /* オレンジ赤のボーダー */
-                 box-shadow: 0 0 10px rgba(255, 69, 0, 0.5); /* オレンジ赤の影 */
-                 border-radius: 0;
-                 transform: rotate(0.3deg); /* 少し歪める */
+                 border: 1px solid #b3d4ff; /* 薄い青のボーダー */
+                 box-shadow: none;
+                 border-radius: 5px; /* 少し角丸 */
+                 transform: none; /* 歪みを解除 */
             }
 
              .calc-form fieldset {
                  margin-bottom: 20px;
                  padding: 15px;
-                 border: 1px dashed #ff6347; /* トマト色の点線ボーダー */
-                 border-radius: 0;
-                 background-color: rgba(51, 0, 0, 0.4); /* 暗い赤の半透明背景 */
+                 border: 1px solid #ccc; /* 標準的なグレーのボーダー */
+                 border-radius: 4px;
+                 background-color: #ffffff; /* フィールドセット内は白背景 */
             }
              .calc-form legend {
                  font-weight: bold;
-                 padding: 0 10px;
-                 color: #ff4500; /* オレンジ赤 */
-                 font-size: 1.1rem;
-                 text-shadow: 1px 1px 2px #000;
+                 padding: 0 5px;
+                 color: #333;
+                 font-size: 1rem;
+                 text-shadow: none;
             }
 
-            /* フォーム項目のレイアウト */
+            /* フォーム項目のレイアウト (元の画像に近いスタイル) */
             .form-item {
-                margin-bottom: 10px;
+                margin-bottom: 10px; /* 元画像に近い余白 */
             }
 
             .form-item label {
@@ -133,8 +127,8 @@
                 width: 180px; /* ラベル幅を固定 */
                 margin-right: 10px;
                 vertical-align: middle;
-                 color: #ff6347; /* トマト色 */
-                 text-shadow: 1px 1px 1px #000;
+                 color: #333; /* 標準的な文字色 */
+                 text-shadow: none;
             }
              /* 円マークなどの単位ラベル */
              .form-item label.unit {
@@ -143,7 +137,7 @@
                  margin-left: 5px;
                  font-weight: normal;
                  vertical-align: middle;
-                 color: #AAAAAA; /* グレー */
+                 color: #333;
              }
 
             .form-item input[type="number"],
@@ -152,144 +146,135 @@
                  display: inline-block;
                  width: 180px; /* 入力フィールドの幅を固定 */
                  padding: 5px;
-                 border: 1px solid #8b0000; /* 深い赤のボーダー */
-                 border-radius: 0;
+                 border: 1px solid #ccc; /* 標準的なグレーのボーダー */
+                 border-radius: 4px; /* 少し角丸 */
                  box-sizing: border-box;
                  font-size: 1rem;
                  vertical-align: middle;
-                 background-color: #000; /* 黒背景 */
-                 color: #ffff00; /* 黄色っぽい文字 (警告色) */
-                 box-shadow: inset 0 0 5px rgba(139, 0, 0, 0.5); /* 内側に赤い影 */
+                 background-color: #fff; /* 白背景 */
+                 color: #333; /* 標準的な文字色 */
+                 box-shadow: none; /* 影なし */
             }
              .form-item input[type="date"] {
                  width: 180px;
              }
-             /* フォーカス時のスタイルを不気味に */
+             /* フォーカス時のスタイルを標準に */
              .form-item input[type="number"]:focus,
              .form-item select:focus,
              .form-item input[type="date"]:focus {
-                 outline: none;
-                 border-color: #ff0000; /* 真っ赤なアウトライン */
-                 box-shadow: inset 0 0 8px rgba(255, 0, 0, 0.8), 0 0 8px rgba(255, 0, 0, 0.8); /* 光るような影 */
+                 outline: 2px solid #007bff; /* 青いアウトライン */
+                 border-color: #007bff;
+                 box-shadow: none;
              }
 
 
-            /* ボタンのスタイル (病んだ感じ) */
+            /* ボタンのスタイル (シンプル青基調) */
              .button-group {
-                 margin-top: 20px;
-                 text-align: center;
+                 margin-top: 15px;
+                 text-align: left; /* 左寄せに戻す */
              }
 
             .calc-form input[type="button"] {
-                 padding: 10px 20px;
-                 background-color: #8b0000; /* 深い赤 */
-                 color: #fff; /* 白文字 */
-                 border: 2px solid #ff4500; /* オレンジ赤のボーダー */
+                 padding: 8px 15px;
+                 background-color: #007bff; /* 標準的な青 */
+                 color: white;
+                 border: none;
                  border-radius: 4px;
                  cursor: pointer;
                  font-size: 1rem;
-                 font-weight: bold;
-                 text-shadow: 1px 1px 1px #000;
-                 transition: background-color 0.2s ease, border-color 0.2s ease;
-                 margin: 0 5px;
-                 box-shadow: 0 3px 8px rgba(139, 0, 0, 0.6); /* 暗い影 */
+                 font-weight: normal; /* 太字を解除 */
+                 text-shadow: none; /* テキスト影を解除 */
+                 transition: background-color 0.2s ease;
+                 margin-right: 10px;
+                 box-shadow: none; /* 影なし */
+                 transform: none; /* 歪みを解除 */
             }
+             .calc-form input[type="button"]:last-child {
+                  margin-right: 0;
+             }
              .calc-form input[type="button"]:hover {
-                 background-color: #ff0000; /* 真っ赤に変化 */
-                 border-color: #ff6347; /* 明るい赤に変化 */
-                 box-shadow: 0 3px 10px rgba(255, 0, 0, 0.8); /* 影を強く */
+                 background-color: #0056b3; /* ホバーで少し濃く */
              }
               .calc-form input[type="button"]:active {
-                 background-color: #550000; /* さらに暗く */
-                 border-color: #8b0000;
-                 box-shadow: 0 1px 5px rgba(139, 0, 0, 0.9);
+                 background-color: #004085; /* クリックでさらに濃く */
               }
 
 
              .calc-form ul {
                  margin-top: 20px;
                  font-size: 0.9rem;
-                 color: #BBBBBB; /* 明るめのグレー */
+                 color: #555;
                  padding-left: 20px;
-                 border-top: 1px dashed #550000; /* 暗い赤の点線 */
-                 padding-top: 15px;
+                 border-top: none; /* ボーダーを削除 */
+                 padding-top: 0; /* パディングを削除 */
              }
              .calc-form ul li {
                  margin-bottom: 5px;
-                 list-style: none; /* リストマーカーをなくす */
-                 position: relative;
-                 padding-left: 15px; /* カスタムマーカー用 */
-                 color: #ff4500; /* リスト項目自体も赤に */
+                 list-style-type: disc; /* 標準リストマーカーに戻す */
+                 position: static; /* 位置指定を解除 */
+                 padding-left: 0; /* パディングを解除 */
+                 color: #555; /* 標準的な文字色に戻す */
              }
-             .calc-form ul li::before {
-                 content: "X"; /* 不吉なマーカー */
-                 position: absolute;
-                 left: 0;
-                 color: #ff0000; /* 真っ赤なマーカー */
-                 font-weight: bold;
+             .calc-form ul li::before { /* カスタムマーカーを削除 */
+                 content: none;
              }
 
-            /* シミュレーターの結果表示エリアのスタイル (絶望感) */
+            /* シミュレーターの結果表示エリアのスタイル (青基調の座布団風) */
             .calculation-result {
-                margin-top: 40px;
+                margin-top: 30px;
                 padding: 20px;
-                border: 3px solid #8b0000; /* 深い赤のボーダー */
-                border-radius: 0;
-                background-color: rgba(0, 0, 0, 0.85); /* 真っ黒に近い背景 */
-                font-size: 1.1rem;
-                line-height: 1.7;
-                color: #ffff00; /* 黄色い文字 (警告/病み) */
-                text-shadow: 1px 1px 2px #000;
-                box-shadow: 0 0 10px rgba(255, 0, 0, 0.6); /* 赤い光 */
-                 /*filter: grayscale(0.3); /* やや色あせた感じ */
+                border: 1px solid #b3d4ff; /* 薄い青のボーダー */
+                border-radius: 5px; /* 少し角丸 */
+                background-color: #e9f5ff; /* 薄い青の座布団背景 */
+                font-size: 1rem;
+                line-height: 1.6;
+                color: #333; /* 標準的な文字色 */
+                text-shadow: none; /* テキスト影を解除 */
+                box-shadow: none; /* 影なし */
+                 filter: none; /* フィルターを解除 */
             }
 
             .calculation-result h3 {
                 margin-top: 0;
-                margin-bottom: 20px;
-                color: #ff0000; /* 真っ赤 */
-                font-size: 1.4rem;
-                border-bottom: 2px solid #8b0000; /* 深い赤の下線 */
-                padding-bottom: 10px;
-                text-shadow: 1px 1px 2px #000;
+                margin-bottom: 15px;
+                border-bottom: 1px dashed #ccc; /* 点線の下線 */
+                padding-bottom: 5px;
+                font-size: 1.2rem;
+                 color: #333; /* 標準的な文字色 */
+                 text-shadow: none; /* テキスト影を解除 */
             }
 
              .calculation-result p {
-                margin-bottom: 12px;
-                padding-bottom: 5px;
-                border-bottom: 1px dashed #550000; /* 暗い赤の点線 */
-                color: #ffff00; /* 黄色い文字 */
+                margin-bottom: 10px;
+                padding-bottom: 0; /* パディングを削除 */
+                border-bottom: none; /* 下線を削除 */
+                color: #333; /* 標準的な文字色 */
              }
              .calculation-result p:last-child {
-                border-bottom: none;
                 margin-bottom: 0;
-                padding-bottom: 0;
              }
 
             .calculation-result strong {
                 display: inline-block;
-                min-width: 200px; /* 項目名を揃える */
+                min-width: 180px; /* ラベル幅に合わせて揃える */
                 margin-right: 10px;
-                color: #ff4500; /* オレンジ赤の項目名 */
-                text-shadow: 1px 1px 1px #000;
+                color: #333; /* 標準的な文字色 */
+                text-shadow: none; /* テキスト影を解除 */
                 font-weight: bold;
             }
 
             .calculation-result .note {
-                font-size: 0.95rem;
-                color: #ffffff; /* 白の注意書き */
-                margin-top: 15px;
-                border-top: 2px dashed #ff0000; /* 真っ赤な点線 */
-                padding-top: 10px;
-                text-shadow: 1px 1px 1px #000;
-                font-weight: bold;
+                font-size: 0.9rem;
+                color: #d35400; /* オレンジ系の注意色 */
+                margin-top: 10px;
+                border-top: none; /* ボーダーを削除 */
+                padding-top: 0; /* パディングを削除 */
+                text-shadow: none; /* テキスト影を解除 */
+                font-weight: normal; /* 太字を解除 */
              }
-             .calculation-result .note:before {
-                 content: "警告: "; /* 警告マーク */
-                 color: #ff0000; /* 真っ赤 */
-                 font-weight: bold;
+             .calculation-result .note:before { /* 警告マークを削除 */
+                 content: none;
              }
-
 
         </style>
 
@@ -453,7 +438,7 @@
                 // payment計算ロジックは元のコードを維持
                 const payment = advance + Math.floor(advance * (frequency2per(frequency) * 100) / 10000); // 分割支払金合計
 
-                // 手数料 = 分割支払金合計 - 分割支払金元本
+                // 手数料 = payment - advance
                 const fee = payment - advance;
 
                 const total = payment + dpay; // 支払総額 = 分割支払金合計 + 頭金
@@ -528,7 +513,7 @@
                  // 当社で選択可能な回数かどうかの注意書き
                 if (frequencycheck(frequency) === false) {
                     const checkMsg = document.createElement('p');
-                    checkMsg.style.color = 'orange'; /* 元画像に近い注意書きの色 */
+                    checkMsg.style.color = 'orange'; /* 注意書きの色 */
                     checkMsg.classList.add('note'); /* 注意書きスタイル適用 */
                     checkMsg.innerText = `※ 注意: 支払回数「${frequency}回」は当社で選択出来る支払回数と異なる場合がございますので、計算結果は参考数値としてご利用下さい。`;
                     resultDiv.appendChild(checkMsg);
@@ -538,7 +523,7 @@
                  // ボーナス加算額がある場合でも、通常回支払額が3000円未満の場合は注意書きを表示
                  if (rest < 3000 && frequency > 1) { // 1回払いは除く
                      const checkMsg = document.createElement('p');
-                     checkMsg.style.color = 'orange'; /* 元画像に近い注意書きの色 */
+                     checkMsg.style.color = 'orange'; /* 注意書きの色 */
                      checkMsg.classList.add('note'); /* 注意書きスタイル適用 */
                      checkMsg.innerText = `※ 注意: 計算結果の通常回のお支払い額(${rest.toLocaleString()}円)は、当社の契約条件である3千円を下回っています。`;
                      resultDiv.appendChild(checkMsg);
