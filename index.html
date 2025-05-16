@@ -4,224 +4,261 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>お支払いシミュレーション</title>
-        <meta name='robots' content='noindex, nofollow'/> <!-- 派手すぎる可能性があるので検索エンジンには非表示推奨 -->
+        <title>お支払いシミュレーション - 負債の深淵へようこそ</title> <!-- タイトルもそれっぽく変更 -->
+        <meta name='robots' content='noindex, nofollow'/> <!-- 検索エンジンには絶対表示しない -->
         <meta name="description" content="お支払いシミュレーション"/>
         <!-- 外部CSSの読み込みは行いません -->
 
-        <!-- シミュレーター専用スタイル (金色で派手派手) -->
+        <!-- シミュレーター専用スタイル (借金地獄デザイン) -->
         <style type="text/css">
             /* 基本リセットと全体スタイル */
             body {
-                font-family: "Impact", "Arial Black", sans-serif; /* インパクト重視のフォント */
-                line-height: 1.5;
-                color: #FFD700; /* 金色 */
-                background: linear-gradient(45deg, #000000, #1a0033, #000000); /* 黒から紫がかった暗闇へのグラデーション */
+                font-family: 'Courier New', Courier, monospace; /* 不安定な感じのフォント */
+                line-height: 1.4;
+                color: #8b0000; /* 深い赤 (血や負債の色) */
+                background: repeating-linear-gradient(-45deg, #1a0000, #1a0000 10px, #330000 10px, #330000 20px); /* 血痕のようなストライプ */
                 margin: 0;
-                padding: 20px;
+                padding: 10px; /* 余白を狭く */
                 display: flex;
                 justify-content: center;
                 align-items: flex-start;
                 min-height: 100vh;
-                text-shadow: 1px 1px 2px #000, 0 0 1em #FFFF00, 0 0 0.2em #FFFF00; /* ギラつきのある影 */
+                overflow-x: hidden; /* 横スクロールを抑制 */
+                cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%238B0000" d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2zm-.21 4.727l-2.828 9.999L14 10.857l2.828 9.999-4.909-4.909-4.909 4.909 2.828-9.999z"/></svg>') 12 12, auto; /* 奇妙なカーソル */
+                 filter: sepia(0.3) contrast(1.2); /* セピアとコントラストで古びて不気味な質感 */
             }
 
             .container {
-                max-width: 850px; /* ちょっと広げる */
+                max-width: 700px; /* 幅を元に戻す */
                 margin: 0 auto;
                 padding: 20px;
-                background-color: rgba(51, 0, 102, 0.8); /* 半透明の濃い紫 */
-                border: 5px solid #FFD700; /* 金色の太枠 */
-                box-shadow: 0 0 20px #FFFF00, 0 0 30px #FFFF00 inset; /* 内外に光る影 */
-                border-radius: 10px;
+                background-color: rgba(0, 0, 0, 0.9); /* 真っ黒に近い背景 */
+                border: 3px dashed #8b0000; /* 深い赤の点線ボーダー */
+                box-shadow: 0 0 15px rgba(139, 0, 0, 0.8), inset 0 0 10px rgba(139, 0, 0, 0.5); /* 赤い影 */
+                border-radius: 0;
                 box-sizing: border-box;
+                position: relative; /* 歪みの基準 */
+                 /*transform: skewX(-2deg); /* 全体を少し歪める */
             }
+             .container::before { /* ノイズや汚れのオーバーレイ */
+                 content: "";
+                 position: absolute;
+                 top: 0; left: 0; right: 0; bottom: 0;
+                 background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAWlBMVEUAAAD/AAD/mf//zP/M/wD/AP//AP8v+/8OQO0XG9oXAAAAAWJLR0QAw/FWwQAAABNJREFUCNdjYGBgYGD4z8DAwMAAAAFkAGs53XwLAAAAAElFTkSuQmCC') repeat; /* 簡易ノイズパターン */
+                 opacity: 0.1;
+                 pointer-events: none;
+             }
+
 
             h1, h2 {
-                color: #FFFF00; /* 輝く金色 */
-                border-bottom: 3px solid #FFD700; /* 金色の太い下線 */
-                padding-bottom: 10px;
+                color: #ff4500; /* 派手なオレンジ赤 */
+                border-bottom: 3px solid #8b0000; /* 深い赤の下線 */
+                padding-bottom: 8px;
                 margin-top: 20px;
-                margin-bottom: 30px;
-                font-size: 2.5rem; /* ド派手なサイズ */
+                margin-bottom: 25px;
+                font-size: 2.2rem; /* サイズ調整 */
                 font-weight: bold;
-                text-align: center; /* 中央寄せ */
-                text-shadow: 2px 2px 5px #000, 0 0 10px #FFFF00, 0 0 20px #FFD700; /* さらにギラつく影 */
+                text-align: left; /* 左寄せに */
+                text-shadow: 1px 1px 3px #000, 0 0 5px #ff4500; /* ギラつく影 */
+                transform: translateX(-5px) rotate(-0.5deg); /* 少しずらして歪める */
             }
 
             h2 {
-                 font-size: 1.8rem;
+                 font-size: 1.6rem;
                  border-bottom-width: 2px;
-                 margin-top: 40px;
-                 text-align: left; /* セクションタイトルは左寄せ */
+                 margin-top: 30px;
+                 transform: translateX(5px) rotate(0.5deg); /* 逆方向に歪める */
             }
 
             p {
-                margin-bottom: 20px;
-                 color: #E0E0E0; /* 少し落ち着いた白っぽい色で本文 */
+                margin-bottom: 15px;
+                 color: #AAAAAA; /* グレー */
+                 font-size: 0.95rem;
             }
 
             dl {
-                margin-bottom: 30px;
-                border: 1px dashed #B8860B; /* 落ち着いた金の点線枠 */
-                padding: 15px;
+                margin-bottom: 25px;
+                border: 1px solid #550000; /* 暗い赤 */
+                padding: 10px;
+                background-color: rgba(51, 0, 0, 0.6); /* 暗い赤の半透明背景 */
             }
             dl dt {
                 font-weight: bold;
-                margin-top: 15px;
-                color: #FFD700; /* 金色 */
-                text-shadow: 1px 1px 2px #000;
+                margin-top: 8px;
+                color: #ff6347; /* トマト色のような赤 */
+                text-shadow: 1px 1px 1px #000;
             }
             dl dd {
-                margin-bottom: 10px;
-                margin-left: 25px;
-                color: #CCCCCC; /* グレーっぽい色で詳細 */
+                margin-bottom: 6px;
+                margin-left: 20px;
+                color: #CCCCCC; /* 明るめのグレー */
+                font-size: 0.9rem;
             }
 
-            /* シミュレーターフォームのスタイル (金色で派手派手) */
+            /* シミュレーターフォームのスタイル (借金地獄デザイン) */
             .calc-form {
+                margin-top: 30px; /* 上部に隙間 */
                 margin-bottom: 30px;
-                background-color: rgba(255, 255, 255, 0.05); /* わずかに白い背景 */
+                background-color: rgba(0, 0, 0, 0.7); /* 暗い背景 */
                 padding: 20px;
-                 border: 3px solid #DAA520; /* 少し落ち着いた金のボーダー */
-                 box-shadow: 0 0 10px #DAA520; /* 落ち着いた金の影 */
+                 border: 2px solid #ff4500; /* オレンジ赤のボーダー */
+                 box-shadow: 0 0 10px rgba(255, 69, 0, 0.5); /* オレンジ赤の影 */
+                 border-radius: 0;
+                 transform: rotate(0.3deg); /* 少し歪める */
             }
 
              .calc-form fieldset {
                  margin-bottom: 20px;
-                 padding: 20px;
-                 border: 2px dashed #FFD700; /* 金色の点線ボーダー */
-                 border-radius: 5px;
-                 background-color: rgba(0, 0, 0, 0.4); /* 少し暗い背景 */
+                 padding: 15px;
+                 border: 1px dashed #ff6347; /* トマト色の点線ボーダー */
+                 border-radius: 0;
+                 background-color: rgba(51, 0, 0, 0.4); /* 暗い赤の半透明背景 */
             }
              .calc-form legend {
                  font-weight: bold;
-                 padding: 0 15px;
-                 color: #FFFF00; /* 輝く金色 */
-                 font-size: 1.2rem;
-                 text-shadow: 1px 1px 3px #000;
+                 padding: 0 10px;
+                 color: #ff4500; /* オレンジ赤 */
+                 font-size: 1.1rem;
+                 text-shadow: 1px 1px 2px #000;
             }
 
-            /* フォーム項目のレイアウト (元の画像のデザインを再現しつつ派手化) */
+            /* フォーム項目のレイアウト */
             .form-item {
-                margin-bottom: 12px;
+                margin-bottom: 10px;
             }
 
             .form-item label {
                 display: inline-block;
                 font-weight: bold;
-                width: 200px; /* ラベル幅を固定 */
-                margin-right: 15px;
+                width: 180px; /* ラベル幅を固定 */
+                margin-right: 10px;
                 vertical-align: middle;
-                 color: #FFD700; /* 金色 */
-                 text-shadow: 1px 1px 2px #000;
+                 color: #ff6347; /* トマト色 */
+                 text-shadow: 1px 1px 1px #000;
             }
              /* 円マークなどの単位ラベル */
              .form-item label.unit {
                  width: auto;
                  margin-right: 0;
                  margin-left: 5px;
-                 font-weight: bold; /* 単位も太字に */
+                 font-weight: normal;
                  vertical-align: middle;
-                 color: #FFD700; /* 金色 */
-                 text-shadow: 1px 1px 2px #000;
+                 color: #AAAAAA; /* グレー */
              }
 
             .form-item input[type="number"],
             .form-item select,
             .form-item input[type="date"] {
                  display: inline-block;
-                 width: 200px; /* 入力フィールドの幅を固定 */
-                 padding: 8px; /* パディングを増やす */
-                 border: 2px solid #DAA520; /* 少し落ち着いた金のボーダー */
-                 border-radius: 3px;
+                 width: 180px; /* 入力フィールドの幅を固定 */
+                 padding: 5px;
+                 border: 1px solid #8b0000; /* 深い赤のボーダー */
+                 border-radius: 0;
                  box-sizing: border-box;
-                 font-size: 1.1rem; /* サイズを少し大きく */
+                 font-size: 1rem;
                  vertical-align: middle;
-                 background-color: #FFFFFF; /* 白背景 */
-                 color: #000; /* 黒文字 */
-                 box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3); /* 内側の影 */
+                 background-color: #000; /* 黒背景 */
+                 color: #ffff00; /* 黄色っぽい文字 (警告色) */
+                 box-shadow: inset 0 0 5px rgba(139, 0, 0, 0.5); /* 内側に赤い影 */
             }
              .form-item input[type="date"] {
-                 width: 200px; /* 日付入力フィールドも幅固定 */
+                 width: 180px;
+             }
+             /* フォーカス時のスタイルを不気味に */
+             .form-item input[type="number"]:focus,
+             .form-item select:focus,
+             .form-item input[type="date"]:focus {
+                 outline: none;
+                 border-color: #ff0000; /* 真っ赤なアウトライン */
+                 box-shadow: inset 0 0 8px rgba(255, 0, 0, 0.8), 0 0 8px rgba(255, 0, 0, 0.8); /* 光るような影 */
              }
 
 
-            /* ボタンのスタイル (ド派手に) */
+            /* ボタンのスタイル (病んだ感じ) */
              .button-group {
-                 margin-top: 25px;
-                 text-align: center; /* ボタンを中央寄せに変更 */
+                 margin-top: 20px;
+                 text-align: center;
              }
 
             .calc-form input[type="button"] {
-                 padding: 12px 25px; /* パディングを増やす */
-                 background: linear-gradient(180deg, #FFFF00, #FFD700, #DAA520); /* 金色のグラデーション */
-                 color: #8B4513; /* 茶色系の文字 */
-                 border: 2px solid #8B4513; /* 茶色系のボーダー */
-                 border-radius: 8px; /* 角丸を大きく */
+                 padding: 10px 20px;
+                 background-color: #8b0000; /* 深い赤 */
+                 color: #fff; /* 白文字 */
+                 border: 2px solid #ff4500; /* オレンジ赤のボーダー */
+                 border-radius: 4px;
                  cursor: pointer;
-                 font-size: 1.2rem; /* 文字を大きく */
+                 font-size: 1rem;
                  font-weight: bold;
-                 text-shadow: 1px 1px 2px #fff; /* 白っぽい影 */
-                 transition: all 0.2s ease; /* ホバーアニメーション */
-                 margin: 0 8px; /* ボタン間の隙間 */
-                 box-shadow: 0 5px 15px rgba(255, 215, 0, 0.5); /* 金色の影 */
+                 text-shadow: 1px 1px 1px #000;
+                 transition: background-color 0.2s ease, border-color 0.2s ease;
+                 margin: 0 5px;
+                 box-shadow: 0 3px 8px rgba(139, 0, 0, 0.6); /* 暗い影 */
             }
              .calc-form input[type="button"]:hover {
-                 background: linear-gradient(180deg, #FFD700, #DAA520, #B8860B); /* ホバーでグラデーション変化 */
-                 box-shadow: 0 5px 20px rgba(255, 215, 0, 0.7); /* 影を強く */
-                 transform: translateY(-2px); /* 少し浮き上がらせる */
+                 background-color: #ff0000; /* 真っ赤に変化 */
+                 border-color: #ff6347; /* 明るい赤に変化 */
+                 box-shadow: 0 3px 10px rgba(255, 0, 0, 0.8); /* 影を強く */
              }
               .calc-form input[type="button"]:active {
-                 background: linear-gradient(180deg, #DAA520, #B8860B, #8B4513); /* クリックでさらに変化 */
-                 box-shadow: 0 2px 10px rgba(255, 215, 0, 0.9);
-                 transform: translateY(0); /* 元の位置に戻す */
+                 background-color: #550000; /* さらに暗く */
+                 border-color: #8b0000;
+                 box-shadow: 0 1px 5px rgba(139, 0, 0, 0.9);
               }
 
 
              .calc-form ul {
-                 margin-top: 25px;
-                 font-size: 0.95rem;
+                 margin-top: 20px;
+                 font-size: 0.9rem;
                  color: #BBBBBB; /* 明るめのグレー */
-                 padding-left: 25px;
-                 border-top: 1px dashed #B8860B; /* 落ち着いた金の点線 */
+                 padding-left: 20px;
+                 border-top: 1px dashed #550000; /* 暗い赤の点線 */
                  padding-top: 15px;
              }
              .calc-form ul li {
-                 margin-bottom: 8px;
-                 list-style-type: "★ "; /* リストマーカーを星に */
-                 color: #FFD700; /* リストマーカーを金色に */
+                 margin-bottom: 5px;
+                 list-style: none; /* リストマーカーをなくす */
+                 position: relative;
+                 padding-left: 15px; /* カスタムマーカー用 */
+                 color: #ff4500; /* リスト項目自体も赤に */
+             }
+             .calc-form ul li::before {
+                 content: "X"; /* 不吉なマーカー */
+                 position: absolute;
+                 left: 0;
+                 color: #ff0000; /* 真っ赤なマーカー */
+                 font-weight: bold;
              }
 
-            /* シミュレーターの結果表示エリアのスタイル (ド派手に) */
+            /* シミュレーターの結果表示エリアのスタイル (絶望感) */
             .calculation-result {
                 margin-top: 40px;
-                padding: 25px;
-                border: 5px solid #FFFF00; /* 輝く金色の太枠 */
-                border-radius: 8px;
-                background-color: rgba(0, 51, 102, 0.7); /* 濃い青の半透明背景 */
-                font-size: 1.3rem; /* 結果を大きく表示 */
+                padding: 20px;
+                border: 3px solid #8b0000; /* 深い赤のボーダー */
+                border-radius: 0;
+                background-color: rgba(0, 0, 0, 0.85); /* 真っ黒に近い背景 */
+                font-size: 1.1rem;
                 line-height: 1.7;
-                color: #FFD700; /* 結果の文字色も金色 */
-                text-shadow: 1px 1px 3px #000; /* 影 */
-                box-shadow: 0 0 15px #FFFF00; /* 外側に金色の光 */
+                color: #ffff00; /* 黄色い文字 (警告/病み) */
+                text-shadow: 1px 1px 2px #000;
+                box-shadow: 0 0 10px rgba(255, 0, 0, 0.6); /* 赤い光 */
+                 /*filter: grayscale(0.3); /* やや色あせた感じ */
             }
 
             .calculation-result h3 {
                 margin-top: 0;
                 margin-bottom: 20px;
-                color: #FFFF00; /* 輝く金色 */
-                font-size: 1.6rem;
-                border-bottom: 2px dashed #FFD700; /* 金色の点線下線 */
+                color: #ff0000; /* 真っ赤 */
+                font-size: 1.4rem;
+                border-bottom: 2px solid #8b0000; /* 深い赤の下線 */
                 padding-bottom: 10px;
-                text-shadow: 1px 1px 3px #000;
+                text-shadow: 1px 1px 2px #000;
             }
 
              .calculation-result p {
-                margin-bottom: 15px;
-                border-bottom: 1px dotted #B8860B; /* 落ち着いた金の点線 */
-                padding-bottom: 8px;
-                color: #FFD700; /* 結果の項目も金色 */
+                margin-bottom: 12px;
+                padding-bottom: 5px;
+                border-bottom: 1px dashed #550000; /* 暗い赤の点線 */
+                color: #ffff00; /* 黄色い文字 */
              }
              .calculation-result p:last-child {
                 border-bottom: none;
@@ -231,33 +268,27 @@
 
             .calculation-result strong {
                 display: inline-block;
-                min-width: 220px; /* 項目名を揃える */
-                margin-right: 15px;
-                color: #FFFF00; /* 項目名も輝く金色 */
-                text-shadow: 1px 1px 2px #000;
+                min-width: 200px; /* 項目名を揃える */
+                margin-right: 10px;
+                color: #ff4500; /* オレンジ赤の項目名 */
+                text-shadow: 1px 1px 1px #000;
                 font-weight: bold;
             }
 
             .calculation-result .note {
-                font-size: 1rem;
-                color: #FF4500; /* 派手なオレンジ */
-                margin-top: 20px;
-                border-top: 2px dashed #FF4500; /* オレンジの点線 */
-                padding-top: 15px;
-                text-shadow: none; /* 影はなし */
+                font-size: 0.95rem;
+                color: #ffffff; /* 白の注意書き */
+                margin-top: 15px;
+                border-top: 2px dashed #ff0000; /* 真っ赤な点線 */
+                padding-top: 10px;
+                text-shadow: 1px 1px 1px #000;
                 font-weight: bold;
              }
-
-             /* 各結果項目に光るアニメーション (例) */
-             /*
-             .calculation-result p {
-                 animation: glow 1.5s infinite alternate;
+             .calculation-result .note:before {
+                 content: "警告: "; /* 警告マーク */
+                 color: #ff0000; /* 真っ赤 */
+                 font-weight: bold;
              }
-             @keyframes glow {
-                 from { text-shadow: 1px 1px 3px #000, 0 0 5px #FFD700; }
-                 to { text-shadow: 1px 1px 3px #000, 0 0 10px #FFFF00, 0 0 15px #FFD700; }
-             }
-             */
 
 
         </style>
@@ -613,13 +644,13 @@
                                 <label for="price_emp">商品金額</label>
                                 <input id="price_emp" type="number" name="price" value="500000" min="50000" max="5000000">
                                 <label for="price_emp" class="unit">円</label>
-                            </div><br> <!-- 元画像に倣い項目ごとに改行 -->
+                            </div><br>
 
                             <div class="form-item">
                                 <label for="dpay_emp">頭金</label>
                                 <input id="dpay_emp" type="number" name="dpay" value="0" min="0">
                                 <label for="dpay_emp" class="unit">円</label>
-                            </div><br> <!-- 元画像に倣い項目ごとに改行 -->
+                            </div><br>
 
                             <div class="form-item">
                                 <label for="bmonth1_emp">ボーナス月1</label>
@@ -629,7 +660,7 @@
                                     <option value="7">7月</option>
                                     <option value="8">8月</option>
                                 </select>
-                            </div><br> <!-- 元画像に倣い項目ごとに改行 -->
+                            </div><br>
 
                             <div class="form-item">
                                 <label for="bmonth2_emp">ボーナス月2</label>
@@ -638,24 +669,24 @@
                                     <option value="12">12月</option>
                                     <option value="1">1月</option>
                                 </select>
-                            </div><br> <!-- 元画像に倣い項目ごとに改行 -->
+                            </div><br>
 
                             <div class="form-item">
                                 <label for="baddpay_emp">ボーナス月加算額</label>
                                 <input id="baddpay_emp" type="number" name="baddpay" value="0" min="0">
                                 <label for="baddpay_emp" class="unit">円</label>
-                            </div><br> <!-- 元画像に倣い項目ごとに改行 -->
+                            </div><br>
 
                              <div class="form-item">
                                  <label for="interviewDateEMP">記入面談日</label>
                                  <input id="interviewDateEMP" type="date" name="interviewDate" value="">
-                             </div><br> <!-- 元画像に倣い項目ごとに改行 -->
+                             </div><br>
 
                             <div class="form-item">
                                 <label for="frequency-select">お支払回数</label>
                                 <select id="frequency-select" name="frequency"></select>
                                 <label for="frequency-select" class="unit">回</label>
-                            </div><br> <!-- 元画像に倣い項目ごとに改行 -->
+                            </div><br>
 
                             <div class="button-group">
                                 <input onclick="calcEMP()" type="button" value="計算">
