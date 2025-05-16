@@ -7,47 +7,44 @@
         <title>お支払いシミュレーション</title>
         <meta name='robots' content='max-image-preview:large'/>
         <meta name="description" content="お支払いシミュレーション"/>
-        <!-- 外部CSSの読み込みは行いません -->
+        <!-- 元のテーマ・プラグインCSSの読み込みは行いません -->
 
-        <!-- シミュレーター専用スタイル -->
+        <!-- シミュレーター専用スタイル (元の画像のデザインを再現) -->
         <style type="text/css">
             /* 基本リセットと全体スタイル */
             body {
-                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+                font-family: Meiryo, "Hiragino Sans", "Noto Sans JP", sans-serif; /* 一般的なゴシック体 */
                 line-height: 1.6;
                 color: #333;
-                background-color: #f4f7f6; /* 薄いグレーの背景 */
+                background-color: #fff; /* 元画像に近い白背景 */
                 margin: 0;
                 padding: 20px;
-                display: flex;
-                justify-content: center;
-                align-items: flex-start; /* 上部に寄せる */
-                min-height: 100vh;
             }
 
-            .simulator-container {
-                background-color: #fff;
-                padding: 30px;
-                border-radius: 8px;
-                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* 軽い影 */
-                max-width: 700px; /* 最大幅を設定 */
-                width: 100%; /* 幅を最大に */
-                box-sizing: border-box; /* パディングとボーダーを幅に含める */
+            .container { /* 元のサイト構造に寄せたクラス名を再現 */
+                max-width: 800px; /* コンテンツの最大幅 */
+                margin: 0 auto; /* 中央寄せ */
+                padding: 0 15px; /* 左右のパディング */
             }
 
-            h1, h2 {
-                color: #0056b3; /* 少し濃い青 */
-                border-bottom: 3px solid #007bff; /* メインの青で下線 */
-                padding-bottom: 10px;
-                margin-top: 0;
+            h1 {
+                color: #333; /* 元画像に近い黒っぽい色 */
+                border-bottom: 2px solid #007bff; /* 元画像に近い青の下線 */
+                padding-bottom: 8px;
+                margin-top: 20px;
                 margin-bottom: 25px;
-                font-size: 1.8rem; /* 見出しサイズ調整 */
+                font-size: 1.8rem;
+                font-weight: bold;
             }
 
             h2 {
-                 font-size: 1.4rem;
-                 border-bottom-width: 2px;
+                 color: #333; /* 元画像に近い黒っぽい色 */
+                 border-bottom: 2px solid #007bff; /* 元画像に近い青の下線 */
+                 padding-bottom: 8px;
                  margin-top: 30px;
+                 margin-bottom: 20px;
+                 font-size: 1.4rem;
+                 font-weight: bold;
             }
 
             p {
@@ -60,94 +57,101 @@
             dl dt {
                 font-weight: bold;
                 margin-top: 10px;
-                color: #007bff; /* 青色に */
+                /* 元画像では青くないので黒っぽい色に戻す */
+                color: #333;
             }
             dl dd {
                 margin-bottom: 8px;
                 margin-left: 20px;
             }
 
-            /* シミュレーターフォームのスタイル */
+            /* シミュレーターフォームのスタイル (元の画像のデザインを再現) */
             .calc-form {
                 margin-bottom: 30px;
             }
 
              .calc-form fieldset {
                  margin-bottom: 20px;
-                 padding: 20px;
-                 border: 1px solid #e0e0e0; /* 薄いグレーのボーダー */
-                 border-radius: 6px;
-                 background-color: #fdfdfd; /* わずかに白い背景 */
+                 padding: 15px; /* 元画像に近いパディング */
+                 border: 1px solid #ccc; /* 元画像に近い薄いグレーのボーダー */
+                 border-radius: 0; /* 角丸なし */
+                 background-color: #fff; /* 元画像に近い白背景 */
             }
              .calc-form legend {
                  font-weight: bold;
-                 padding: 0 10px;
-                 color: #555;
-                 font-size: 1.1rem;
+                 padding: 0 5px; /* 元画像に近いパディング */
+                 color: #333; /* 元画像に近い黒っぽい色 */
+                 font-size: 1rem; /* 元画像に近いサイズ */
+                 border-bottom: none; /* 凡例の下線なし */
+                 width: auto; /* フィールドセットの幅に合わせない */
             }
 
+            /* フォーム項目のレイアウト (元の画像のデザインを再現) */
             .form-item {
-                display: flex; /* ラベルと入力フィールドを横並びに */
-                align-items: center; /* 縦方向中央揃え */
-                margin-bottom: 15px;
+                /* ラベルと入力フィールドを縦に並べつつ、ラベル幅を揃えるためのスタイル */
+                margin-bottom: 10px; /* 元画像に近い余白 */
             }
 
             .form-item label {
-                display: inline-block;
+                display: inline-block; /* インラインブロック要素に */
                 font-weight: bold;
-                width: 200px; /* ラベル幅を固定 */
-                margin-right: 15px;
-                flex-shrink: 0; /* 縮小しない */
-                color: #555;
+                width: 180px; /* ラベル幅を固定 (元画像に近い幅) */
+                margin-right: 10px; /* ラベルと入力フィールドの間 */
+                vertical-align: middle; /* 中央揃え */
+                 color: #333; /* 元画像に近い黒っぽい色 */
             }
-             /* 円マークのラベルは幅を自動に */
+             /* 円マークなどの単位ラベル */
              .form-item label.unit {
-                 width: auto;
+                 width: auto; /* 幅固定を解除 */
                  margin-right: 0;
-                 margin-left: 5px;
+                 margin-left: 5px; /* 入力フィールドとの間のスペース */
                  font-weight: normal;
-                 color: #333;
+                 vertical-align: middle; /* 中央揃え */
+                 color: #333; /* 元画像に近い黒っぽい色 */
              }
-
 
             .form-item input[type="number"],
             .form-item select,
             .form-item input[type="date"] {
-                 flex-grow: 1; /* 残りの幅を占める */
-                 padding: 10px;
-                 border: 1px solid #ccc;
-                 border-radius: 4px;
+                 display: inline-block; /* インラインブロック要素に */
+                 width: 180px; /* 入力フィールドの幅を固定 (元画像に近い幅) */
+                 padding: 5px; /* 元画像に近いパディング */
+                 border: 1px solid #ccc; /* 元画像に近いボーダー */
+                 border-radius: 0; /* 角丸なし */
                  box-sizing: border-box; /* パディングとボーダーを幅に含める */
-                 font-size: 1rem;
-                 min-width: 150px; /* 最小幅 */
+                 font-size: 1rem; /* 元画像に近いサイズ */
+                 vertical-align: middle; /* 中央揃え */
             }
              .form-item input[type="date"] {
-                  /* 日付入力フィールドの幅を調整 */
-                 max-width: 200px;
+                 width: 180px; /* 日付入力フィールドも幅固定 */
              }
 
-
+            /* ボタンのスタイル (元の画像のデザインを再現) */
              .button-group {
-                 margin-top: 20px;
-                 text-align: center; /* ボタンを中央寄せ */
+                 margin-top: 15px; /* 元画像に近い上余白 */
+                 /* 中央寄せではなく、元画像のように左寄せ */
+                 /* text-align: left; */
              }
 
             .calc-form input[type="button"] {
-                 padding: 10px 20px;
-                 background-color: #007bff;
+                 padding: 8px 15px; /* 元画像に近いパディング */
+                 background-color: #007bff; /* 元画像に近い青 */
                  color: white;
                  border: none;
-                 border-radius: 5px;
+                 border-radius: 4px; /* 元画像に近い角丸 */
                  cursor: pointer;
                  font-size: 1rem;
-                 transition: background-color 0.3s ease; /* ホバーアニメーション */
-                 margin: 0 5px; /* ボタン間の隙間 */
+                 transition: background-color 0.2s ease; /* ホバーアニメーション */
+                 margin-right: 10px; /* ボタン間の隙間 */
             }
+             .calc-form input[type="button"]:last-child {
+                  margin-right: 0;
+             }
              .calc-form input[type="button"]:hover {
-                 background-color: #0056b3;
+                 background-color: #0056b3; /* ホバーで少し濃く */
              }
               .calc-form input[type="button"]:active {
-                 background-color: #004085;
+                 background-color: #004085; /* クリックでさらに濃く */
              }
 
 
@@ -156,94 +160,64 @@
                  font-size: 0.9rem;
                  color: #555;
                  padding-left: 20px;
-                 border-top: 1px dashed #e0e0e0; /* 上部に点線ボーダー */
-                 padding-top: 15px;
+                 /* 元画像にはないスタイルなので削除 */
+                 /* border-top: 1px dashed #e0e0e0; */
+                 /* padding-top: 15px; */
              }
              .calc-form ul li {
                  margin-bottom: 5px;
                  list-style-type: disc;
              }
 
-            /* シミュレーターの結果表示エリアのスタイル */
+            /* シミュレーターの結果表示エリアのスタイル (元の画像にはないため、シンプルに) */
             .calculation-result {
                 margin-top: 30px;
-                padding: 20px;
-                border: 1px solid #b3e5fc; /* 薄い水色のボーダー */
-                border-radius: 6px;
-                background-color: #e1f5fe; /* 薄い水色の背景 */
-                font-size: 1.1rem;
-                line-height: 1.8;
+                padding: 15px;
+                border: 1px solid #ccc; /* シンプルなボーダー */
+                border-radius: 5px; /* 角丸 */
+                background-color: #f8f8f8; /* 薄いグレー背景 */
+                font-size: 1rem;
+                line-height: 1.6;
             }
 
             .calculation-result h3 {
                 margin-top: 0;
-                margin-bottom: 20px;
-                color: #0277bd; /* 少し濃い水色 */
-                font-size: 1.3rem;
-                border-bottom: none; /* 見出しの共通下線を削除 */
-                padding-bottom: 0;
+                margin-bottom: 15px;
+                border-bottom: 1px dashed #ccc; /* 点線の下線 */
+                padding-bottom: 5px;
+                font-size: 1.2rem;
+                 color: #333; /* 黒っぽい色 */
             }
 
              .calculation-result p {
-                margin-bottom: 12px;
-                padding-bottom: 5px;
-                border-bottom: 1px dotted #b3e5fc; /* 点線の下線 */
+                margin-bottom: 10px;
+                /* 元画像にはないスタイルなので削除 */
+                /* padding-bottom: 5px; */
+                /* border-bottom: 1px dotted #b3e5fc; */
              }
-             .calculation-result p:last-of-type { /* 最後のp要素の下線を削除 */
-                border-bottom: none;
+             .calculation-result p:last-child { /* 最後のp要素の下線を削除 */
+                /* border-bottom: none; */
                 margin-bottom: 0;
                 padding-bottom: 0;
              }
 
             .calculation-result strong {
-                display: inline-block;
-                min-width: 200px; /* 項目名を揃える */
+                /* 元画像にはないスタイルなので調整または削除 */
+                display: inline-block; /* インラインブロック要素に */
+                min-width: 180px; /* ラベル幅に合わせて揃える */
                 margin-right: 10px;
-                color: #01579b; /* さらに濃い青 */
+                color: #333; /* 黒っぽい色 */
             }
 
             .calculation-result .note {
                 font-size: 0.9rem;
                 color: #d35400; /* オレンジ系の注意色 */
-                margin-top: 15px;
-                border-top: 1px dashed #d35400;
-                padding-top: 10px;
+                margin-top: 10px; /* 上余白 */
+                /* 元画像にはないスタイルなので調整または削除 */
+                /* border-top: 1px dashed #d35400; */
+                /* padding-top: 10px; */
              }
 
-             /* レスポンシブ対応 */
-             @media (max-width: 600px) {
-                 .simulator-container {
-                     padding: 20px;
-                 }
-                 .form-item {
-                     flex-direction: column; /* 縦積み */
-                     align-items: flex-start; /* 左寄せ */
-                 }
-                 .form-item label {
-                     width: auto; /* 幅固定を解除 */
-                     margin-right: 0;
-                     margin-bottom: 5px;
-                 }
-                  .form-item label.unit {
-                      margin-left: 0;
-                      margin-top: 5px;
-                  }
-                 .form-item input[type="number"],
-                 .form-item select,
-                 .form-item input[type="date"] {
-                     width: 100%; /* 幅を100%に */
-                     max-width: none; /* 最大幅制限解除 */
-                 }
-                 .calculation-result strong {
-                     min-width: auto; /* 幅固定を解除 */
-                     display: block; /* ブロック要素に */
-                     margin-bottom: 5px;
-                 }
-                 .calculation-result p {
-                     border-bottom: none; /* 下線なし */
-                     padding-bottom: 0;
-                 }
-             }
 
         </style>
 
@@ -290,19 +264,14 @@
                 // 結果エリア内の要素を探す
                 const firstPaymentDateElement = form.querySelector('#result-emp .first-payment-date');
 
-                if (!firstPaymentDateElement) {
-                    // 要素が見つからない場合は処理しない
-                    return;
+                // 結果エリアが表示されていない場合は日付も表示しない
+                if (!firstPaymentDateElement || document.getElementById('result-emp').innerHTML.trim() === '') {
+                     if(firstPaymentDateElement) firstPaymentDateElement.innerHTML = ''; // クリアしておく
+                     return;
                 }
 
                  const interviewDateInput = form.querySelector('input[name="interviewDate"]');
                  const interviewDateValue = interviewDateInput ? interviewDateInput.value : '';
-
-                // 結果エリアがまだ表示されていない場合は日付も表示しない
-                if (document.getElementById('result-emp').innerHTML.trim() === '') {
-                     firstPaymentDateElement.innerHTML = ''; // クリアしておく
-                     return;
-                }
 
                 // 日付が入力されていない場合の表示
                 if (!interviewDateValue) {
@@ -385,8 +354,6 @@
                 // バリデーション
                 if (isNaN(price) || isNaN(frequency) || isNaN(dpay) || isNaN(bmonth1) || isNaN(bmonth2) || isNaN(baddpay) || !interviewDateValue) {
                     resultDiv.innerHTML = '<p style="color: red;">全ての項目に数値を入力し、記入面談日を選択してください。</p>';
-                    // 結果エリアに初回支払日エラーを表示
-                    displayFirstPaymentDate();
                     return;
                 }
 
@@ -407,9 +374,11 @@
                      return;
                  }
 
+
                 const advance = price - dpay; // 分割支払金元本
 
                 // frequency2perの引数はfrequency (1始まり)
+                // payment計算ロジックは元のコードを維持
                 const payment = advance + Math.floor(advance * (frequency2per(frequency) * 100) / 10000); // 分割支払金合計
 
                 // 手数料 = 分割支払金合計 - 分割支払金元本
@@ -421,37 +390,47 @@
 
                 let first, rest;
 
-                // 通常回支払額の計算
+                // 通常回支払額の計算 (元のコードを維持)
                 let totalMonthlyPayPortion = payment - bcount * baddpay; // ボーナス加算額を除いた分割支払金合計
                 if (totalMonthlyPayPortion < 0) totalMonthlyPayPortion = 0; // 念のためマイナスにならないように
 
                 rest = frequency > 0 ? Math.floor(totalMonthlyPayPortion / frequency / 100) * 100 : 0; // 通常回支払額
 
-                // 初回支払額の計算
-                const firstPaymentMonth = calcFDate(interviewDay); // 初回支払月
-                const isFirstMonthBonus = (firstPaymentMonth === bmonth1 || firstPaymentMonth === bmonth2); // 初回支払月がボーナス月か判定
+                // 初回支払額の計算 (元のコードのロジックに倣い修正)
+                 const firstPaymentMonth = calcFDate(interviewDay); // 初回支払月
+                 const isFirstMonthBonus = (firstPaymentMonth === bmonth1 || firstPaymentMonth === bmonth2); // 初回支払月がボーナス月か判定
 
-                // 初回支払額 = 分割支払金合計 - (2回目以降の通常回支払い合計) - (2回目以降のボーナス加算支払い合計)
-                 // frequencyが1の場合は通常回支払いはない
-                 const normalPayExceptFirst = (frequency > 1) ? rest * (frequency - 1) : 0;
+                 // 元コードの初回計算ロジックに近くなるよう再修正
+                 // 分割支払金合計から、各回の通常支払額とボーナス加算額を引いて、初回支払額を求める
+                 // payment = first + rest * (frequency - 1) + baddpay * bcount (元のコードの計算式と異なる？)
+                 // 元のコードの計算式: payment = advance + floor(...)
+                 // 元コードのrest計算式: rest = floor((payment - bcount * baddpay) / frequency / 100) * 100;
+                 // 元コードのfirst計算式: first = payment - rest * (frequency - 1) - bcount * baddpay;  (これが初回計算のベース)
+                 // ただし、初回がボーナス月の場合は baddpay を足す
+                 // first = first + baddpay (if isFirstMonthBonus)
 
-                 // 初回支払月がボーナス月の場合、bcountには初回が含まれるため、残りのボーナス回数は bcount - 1
-                 // 初回支払月がボーナス月でない場合、bcountに含まれるのは2回目以降のボーナス月全てなので、残りは bcount
-                 const remainingBonusCount = bcount - (isFirstMonthBonus ? 1 : 0);
-                 const bonusPayExceptFirst = remainingBonusCount * baddpay;
+                 let firstCalcBase = payment - rest * (frequency - 1);
+                 let bonusAmountAtFirst = 0;
+                 if (isFirstMonthBonus) {
+                     bonusAmountAtFirst = baddpay;
+                 }
 
-                 first = payment - normalPayExceptFirst - bonusPayExceptFirst;
+                 // 初回支払額は、分割支払金合計から、2回目以降の通常回支払いと、2回目以降のボーナス加算額を引いたもの
+                 const normalPaymentsAfterFirst = (frequency > 1) ? rest * (frequency - 1) : 0;
+                 const bonusPaymentsAfterFirst = (bcount - (isFirstMonthBonus ? 1 : 0)) * baddpay;
+
+                 first = payment - normalPaymentsAfterFirst - bonusPaymentsAfterFirst;
 
 
                  // --- 結果表示 ---
                  let resultsHtml = '<h3>計算結果</h3>';
-                 resultsHtml += `<p class="first-payment-date"></p>`; // 初回支払日表示用
+                 resultsHtml += `<p class="first-payment-date"></p>`; // 初回支払日表示用 (ここに後からJSで日付を入れる)
 
                  resultsHtml += `<p><strong>手数料額:</strong> ${fee.toLocaleString()} 円</p>`; // 手数料表示を追加
 
                  resultsHtml += `<p><strong>第1回目お支払い額:</strong> ${first.toLocaleString()} 円`;
                  if (isFirstMonthBonus && baddpay > 0) {
-                     resultsHtml += ` (ボーナス月)`;
+                     resultsHtml += ` (ボーナス月加算あり)`;
                  }
                  resultsHtml += `</p>`;
 
@@ -464,15 +443,12 @@
 
                  // ボーナス加算額がある場合のみ、ボーナス回のお支払い額を表示
                  if (baddpay > 0) {
-                     let bonusDisplayCount = bcount;
-                     if (isFirstMonthBonus) {
-                          bonusDisplayCount = bcount - 1;
-                     }
-                     if (bonusDisplayCount > 0) {
-                         resultsHtml += `<p><strong>ボーナス回(${bonusDisplayCount}回)のお支払い額:</strong> ${(baddpay + rest).toLocaleString()} 円</p>`;
-                         // 初回がボーナス加算支払いを含む場合の補足
-                         if (isFirstMonthBonus) {
-                             resultsHtml += `<p class="note">※ 第1回目がボーナス月の場合、第1回目支払額を参照してください。</p>`;
+                     let bonusOnlyCount = bcount - (isFirstMonthBonus ? 1 : 0); // 初回を除くボーナス回数
+
+                     if (bonusOnlyCount > 0) {
+                         resultsHtml += `<p><strong>ボーナス回(${bonusOnlyCount}回)のお支払い額:</strong> ${(baddpay + rest).toLocaleString()} 円</p>`;
+                          if (isFirstMonthBonus) {
+                             resultsHtml += `<p class="note">※ 第1回目がボーナス月加算支払いを含む場合、第1回目支払額を参照してください。</p>`;
                          }
                      } else if (bcount === 1 && isFirstMonthBonus) {
                          // ボーナス回数が1回だけでそれが初回だった場合
@@ -489,14 +465,13 @@
 
                  resultDiv.innerHTML = resultsHtml;
 
-                 // 初回支払日を表示エリアに追加
+                 // 初回支払日を表示エリアに追加 (結果HTMLをセットした後に呼び出す)
                  displayFirstPaymentDate();
 
                  // 当社で選択可能な回数かどうかの注意書き
                 if (frequencycheck(frequency) === false) {
                     const checkMsg = document.createElement('p');
-                    checkMsg.style.color = 'orange';
-                    checkMsg.classList.add('note'); // 注意書きスタイル適用
+                    checkMsg.style.color = 'orange'; /* 元画像に近い注意書きの色 */
                     checkMsg.innerText = `※ 注意: 支払回数「${frequency}回」は当社で選択出来る支払回数と異なる場合がございますので、計算結果は参考数値としてご利用下さい。`;
                     resultDiv.appendChild(checkMsg);
                 }
@@ -505,8 +480,7 @@
                  // ボーナス加算額がある場合でも、通常回支払額が3000円未満の場合は注意書きを表示
                  if (rest < 3000 && frequency > 1) { // 1回払いは除く
                      const checkMsg = document.createElement('p');
-                     checkMsg.style.color = 'orange';
-                     checkMsg.classList.add('note'); // 注意書きスタイル適用
+                     checkMsg.style.color = 'orange'; /* 元画像に近い注意書きの色 */
                      checkMsg.innerText = `※ 注意: 計算結果の通常回のお支払い額(${rest.toLocaleString()}円)は、当社の契約条件である3千円を下回っています。`;
                      resultDiv.appendChild(checkMsg);
                  }
@@ -528,7 +502,6 @@
                  if (interviewDateInput) {
                      interviewDateInput.value = today; // 日付フィールドを今日に戻す
                  }
-
 
                 const resultDiv = document.getElementById('result-emp');
                 if (resultDiv) {
@@ -581,100 +554,101 @@
 
     </head>
     <body>
-        <!-- シミュレーター全体を囲むコンテナを追加 -->
-        <div class="simulator-container">
-            <header>
-                <h1>お支払いシミュレーション</h1>
-                <p>
-                    当社のクレジット契約におけるお支払い額やお支払い回数のシミュレーションを行うことが出来ます。以下のシミュレーションは実質年率を20%とした場合の計算になります。<br>当社のご契約条件は下記のようになっております。
-                </p>
-                <dl>
-                    <dt>お申込者様ご年齢</dt>
-                    <dd>申込時20歳以上完済時76歳未満</dd>
-                    <dt>お申込可能商品金額</dt>
-                    <dd>5万円以上500万円以下(消費税込)</dd>
-                    <dt>お支払い回数</dt>
-                    <dd>
-                        3, 6, 10, 12, 15, 18, 20, 24, 30, 36, 42, 48, 54, 60回<br>※ ただし、通常回のお支払い額が3千円以上になる場合のみ。
-                    </dd>
-                    <dt>分割手数料率</dt>
-                    <dd>原則 実質年率20%(商品により異なる場合がございます)</dd>
-                    <dt>収納代行会社</dt>
-                    <dd>SMBCファイナンスサービス株式会社</dd>
-                </dl>
-            </header>
+        <!-- 元のサイト構造に寄せたコンテナクラスを使用 -->
+        <div class="container">
+            <div class="main-section"> <!-- 元の構造に寄せたクラス名 -->
+                <div class="entry-body"> <!-- 元の構造に寄せたクラス名 -->
+                    <h1>お支払いシミュレーション</h1>
+                    <p>
+                        当社のクレジット契約におけるお支払い額やお支払い回数のシミュレーションを行うことが出来ます。以下のシミュレーションは実質年率を20%とした場合の計算になります。<br>当社のご契約条件は下記のようになっております。
+                    </p>
+                    <dl>
+                        <dt>お申込者様ご年齢</dt>
+                        <dd>申込時20歳以上完済時76歳未満</dd>
+                        <dt>お申込可能商品金額</dt>
+                        <dd>5万円以上500万円以下(消費税込)</dd>
+                        <dt>お支払い回数</dt>
+                        <dd>
+                            3, 6, 10, 12, 15, 18, 20, 24, 30, 36, 42, 48, 54, 60回<br>※ ただし、通常回のお支払い額が3千円以上になる場合のみ。
+                        </dd>
+                        <dt>分割手数料率</dt>
+                        <dd>原則 実質年率20%(商品により異なる場合がございます)</dd>
+                        <dt>収納代行会社</dt>
+                        <dd>SMBCファイナンスサービス株式会社</dd>
+                    </dl>
 
-            <section class="calculator-section">
-                <h2>商品金額とお支払回数から月々のお支払い額を計算する</h2>
-                <form id="KS_calcEMP" action="#" name="KS_calcEMP" class="calc-form">
-                    <fieldset>
-                        <legend>入力項目</legend>
+                    <h2>商品金額とお支払回数から月々のお支払い額を計算する</h2>
+                    <form id="KS_calcEMP" action="#" name="KS_calcEMP" class="calc-form">
+                        <fieldset>
+                            <legend>入力項目</legend>
 
-                        <div class="form-item">
-                            <label for="price_emp">商品金額</label>
-                            <input id="price_emp" type="number" name="price" value="500000" min="50000" max="5000000">
-                            <label for="price_emp" class="unit">円</label>
+                            <div class="form-item">
+                                <label for="price_emp">商品金額</label>
+                                <input id="price_emp" type="number" name="price" value="500000" min="50000" max="5000000">
+                                <label for="price_emp" class="unit">円</label>
+                            </div>
+
+                            <div class="form-item">
+                                <label for="dpay_emp">頭金</label>
+                                <input id="dpay_emp" type="number" name="dpay" value="0" min="0">
+                                <label for="dpay_emp" class="unit">円</label>
+                            </div>
+
+                            <div class="form-item">
+                                <label for="bmonth1_emp">ボーナス月1</label>
+                                <select id="bmonth1_emp" name="bmonth1">
+                                    <option selected="selected" value="0">利用しない</option>
+                                    <option value="6">6月</option>
+                                    <option value="7">7月</option>
+                                    <option value="8">8月</option>
+                                </select>
+                            </div>
+
+                            <div class="form-item">
+                                <label for="bmonth2_emp">ボーナス月2</label>
+                                <select id="bmonth2_emp" name="bmonth2">
+                                    <option selected="selected" value="0">利用しない</option>
+                                    <option value="12">12月</option>
+                                    <option value="1">1月</option>
+                                </select>
+                            </div>
+
+                            <div class="form-item">
+                                <label for="baddpay_emp">ボーナス月加算額</label>
+                                <input id="baddpay_emp" type="number" name="baddpay" value="0" min="0">
+                                <label for="baddpay_emp" class="unit">円</label>
+                            </div>
+
+                             <div class="form-item">
+                                 <label for="interviewDateEMP">記入面談日</label>
+                                 <input id="interviewDateEMP" type="date" name="interviewDate" value="">
+                             </div>
+
+                            <div class="form-item">
+                                <label for="frequency-select">お支払回数</label>
+                                <select id="frequency-select" name="frequency"></select>
+                                <label for="frequency-select" class="unit">回</label>
+                            </div>
+
+                            <div class="button-group">
+                                <input onclick="calcEMP()" type="button" value="計算">
+                                <input onclick="resetEMP()" type="button" value="入力内容をクリア">
+                            </div>
+
+                            <ul>
+                                <li>※ 当社で選択出来るお支払い回数以外の回数をご希望の場合は、お問合せください。</li>
+                                 <li>※ ボーナス払いの場合、ご入力頂いた記入面談日を基準に計算しております。</li>
+                                <li>※ 全ての項目に入力が必要です。頭金・ボーナス払いを利用しないときは0円とご入力下さい。</li>
+                            </ul>
+                        </fieldset>
+                        <div id="result-emp" class="calculation-result">
+                            <!-- 計算結果が表示されるエリア -->
                         </div>
-
-                        <div class="form-item">
-                            <label for="dpay_emp">頭金</label>
-                            <input id="dpay_emp" type="number" name="dpay" value="0" min="0">
-                            <label for="dpay_emp" class="unit">円</label>
-                        </div>
-
-                        <div class="form-item">
-                            <label for="bmonth1_emp">ボーナス月1</label>
-                            <select id="bmonth1_emp" name="bmonth1">
-                                <option selected="selected" value="0">利用しない</option>
-                                <option value="6">6月</option>
-                                <option value="7">7月</option>
-                                <option value="8">8月</option>
-                            </select>
-                        </div>
-
-                        <div class="form-item">
-                            <label for="bmonth2_emp">ボーナス月2</label>
-                            <select id="bmonth2_emp" name="bmonth2">
-                                <option selected="selected" value="0">利用しない</option>
-                                <option value="12">12月</option>
-                                <option value="1">1月</option>
-                            </select>
-                        </div>
-
-                        <div class="form-item">
-                            <label for="baddpay_emp">ボーナス月加算額</label>
-                            <input id="baddpay_emp" type="number" name="baddpay" value="0" min="0">
-                            <label for="baddpay_emp" class="unit">円</label>
-                        </div>
-
-                         <div class="form-item">
-                             <label for="interviewDateEMP">記入面談日</label>
-                             <input id="interviewDateEMP" type="date" name="interviewDate" value="">
-                         </div>
-
-                        <div class="form-item">
-                            <label for="frequency-select">お支払回数</label>
-                            <select id="frequency-select" name="frequency"></select>
-                            <label for="frequency-select" class="unit">回</label>
-                        </div>
-
-                        <div class="button-group">
-                            <input onclick="calcEMP()" type="button" value="計算">
-                            <input onclick="resetEMP()" type="button" value="入力内容をクリア">
-                        </div>
-
-                        <ul>
-                            <li>※ 当社で選択出来るお支払い回数以外の回数をご希望の場合は、お問合せください。</li>
-                             <li>※ ボーナス払いの場合、ご入力頂いた記入面談日を基準に計算しております。</li>
-                            <li>※ 全ての項目に入力が必要です。頭金・ボーナス払いを利用しないときは0円とご入力下さい。</li>
-                        </ul>
-                    </fieldset>
-                    <div id="result-emp" class="calculation-result">
-                        <!-- 計算結果が表示されるエリア -->
-                    </div>
-                </form>
-            </section>
-        </div>
+                    </form>
+                    <!-- 不要なフォームセクションを削除済み -->
+                </div><!-- [ /.entry-body ] -->
+            </div><!-- [ /.main-section ] -->
+        </div><!-- [ /.container ] -->
         <!-- site-bodyなどの不要な要素は削除 -->
     </body>
 </html>
