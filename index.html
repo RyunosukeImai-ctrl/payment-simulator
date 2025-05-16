@@ -4,2774 +4,64 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>お支払いシミュレーション | 京都信販株式会社</title>
+        <title>お支払いシミュレーション</title>
         <meta name='robots' content='max-image-preview:large'/>
-        <link rel='dns-prefetch' href='//s.w.org'/>
-        <link rel="alternate" type="application/rss+xml" title="京都信販株式会社 &raquo; フィード" href="https://www.kyoto-shinpan.co.jp/feed/"/>
-        <link rel="alternate" type="application/rss+xml" title="京都信販株式会社 &raquo; コメントフィード" href="https://www.kyoto-shinpan.co.jp/comments/feed/"/>
-        <meta name="description" content="お支払いシミュレーション  当社のクレジット契約におけるお支払い額やお支払い回数のシミュレーションを行うことが出来ます。以下のシミュレーションは実質年率を20%とした場合の計算になります。  当社のご契約条件は下記のようになっております。  お申込者様ご年齢  申込時20歳以上完済時76歳未満  お申込可能商品金額  5万円以上150万円以下(消費税込)  お支払い回数    3, 6, 10, 12, 15, 18, 20, 24, 30, 36,"/>
-        <link rel='preload' id='vkExUnit_common_style-css-preload' href='https://www.kyoto-shinpan.co.jp/wp/wp-content/plugins/vk-all-in-one-expansion-unit/assets/css/vkExUnit_style.css?ver=9.99.1.0' as='style' onload="this.onload=null;this.rel='stylesheet'"/>
-        <link rel='stylesheet' id='vkExUnit_common_style-css' href='https://www.kyoto-shinpan.co.jp/wp/wp-content/plugins/vk-all-in-one-expansion-unit/assets/css/vkExUnit_style.css?ver=9.99.1.0' media='print' onload="this.media='all'; this.onload=null;">
-        <style id='vkExUnit_common_style-inline-css' type='text/css'>
-            .grecaptcha-badge {
-                bottom: 85px !important;
-            }
+        <meta name="description" content="お支払いシミュレーション"/>
+        <!-- 必要最低限のテーマ・プラグインCSSを残す（シミュレーターのスタイルに影響するため）-->
+        <link rel='stylesheet' id='wp-block-library-css' href='https://www.kyoto-shinpan.co.jp/wp/wp-includes/css/dist/block-library/style.min.css?ver=6.0.9'/>
+        <link rel='stylesheet' id='vk-blocks-build-css' href='https://www.kyoto-shinpan.co.jp/wp/wp-content/plugins/vk-blocks/build/vk-blocks-build.min.css?ver=1.60.0.1'/>
+        <link rel='stylesheet' id='lightning-common-style' href='https://www.kyoto-shinpan.co.jp/wp/wp-content/themes/lightning/_g3/assets/css/common.min.css?ver=15.29.6'/>
+        <link rel='stylesheet' id='lightning-design-style' href='https://www.kyoto-shinpan.co.jp/wp/wp-content/themes/lightning/_g3/assets/css/design.min.css?ver=15.29.6'/>
 
-            .veu_promotion-alert__content--text {
-                border: 1px solid rgba(0,0,0,0.125);
-                padding: 0.5em 1em;
-                border-radius: var(--vk-size-radius);
-                margin-bottom: var(--vk-margin-block-bottom);
-                font-size: 0.875rem;
-            }
-
-            /* Alert Content部分に段落タグを入れた場合に最後の段落の余白を0にする */
-            .veu_promotion-alert__content--text p:last-of-type {
-                margin-bottom: 0;
-                margin-top: 0;
-            }
-
-            :root {
-                --ver_page_top_button_url: url(https://www.kyoto-shinpan.co.jp/wp/wp-content/plugins/vk-all-in-one-expansion-unit/assets/images/to-top-btn-icon.svg);
-            }
-
-            @font-face {
-                font-weight: normal;
-                font-style: normal;
-                font-family: "vk_sns";
-                src: url("data:application/font-woff;charset=utf-8;base64,d09GRgABAAAAAAZgABAAAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABGRlRNAAAGRAAAABoAAAAci6qHkUdERUYAAAWgAAAAIwAAACQAYABXR1BPUwAABhQAAAAuAAAANuAY7+xHU1VCAAAFxAAAAFAAAABm2fPczU9TLzIAAAHcAAAASgAAAGBP9V5RY21hcAAAAkQAAACIAAABYt6F0cBjdnQgAAACzAAAAAQAAAAEABEBRGdhc3AAAAWYAAAAAQAACAj//wADZ2x5ZgAAAywAAADMAAAD2MHtryVoZWFkAAABbAAAADAAAAA2E2+eoWhoZWEAAAGcAAAAHwAAACQC9gDzaG10eAAAAigAAAAZAAAArgJkABFsb2NhAAAC0AAAAFoAAABaFQAUGG1heHAAAAG8AAAAHwAAACAAcABAbmFtZQAAA/gAAAE5AAACXvFdBwlwb3N0AAAFNAAAAGIAAACE5s74hXjaY2BkYGAAYpf5Hu/j+W2+MnAzMYDAzaX6QjD6/4//Bxj5GA8AuRwMYGkAPywL13jaY2BkZgGD/wAAAwAAABWAAwAAAHjaY2BkGGDgYgAAgSEAEQAAAQBP") format('woff');
-            }
-        </style>
-        <link rel='preload' id='wp-block-library-css-preload' href='https://www.kyoto-shinpan.co.jp/wp/wp-includes/css/dist/block-library/style.min.css?ver=6.0.9' as='style' onload="this.onload=null;this.rel='stylesheet'"/>
-        <link rel='stylesheet' id='wp-block-library-css' href='https://www.kyoto-shinpan.co.jp/wp/wp-includes/css/dist/block-library/style.min.css?ver=6.0.9' media='print' onload="this.media='all'; this.onload=null;">
-        <style id='wp-block-library-inline-css' type='text/css'>
-            .vk-cols--reverse {
-                flex-direction: row-reverse
-            }
-
-            .vk-cols--hasbtn {
-                margin-bottom: 0
-            }
-
-            .vk-cols--hasbtn>.row>.vk_gridColumn_item,.vk-cols--hasbtn>.wp-block-column {
-                position: relative;
-                padding-bottom: 3em
-            }
-
-            .vk-cols--hasbtn>.row>.vk_gridColumn_item>.wp-block-buttons,.vk-cols--hasbtn>.row>.vk_gridColumn_item>.vk_button,.vk-cols--hasbtn>.wp-block-column>.wp-block-buttons,.vk-cols--hasbtn>.wp-block-column>.vk_button {
-                position: absolute;
-                bottom: 0;
-                width: 100%
-            }
-
-            .vk-cols--fit.wp-block-columns {
-                gap: 0
-            }
-
-            .vk-cols--fit.wp-block-columns,.vk-cols--fit.wp-block-columns:not(.is-not-stacked-on-mobile) {
-                margin-top: 0;
-                margin-bottom: 0;
-                justify-content: space-between
-            }
-
-            .vk-cols--fit.wp-block-columns>.wp-block-column *:last-child,.vk-cols--fit.wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column *:last-child {
-                margin-bottom: 0
-            }
-
-            .vk-cols--fit.wp-block-columns>.wp-block-column>.wp-block-cover,.vk-cols--fit.wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column>.wp-block-cover {
-                margin-top: 0
-            }
-
-            .vk-cols--fit.wp-block-columns.has-background,.vk-cols--fit.wp-block-columns:not(.is-not-stacked-on-mobile).has-background {
-                padding: 0
-            }
-
-            @media(max-width: 599px) {
-                .vk-cols--fit.wp-block-columns:not(.has-background)>.wp-block-column:not(.has-background),.vk-cols--fit.wp-block-columns:not(.is-not-stacked-on-mobile):not(.has-background)>.wp-block-column:not(.has-background) {
-                    padding-left:0 !important;
-                    padding-right: 0 !important
-                }
-            }
-
-            @media(min-width: 782px) {
-                .vk-cols--fit.wp-block-columns .block-editor-block-list__block.wp-block-column:not(:first-child),.vk-cols--fit.wp-block-columns>.wp-block-column:not(:first-child),.vk-cols--fit.wp-block-columns:not(.is-not-stacked-on-mobile) .block-editor-block-list__block.wp-block-column:not(:first-child),.vk-cols--fit.wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column:not(:first-child) {
-                    margin-left:0
-                }
-            }
-
-            @media(min-width: 600px)and (max-width: 781px) {
-                .vk-cols--fit.wp-block-columns .wp-block-column:nth-child(2n),.vk-cols--fit.wp-block-columns:not(.is-not-stacked-on-mobile) .wp-block-column:nth-child(2n) {
-                    margin-left:0
-                }
-
-                .vk-cols--fit.wp-block-columns .wp-block-column:not(:only-child),.vk-cols--fit.wp-block-columns:not(.is-not-stacked-on-mobile) .wp-block-column:not(:only-child) {
-                    flex-basis: 50% !important
-                }
-            }
-
-            .vk-cols--fit--gap1.wp-block-columns {
-                gap: 1px
-            }
-
-            @media(min-width: 600px)and (max-width: 781px) {
-                .vk-cols--fit--gap1.wp-block-columns .wp-block-column:not(:only-child) {
-                    flex-basis:calc(50% - 1px) !important
-                }
-            }
-
-            .vk-cols--fit.vk-cols--grid>.block-editor-block-list__block,.vk-cols--fit.vk-cols--grid>.wp-block-column,.vk-cols--fit.vk-cols--grid:not(.is-not-stacked-on-mobile)>.block-editor-block-list__block,.vk-cols--fit.vk-cols--grid:not(.is-not-stacked-on-mobile)>.wp-block-column {
-                flex-basis: 50%;
-                box-sizing: border-box
-            }
-
-            @media(max-width: 599px) {
-                .vk-cols--fit.vk-cols--grid.vk-cols--grid--alignfull>.wp-block-column:nth-child(2)>.wp-block-cover,.vk-cols--fit.vk-cols--grid:not(.is-not-stacked-on-mobile).vk-cols--grid--alignfull>.wp-block-column:nth-child(2)>.wp-block-cover {
-                    width:100vw;
-                    margin-right: calc((100% - 100vw)/2);
-                    margin-left: calc((100% - 100vw)/2)
-                }
-            }
-
-            @media(min-width: 600px) {
-                .vk-cols--fit.vk-cols--grid.vk-cols--grid--alignfull>.wp-block-column:nth-child(2)>.wp-block-cover,.vk-cols--fit.vk-cols--grid:not(.is-not-stacked-on-mobile).vk-cols--grid--alignfull>.wp-block-column:nth-child(2)>.wp-block-cover {
-                    margin-right:calc(100% - 50vw);
-                    width: 50vw
-                }
-            }
-
-            @media(min-width: 600px) {
-                .vk-cols--fit.vk-cols--grid.vk-cols--grid--alignfull.vk-cols--reverse>.wp-block-column,.vk-cols--fit.vk-cols--grid:not(.is-not-stacked-on-mobile).vk-cols--grid--alignfull.vk-cols--reverse>.wp-block-column {
-                    margin-left:0;
-                    margin-right: 0
-                }
-
-                .vk-cols--fit.vk-cols--grid.vk-cols--grid--alignfull.vk-cols--reverse>.wp-block-column:nth-child(2)>.wp-block-cover,.vk-cols--fit.vk-cols--grid:not(.is-not-stacked-on-mobile).vk-cols--grid--alignfull.vk-cols--reverse>.wp-block-column:nth-child(2)>.wp-block-cover {
-                    margin-left: calc(100% - 50vw)
-                }
-            }
-
-            .vk-cols--menu h2,.vk-cols--menu h3,.vk-cols--menu h4,.vk-cols--menu h5 {
-                margin-bottom: .2em;
-                text-shadow: #000 0 0 10px
-            }
-
-            .vk-cols--menu h2:first-child,.vk-cols--menu h3:first-child,.vk-cols--menu h4:first-child,.vk-cols--menu h5:first-child {
-                margin-top: 0
-            }
-
-            .vk-cols--menu p {
-                margin-bottom: 1rem;
-                text-shadow: #000 0 0 10px
-            }
-
-            .vk-cols--menu .wp-block-cover__inner-container:last-child {
-                margin-bottom: 0
-            }
-
-            .vk-cols--fitbnrs .wp-block-column .wp-block-cover:hover img {
-                filter: unset
-            }
-
-            .vk-cols--fitbnrs .wp-block-column .wp-block-cover:hover {
-                background-color: unset
-            }
-
-            .vk-cols--fitbnrs .wp-block-column .wp-block-cover:hover .wp-block-cover__image-background {
-                filter: unset !important
-            }
-
-            .vk-cols--fitbnrs .wp-block-cover__inner-container {
-                position: absolute;
-                height: 100%;
-                width: 100%
-            }
-
-            .vk-cols--fitbnrs .vk_button {
-                height: 100%;
-                margin: 0
-            }
-
-            .vk-cols--fitbnrs .vk_button .vk_button_btn,.vk-cols--fitbnrs .vk_button .btn {
-                height: 100%;
-                width: 100%;
-                border: none;
-                box-shadow: none;
-                background-color: unset !important;
-                transition: unset
-            }
-
-            .vk-cols--fitbnrs .vk_button .vk_button_btn:hover,.vk-cols--fitbnrs .vk_button .btn:hover {
-                transition: unset
-            }
-
-            .vk-cols--fitbnrs .vk_button .vk_button_btn:after,.vk-cols--fitbnrs .vk_button .btn:after {
-                border: none
-            }
-
-            .vk-cols--fitbnrs .vk_button .vk_button_link_txt {
-                width: 100%;
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translateY(-50%) translateX(-50%);
-                font-size: 2rem;
-                text-shadow: #000 0 0 10px
-            }
-
-            .vk-cols--fitbnrs .vk_button .vk_button_link_subCaption {
-                width: 100%;
-                position: absolute;
-                top: calc(50% + 2.2em);
-                left: 50%;
-                transform: translateY(-50%) translateX(-50%);
-                text-shadow: #000 0 0 10px
-            }
-
-            @media(min-width: 992px) {
-                .vk-cols--media.wp-block-columns {
-                    gap:3rem
-                }
-            }
-
-            .vk-fit-map figure {
-                margin-bottom: 0
-            }
-
-            .vk-fit-map iframe {
-                position: relative;
-                margin-bottom: 0;
-                display: block;
-                max-height: 400px;
-                width: 100vw
-            }
-
-            .vk-fit-map:is(.alignfull,.alignwide) div {
-                max-width: 100%
-            }
-
-            .vk-table--th--width25 :where(tr>*:first-child) {
-                width: 25%
-            }
-
-            .vk-table--th--width30 :where(tr>*:first-child) {
-                width: 30%
-            }
-
-            .vk-table--th--width35 :where(tr>*:first-child) {
-                width: 35%
-            }
-
-            .vk-table--th--width40 :where(tr>*:first-child) {
-                width: 40%
-            }
-
-            .vk-table--th--bg-bright :where(tr>*:first-child) {
-                background-color: var(--wp--preset--color--bg-secondary, rgba(0, 0, 0, 0.05))
-            }
-
-            @media(max-width: 599px) {
-                .vk-table--mobile-block :is(th,td) {
-                    width:100%;
-                    display: block
-                }
-
-                .vk-table--mobile-block.wp-block-table table :is(th,td) {
-                    border-top: none
-                }
-            }
-
-            .vk-table--width--th25 :where(tr>*:first-child) {
-                width: 25%
-            }
-
-            .vk-table--width--th30 :where(tr>*:first-child) {
-                width: 30%
-            }
-
-            .vk-table--width--th35 :where(tr>*:first-child) {
-                width: 35%
-            }
-
-            .vk-table--width--th40 :where(tr>*:first-child) {
-                width: 40%
-            }
-
-            .no-margin {
-                margin: 0
-            }
-
-            @media(max-width: 599px) {
-                .wp-block-image.vk-aligncenter--mobile>.alignright {
-                    float:none;
-                    margin-left: auto;
-                    margin-right: auto
-                }
-
-                .vk-no-padding-horizontal--mobile {
-                    padding-left: 0 !important;
-                    padding-right: 0 !important
-                }
-            }
-
-            /* VK Color Palettes */
+        <!-- 個別カスタマイズCSS -->
+        <style type="text/css">
+            /* デザイン変更：赤色を青色に変更 */
             :root {
                 --wp--preset--color--vk-color-primary: #007bff;
-            }
-
-            /* --vk-color-primary is deprecated. */
-            :root {
                 --vk-color-primary: var(--wp--preset--color--vk-color-primary);
-            }
-
-            .has-vk-color-primary-color {
-                color: var(--wp--preset--color--vk-color-primary) !important;
-            }
-
-            .has-vk-color-primary-background-color {
-                background-color: var(--wp--preset--color--vk-color-primary) !important;
-            }
-
-            .has-vk-color-primary-border-color {
-                border-color: var(--wp--preset--color--vk-color-primary) !important;
-            }
-
-            :root {
                 --wp--preset--color--vk-color-primary-dark: #0056b3;
-            }
-
-            /* --vk-color-primary-dark is deprecated. */
-            :root {
                 --vk-color-primary-dark: var(--wp--preset--color--vk-color-primary-dark);
-            }
-
-            .has-vk-color-primary-dark-color {
-                color: var(--wp--preset--color--vk-color-primary-dark) !important;
-            }
-
-            .has-vk-color-primary-dark-background-color {
-                background-color: var(--wp--preset--color--vk-color-primary-dark) !important;
-            }
-
-            .has-vk-color-primary-dark-border-color {
-                border-color: var(--wp--preset--color--vk-color-primary-dark) !important;
-            }
-
-            :root {
                 --wp--preset--color--vk-color-primary-vivid: #0090ff;
-            }
-
-            /* --vk-color-primary-vivid is deprecated. */
-            :root {
                 --vk-color-primary-vivid: var(--wp--preset--color--vk-color-primary-vivid);
-            }
 
-            .has-vk-color-primary-vivid-color {
-                color: var(--wp--preset--color--vk-color-primary-vivid) !important;
-            }
-
-            .has-vk-color-primary-vivid-background-color {
-                background-color: var(--wp--preset--color--vk-color-primary-vivid) !important;
-            }
-
-            .has-vk-color-primary-vivid-border-color {
-                border-color: var(--wp--preset--color--vk-color-primary-vivid) !important;
-            }
-        </style>
-        <style id='global-styles-inline-css' type='text/css'>
-            body {
-                --wp--preset--color--black: #000000;
-                --wp--preset--color--cyan-bluish-gray: #abb8c3;
-                --wp--preset--color--white: #ffffff;
-                --wp--preset--color--pale-pink: #f78da7;
-                --wp--preset--color--vivid-red: #cf2e2e;
-                --wp--preset--color--luminous-vivid-orange: #ff6900;
-                --wp--preset--color--luminous-vivid-amber: #fcb900;
-                --wp--preset--color--light-green-cyan: #7bdcb5;
-                --wp--preset--color--vivid-green-cyan: #00d084;
-                --wp--preset--color--pale-cyan-blue: #8ed1fc;
-                --wp--preset--color--vivid-cyan-blue: #0693e3;
-                --wp--preset--color--vivid-purple: #9b51e0;
-                --wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);
-                --wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);
-                --wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);
-                --wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);
-                --wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);
-                --wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);
-                --wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);
-                --wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);
-                --wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);
-                --wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);
-                --wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);
-                --wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);
-                --wp--preset--gradient--vivid-green-cyan-to-vivid-cyan-blue: linear-gradient(135deg,rgba(0,208,132,1) 0%,rgba(6,147,227,1) 100%);
-                --wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');
-                --wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');
-                --wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');
-                --wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');
-                --wp--preset--duotone--midnight: url('#wp-duotone-midnight');
-                --wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');
-                --wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');
-                --wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');
-                --wp--preset--font-size--small: 14px;
-                --wp--preset--font-size--medium: 20px;
-                --wp--preset--font-size--large: 24px;
-                --wp--preset--font-size--x-large: 42px;
-                --wp--preset--font-size--regular: 16px;
-                --wp--preset--font-size--huge: 36px;
-            }
-
-            .has-black-color {
-                color: var(--wp--preset--color--black) !important;
-            }
-
-            .has-cyan-bluish-gray-color {
-                color: var(--wp--preset--color--cyan-bluish-gray) !important;
-            }
-
-            .has-white-color {
-                color: var(--wp--preset--color--white) !important;
-            }
-
-            .has-pale-pink-color {
-                color: var(--wp--preset--color--pale-pink) !important;
-            }
-
-            .has-vivid-red-color {
-                color: var(--wp--preset--color--vivid-red) !important;
-            }
-
-            .has-luminous-vivid-orange-color {
-                color: var(--wp--preset--color--luminous-vivid-orange) !important;
-            }
-
-            .has-luminous-vivid-amber-color {
-                color: var(--wp--preset--color--luminous-vivid-amber) !important;
-            }
-
-            .has-light-green-cyan-color {
-                color: var(--wp--preset--color--light-green-cyan) !important;
-            }
-
-            .has-vivid-green-cyan-color {
-                color: var(--wp--preset--color--vivid-green-cyan) !important;
-            }
-
-            .has-pale-cyan-blue-color {
-                color: var(--wp--preset--color--pale-cyan-blue) !important;
-            }
-
-            .has-vivid-cyan-blue-color {
-                color: var(--wp--preset--color--vivid-cyan-blue) !important;
-            }
-
-            .has-vivid-purple-color {
-                color: var(--wp--preset--color--vivid-purple) !important;
-            }
-
-            .has-black-background-color {
-                background-color: var(--wp--preset--color--black) !important;
-            }
-
-            .has-cyan-bluish-gray-background-color {
-                background-color: var(--wp--preset--color--cyan-bluish-gray) !important;
-            }
-
-            .has-white-background-color {
-                background-color: var(--wp--preset--color--white) !important;
-            }
-
-            .has-pale-pink-background-color {
-                background-color: var(--wp--preset--color--pale-pink) !important;
-            }
-
-            .has-vivid-red-background-color {
-                background-color: var(--wp--preset--color--vivid-red) !important;
-            }
-
-            .has-luminous-vivid-orange-background-color {
-                background-color: var(--wp--preset--color--luminous-vivid-orange) !important;
-            }
-
-            .has-luminous-vivid-amber-background-color {
-                background-color: var(--wp--preset--color--luminous-vivid-amber) !important;
-            }
-
-            .has-light-green-cyan-background-color {
-                background-color: var(--wp--preset--color--light-green-cyan) !important;
-            }
-
-            .has-vivid-green-cyan-background-color {
-                background-color: var(--wp--preset--color--vivid-green-cyan) !important;
-            }
-
-            .has-pale-cyan-blue-background-color {
-                background-color: var(--wp--preset--color--pale-cyan-blue) !important;
-            }
-
-            .has-vivid-cyan-blue-background-color {
-                background-color: var(--wp--preset--color--vivid-cyan-blue) !important;
-            }
-
-            .has-vivid-purple-background-color {
-                background-color: var(--wp--preset--color--vivid-purple) !important;
-            }
-
-            .has-black-border-color {
-                border-color: var(--wp--preset--color--black) !important;
-            }
-
-            .has-cyan-bluish-gray-border-color {
-                border-color: var(--wp--preset--color--cyan-bluish-gray) !important;
-            }
-
-            .has-white-border-color {
-                border-color: var(--wp--preset--color--white) !important;
-            }
-
-            .has-pale-pink-border-color {
-                border-color: var(--wp--preset--color--pale-pink) !important;
-            }
-
-            .has-vivid-red-border-color {
-                border-color: var(--wp--preset--color--vivid-red) !important;
-            }
-
-            .has-luminous-vivid-orange-border-color {
-                border-color: var(--wp--preset--color--luminous-vivid-orange) !important;
-            }
-
-            .has-luminous-vivid-amber-border-color {
-                border-color: var(--wp--preset--color--luminous-vivid-amber) !important;
-            }
-
-            .has-light-green-cyan-border-color {
-                border-color: var(--wp--preset--color--light-green-cyan) !important;
-            }
-
-            .has-vivid-green-cyan-border-color {
-                border-color: var(--wp--preset--color--vivid-green-cyan) !important;
-            }
-
-            .has-pale-cyan-blue-border-color {
-                border-color: var(--wp--preset--color--pale-cyan-blue) !important;
-            }
-
-            .has-vivid-cyan-blue-border-color {
-                border-color: var(--wp--preset--color--vivid-cyan-blue) !important;
-            }
-
-            .has-vivid-purple-border-color {
-                border-color: var(--wp--preset--color--vivid-purple) !important;
-            }
-
-            .has-vivid-cyan-blue-to-vivid-purple-gradient-background {
-                background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;
-            }
-
-            .has-light-green-cyan-to-vivid-green-cyan-gradient-background {
-                background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;
-            }
-
-            .has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background {
-                background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;
-            }
-
-            .has-luminous-vivid-orange-to-vivid-red-gradient-background {
-                background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;
-            }
-
-            .has-very-light-gray-to-cyan-bluish-gray-gradient-background {
-                background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;
-            }
-
-            .has-cool-to-warm-spectrum-gradient-background {
-                background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;
-            }
-
-            .has-blush-light-purple-gradient-background {
-                background: var(--wp--preset--gradient--blush-light-purple) !important;
-            }
-
-            .has-blush-bordeaux-gradient-background {
-                background: var(--wp--preset--gradient--blush-bordeaux) !important;
-            }
-
-            .has-luminous-dusk-gradient-background {
-                background: var(--wp--preset--gradient--luminous-dusk) !important;
-            }
-
-            .has-pale-ocean-gradient-background {
-                background: var(--wp--preset--gradient--pale-ocean) !important;
-            }
-
-            .has-electric-grass-gradient-background {
-                background: var(--wp--preset--gradient--electric-grass) !important;
-            }
-
-            .has-midnight-gradient-background {
-                background: var(--wp--preset--gradient--midnight) !important;
-            }
-
-            .has-small-font-size {
-                font-size: var(--wp--preset--font-size--small) !important;
-            }
-
-            .has-medium-font-size {
-                font-size: var(--wp--preset--font-size--medium) !important;
-            }
-
-            .has-large-font-size {
-                font-size: var(--wp--preset--font-size--large) !important;
-            }
-
-            .has-x-large-font-size {
-                font-size: var(--wp--preset--font-size--x-large) !important;
-            }
-        </style>
-        <link rel='preload' id='veu-cta-css-preload' href='https://www.kyoto-shinpan.co.jp/wp/wp-content/plugins/vk-all-in-one-expansion-unit/inc/call-to-action/package/assets/css/style.css?ver=9.99.1.0' as='style' onload="this.onload=null;this.rel='stylesheet'"/>
-        <link rel='stylesheet' id='veu-cta-css' href='https://www.kyoto-shinpan.co.jp/wp/wp-content/plugins/vk-all-in-one-expansion-unit/inc/call-to-action/package/assets/css/style.css?ver=9.99.1.0' media='print' onload="this.media='all'; this.onload=null;">
-        <style id='vk-swiper-style-css' type='text/css'>
-            @font-face {
-                font-family: swiper-icons;
-                src: url('data:application/font-woff;charset=utf-8;base64,d09GRgABAAAAAAZgABAAAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABGRlRNAAAGRAAAABoAAAAci6qHkUdERUYAAAWgAAAAIwAAACQAYABXR1BPUwAABhQAAAAuAAAANuAY7+xHU1VCAAAFxAAAAFAAAABm2fPczU9TLzIAAAHcAAAASgAAAGBP9V5RY21hcAAAAkQAAACIAAABYt6F0cBjdnQgAAACzAAAAAQAAAAEABEBRGdhc3AAAAWYAAAAAQAACAj//wADZ2x5ZgAAAywAAADMAAAD2MHtryVoZWFkAAABbAAAADAAAAA2E2+eoWhoZWEAAAGcAAAAHwAAACQC9gDzaG10eAAAAigAAAAZAAAArgJkABFsb2NhAAAC0AAAAFoAAABaFQAUGG1heHAAAAG8AAAAHwAAACAAcABAbmFtZQAAA/gAAAE5AAACXvFdBwlwb3N0AAAFNAAAAGIAAACE5s74hXjaY2BkYGAAYpf5Hu/j+W2+MnAzMYDAzaX6QjD6/4//Bxj5GA8AuRwMYGkAPywL13jaY2BkZgGD/wAAAwAAABWAAwAAAHjaY2BkGGDgYgAAgSEAEQAAAQBP") format('woff');
-                font-weight: 400;
-                font-style: normal
-            }
-
-            :root {
                 --swiper-theme-color: #007bff;
             }
 
-            .swiper,swiper-container {
-                margin-left: auto;
-                margin-right: auto;
-                position: relative;
-                overflow: hidden;
-                list-style: none;
-                padding: 0;
-                z-index: 1;
-                display: block
-            }
-
-            .swiper-vertical>.swiper-wrapper {
-                flex-direction: column
-            }
-
-            .swiper-wrapper {
-                position: relative;
-                width: 100%;
-                height: 100%;
-                z-index: 1;
-                display: flex;
-                transition-property: transform;
-                transition-timing-function: var(--swiper-wrapper-transition-timing-function,initial);
-                box-sizing: content-box
-            }
-
-            .swiper-android .swiper-slide,.swiper-wrapper {
-                transform: translate3d(0px,0,0)
-            }
-
-            .swiper-horizontal {
-                touch-action: pan-y
-            }
-
-            .swiper-vertical {
-                touch-action: pan-x
-            }
-
-            .swiper-slide,swiper-slide {
-                flex-shrink: 0;
-                width: 100%;
-                height: 100%;
-                position: relative;
-                transition-property: transform;
-                display: block
-            }
-
-            .swiper-slide-invisible-blank {
-                visibility: hidden
-            }
-
-            .swiper-autoheight,.swiper-autoheight .swiper-slide {
-                height: auto
-            }
-
-            .swiper-autoheight .swiper-wrapper {
-                align-items: flex-start;
-                transition-property: transform,height
-            }
-
-            .swiper-backface-hidden .swiper-slide {
-                transform: translateZ(0);
-                -webkit-backface-visibility: hidden;
-                backface-visibility: hidden
-            }
-
-            .swiper-3d.swiper-css-mode .swiper-wrapper {
-                perspective: 1200px
-            }
-
-            .swiper-3d .swiper-wrapper {
-                transform-style: preserve-3d
-            }
-
-            .swiper-3d {
-                perspective: 1200px
-            }
-
-            .swiper-3d .swiper-cube-shadow,.swiper-3d .swiper-slide,.swiper-3d .swiper-slide-shadow,.swiper-3d .swiper-slide-shadow-bottom,.swiper-3d .swiper-slide-shadow-left,.swiper-3d .swiper-slide-shadow-right,.swiper-3d .swiper-slide-shadow-top {
-                transform-style: preserve-3d
-            }
-
-            .swiper-3d .swiper-slide-shadow {
-                background: rgba(0,0,0,.15)
-            }
-
-            .swiper-3d .swiper-slide-shadow-left {
-                background-image: linear-gradient(to left,rgba(0,0,0,.5),rgba(0,0,0,0))
-            }
-
-            .swiper-3d .swiper-slide-shadow-right {
-                background-image: linear-gradient(to right,rgba(0,0,0,.5),rgba(0,0,0,0))
-            }
-
-            .swiper-3d .swiper-slide-shadow-top {
-                background-image: linear-gradient(to top,rgba(0,0,0,.5),rgba(0,0,0,0))
-            }
-
-            .swiper-3d .swiper-slide-shadow-bottom {
-                background-image: linear-gradient(to bottom,rgba(0,0,0,.5),rgba(0,0,0,0))
-            }
-
-            .swiper-css-mode>.swiper-wrapper {
-                overflow: auto;
-                scrollbar-width: none;
-                -ms-overflow-style: none
-            }
-
-            .swiper-css-mode>.swiper-wrapper::-webkit-scrollbar {
-                display: none
-            }
-
-            .swiper-css-mode>.swiper-wrapper>.swiper-slide {
-                scroll-snap-align: start start
-            }
-
-            .swiper-horizontal.swiper-css-mode>.swiper-wrapper {
-                scroll-snap-type: x mandatory
-            }
-
-            .swiper-vertical.swiper-css-mode>.swiper-wrapper {
-                scroll-snap-type: y mandatory
-            }
-
-            .swiper-centered>.swiper-wrapper::before {
-                content: '';
-                flex-shrink: 0;
-                order: 9999
-            }
-
-            .swiper-centered>.swiper-wrapper>.swiper-slide {
-                scroll-snap-align: center center;
-                scroll-snap-stop:always}
-
-            .swiper-centered.swiper-horizontal>.swiper-wrapper>.swiper-slide:first-child {
-                margin-inline-start:var(--swiper-centered-offset-before)}
-
-            .swiper-centered.swiper-horizontal>.swiper-wrapper: :before {
-                height:100%;
-                min-height: 1px;
-                width: var(--swiper-centered-offset-after)
-            }
-
-            .swiper-centered.swiper-vertical>.swiper-wrapper>.swiper-slide:first-child {
-                margin-block-start:var(--swiper-centered-offset-before)}
-
-            .swiper-centered.swiper-vertical>.swiper-wrapper: :before {
-                width:100%;
-                min-width: 1px;
-                height: var(--swiper-centered-offset-after)
-            }
-
-            .swiper-lazy-preloader {
-                width: 42px;
-                height: 42px;
-                position: absolute;
-                left: 50%;
-                top: 50%;
-                margin-left: -21px;
-                margin-top: -21px;
-                z-index: 10;
-                transform-origin: 50%;
-                box-sizing: border-box;
-                border: 4px solid var(--swiper-preloader-color,var(--swiper-theme-color));
-                border-radius: 50%;
-                border-top-color: transparent
-            }
-
-            .swiper-watch-progress .swiper-slide-visible .swiper-lazy-preloader,.swiper:not(.swiper-watch-progress) .swiper-lazy-preloader,swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader {
-                animation: swiper-preloader-spin 1s infinite linear
-            }
-
-            .swiper-lazy-preloader-white {
-                --swiper-preloader-color: #fff
-            }
-
-            .swiper-lazy-preloader-black {
-                --swiper-preloader-color: #000
-            }
-
-            @keyframes swiper-preloader-spin {
-                0% {
-                    transform: rotate(0deg)
-                }
-
-                100% {
-                    transform: rotate(360deg)
-                }
-            }
-
-            .swiper-virtual .swiper-slide {
-                -webkit-backface-visibility: hidden;
-                transform: translateZ(0)
-            }
-
-            .swiper-virtual.swiper-css-mode .swiper-wrapper::after {
-                content: '';
-                position: absolute;
-                left: 0;
-                top: 0;
-                pointer-events: none
-            }
-
-            .swiper-virtual.swiper-css-mode.swiper-horizontal .swiper-wrapper::after {
-                height: 1px;
-                width: var(--swiper-virtual-size)
-            }
-
-            .swiper-virtual.swiper-css-mode.swiper-vertical .swiper-wrapper::after {
-                width: 1px;
-                height: var(--swiper-virtual-size)
-            }
-
-            :root {
-                --swiper-navigation-size: 44px
-            }
-
-            .swiper-button-next,.swiper-button-prev {
-                position: absolute;
-                top: var(--swiper-navigation-top-offset,50%);
-                width: calc(var(--swiper-navigation-size)/44 * 27);
-                height: var(--swiper-navigation-size);
-                margin-top: calc(0px - (var(--swiper-navigation-size)/2));
-                z-index: 10;
-                cursor: pointer;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                color: var(--swiper-navigation-color,var(--swiper-theme-color))
-            }
-
-            .swiper-button-next.swiper-button-disabled,.swiper-button-prev.swiper-button-disabled {
-                opacity: .35;
-                cursor: auto;
-                pointer-events: none
-            }
-
-            .swiper-button-next.swiper-button-hidden,.swiper-button-prev.swiper-button-hidden {
-                opacity: 0;
-                cursor: auto;
-                pointer-events: none
-            }
-
-            .swiper-navigation-disabled .swiper-button-next,.swiper-navigation-disabled .swiper-button-prev {
-                display: none!important
-            }
-
-            .swiper-button-next:after,.swiper-button-prev:after {
-                font-family: swiper-icons;
-                font-size: var(--swiper-navigation-size);
-                text-transform: none!important;
-                letter-spacing: 0;
-                font-variant: initial;
-                line-height: 1
-            }
-
-            .swiper-button-prev,.swiper-rtl .swiper-button-next {
-                left: var(--swiper-navigation-sides-offset,10px);
-                right: auto
-            }
-
-            .swiper-button-prev:after,.swiper-rtl .swiper-button-next:after {
-                content: 'prev'
-            }
-
-            .swiper-button-next,.swiper-rtl .swiper-button-prev {
-                right: var(--swiper-navigation-sides-offset,10px);
-                left: auto
-            }
-
-            .swiper-button-next:after,.swiper-rtl .swiper-button-prev:after {
-                content: 'next'
-            }
-
-            .swiper-button-lock {
-                display: none
-            }
-
-            .swiper-pagination {
-                position: absolute;
-                text-align: center;
-                transition: .3s opacity;
-                transform: translate3d(0,0,0);
-                z-index: 10
-            }
-
-            .swiper-pagination.swiper-pagination-hidden {
-                opacity: 0
-            }
-
-            .swiper-pagination-disabled>.swiper-pagination,.swiper-pagination.swiper-pagination-disabled {
-                display: none!important
-            }
-
-            .swiper-horizontal>.swiper-pagination-bullets,.swiper-pagination-bullets.swiper-pagination-horizontal,.swiper-pagination-custom,.swiper-pagination-fraction {
-                bottom: var(--swiper-pagination-bottom,8px);
-                top: var(--swiper-pagination-top,auto);
-                left: 0;
-                width: 100%
-            }
-
-            .swiper-pagination-bullets-dynamic {
-                overflow: hidden;
-                font-size: 0
-            }
-
-            .swiper-pagination-bullets-dynamic .swiper-pagination-bullet {
-                transform: scale(.33);
-                position: relative
-            }
-
-            .swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active {
-                transform: scale(1)
-            }
-
-            .swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-main {
-                transform: scale(1)
-            }
-
-            .swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-prev {
-                transform: scale(.66)
-            }
-
-            .swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-prev-prev {
-                transform: scale(.33)
-            }
-
-            .swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-next {
-                transform: scale(.66)
-            }
-
-            .swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-next-next {
-                transform: scale(.33)
-            }
-
-            .swiper-pagination-bullet {
-                width: var(--swiper-pagination-bullet-width,var(--swiper-pagination-bullet-size,8px));
-                height: var(--swiper-pagination-bullet-height,var(--swiper-pagination-bullet-size,8px));
-                display: inline-block;
-                border-radius: var(--swiper-pagination-bullet-border-radius,50%);
-                background: var(--swiper-pagination-bullet-inactive-color,#000);
-                opacity: var(--swiper-pagination-bullet-inactive-opacity,.2)
-            }
-
-            button.swiper-pagination-bullet {
-                border: none;
-                margin: 0;
-                padding: 0;
-                box-shadow: none;
-                -webkit-appearance: none;
-                appearance: none
-            }
-
-            .swiper-pagination-clickable .swiper-pagination-bullet {
-                cursor: pointer
-            }
-
-            .swiper-pagination-bullet:only-child {
-                display: none!important
-            }
-
-            .swiper-pagination-bullet-active {
-                opacity: var(--swiper-pagination-bullet-opacity,1);
-                background: var(--swiper-pagination-color,var(--swiper-theme-color))
-            }
-
-            .swiper-pagination-vertical.swiper-pagination-bullets,.swiper-vertical>.swiper-pagination-bullets {
-                right: var(--swiper-pagination-right,8px);
-                left: var(--swiper-pagination-left,auto);
-                top: 50%;
-                transform: translate3d(0px,-50%,0)
-            }
-
-            .swiper-pagination-vertical.swiper-pagination-bullets .swiper-pagination-bullet,.swiper-vertical>.swiper-pagination-bullets .swiper-pagination-bullet {
-                margin: var(--swiper-pagination-bullet-vertical-gap,6px) 0;
-                display: block
-            }
-
-            .swiper-pagination-vertical.swiper-pagination-bullets.swiper-pagination-bullets-dynamic,.swiper-vertical>.swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
-                top: 50%;
-                transform: translateY(-50%);
-                width: 8px
-            }
-
-            .swiper-pagination-vertical.swiper-pagination-bullets.swiper-pagination-bullets-dynamic .swiper-pagination-bullet,.swiper-vertical>.swiper-pagination-bullets.swiper-pagination-bullets-dynamic .swiper-pagination-bullet {
-                display: inline-block;
-                transition: .2s transform,.2s top
-            }
-
-            .swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet,.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
-                margin: 0 var(--swiper-pagination-bullet-horizontal-gap,4px)
-            }
-
-            .swiper-horizontal>.swiper-pagination-bullets.swiper-pagination-bullets-dynamic,.swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
-                left: 50%;
-                transform: translateX(-50%);
-                white-space: nowrap
-            }
-
-            .swiper-horizontal>.swiper-pagination-bullets.swiper-pagination-bullets-dynamic .swiper-pagination-bullet,.swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic .swiper-pagination-bullet {
-                transition: .2s transform,.2s left
-            }
-
-            .swiper-horizontal.swiper-rtl>.swiper-pagination-bullets-dynamic .swiper-pagination-bullet,:host(.swiper-horizontal.swiper-rtl) .swiper-pagination-bullets-dynamic .swiper-pagination-bullet {
-                transition: .2s transform,.2s right
-            }
-
-            .swiper-pagination-fraction {
-                color: var(--swiper-pagination-fraction-color,inherit)
-            }
-
-            .swiper-pagination-progressbar {
-                background: var(--swiper-pagination-progressbar-bg-color,rgba(0,0,0,.25));
-                position: absolute
-            }
-
-            .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
-                background: var(--swiper-pagination-color,var(--swiper-theme-color));
-                position: absolute;
-                left: 0;
-                top: 0;
-                width: 100%;
-                height: 100%;
-                transform: scale(0);
-                transform-origin: left top
-            }
-
-            .swiper-rtl .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
-                transform-origin: right top
-            }
-
-            .swiper-horizontal>.swiper-pagination-progressbar,.swiper-pagination-progressbar.swiper-pagination-horizontal,.swiper-pagination-progressbar.swiper-pagination-vertical.swiper-pagination-progressbar-opposite,.swiper-vertical>.swiper-pagination-progressbar.swiper-pagination-progressbar-opposite {
-                width: 100%;
-                height: var(--swiper-pagination-progressbar-size,4px);
-                left: 0;
-                top: 0
-            }
-
-            .swiper-horizontal>.swiper-pagination-progressbar.swiper-pagination-progressbar-opposite,.swiper-pagination-progressbar.swiper-pagination-horizontal.swiper-pagination-progressbar-opposite,.swiper-pagination-progressbar.swiper-pagination-vertical,.swiper-vertical>.swiper-pagination-progressbar {
-                width: var(--swiper-pagination-progressbar-size,4px);
-                height: 100%;
-                left: 0;
-                top: 0
-            }
-
-            .swiper-pagination-lock {
-                display: none
-            }
-
-            .swiper-scrollbar {
-                border-radius: var(--swiper-scrollbar-border-radius,10px);
-                position: relative;
-                -ms-touch-action: none;
-                background: var(--swiper-scrollbar-bg-color,rgba(0,0,0,.1))
-            }
-
-            .swiper-scrollbar-disabled>.swiper-scrollbar,.swiper-scrollbar.swiper-scrollbar-disabled {
-                display: none!important
-            }
-
-            .swiper-horizontal>.swiper-scrollbar,.swiper-scrollbar.swiper-scrollbar-horizontal {
-                position: absolute;
-                left: var(--swiper-scrollbar-sides-offset,1%);
-                bottom: var(--swiper-scrollbar-bottom,4px);
-                top: var(--swiper-scrollbar-top,auto);
-                z-index: 50;
-                height: var(--swiper-scrollbar-size,4px);
-                width: calc(100% - 2 * var(--swiper-scrollbar-sides-offset,1%))
-            }
-
-            .swiper-scrollbar.swiper-scrollbar-vertical,.swiper-vertical>.swiper-scrollbar {
-                position: absolute;
-                left: var(--swiper-scrollbar-left,auto);
-                right: var(--swiper-scrollbar-right,4px);
-                top: var(--swiper-scrollbar-sides-offset,1%);
-                z-index: 50;
-                width: var(--swiper-scrollbar-size,4px);
-                height: calc(100% - 2 * var(--swiper-scrollbar-sides-offset,1%))
-            }
-
-            .swiper-scrollbar-drag {
-                height: 100%;
-                width: 100%;
-                position: relative;
-                background: var(--swiper-scrollbar-drag-bg-color,rgba(0,0,0,.5));
-                border-radius: var(--swiper-scrollbar-border-radius,10px);
-                left: 0;
-                top: 0
-            }
-
-            .swiper-scrollbar-cursor-drag {
-                cursor: move
-            }
-
-            .swiper-scrollbar-lock {
-                display: none
-            }
-
-            .swiper-zoom-container {
-                width: 100%;
-                height: 100%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                text-align: center
-            }
-
-            .swiper-zoom-container>canvas,.swiper-zoom-container>img,.swiper-zoom-container>svg {
-                max-width: 100%;
-                max-height: 100%;
-                object-fit: contain
-            }
-
-            .swiper-slide-zoomed {
-                cursor: move;
-                touch-action: none
-            }
-
-            .swiper .swiper-notification,swiper-container .swiper-notification {
-                position: absolute;
-                left: 0;
-                top: 0;
-                pointer-events: none;
-                opacity: 0;
-                z-index: -1000
-            }
-
-            .swiper-free-mode>.swiper-wrapper {
-                transition-timing-function: ease-out;
-                margin: 0 auto
-            }
-
-            .swiper-grid>.swiper-wrapper {
-                flex-wrap: wrap
-            }
-
-            .swiper-grid-column>.swiper-wrapper {
-                flex-wrap: wrap;
-                flex-direction: column
-            }
-
-            .swiper-fade.swiper-free-mode .swiper-slide {
-                transition-timing-function: ease-out
-            }
-
-            .swiper-fade .swiper-slide {
-                pointer-events: none;
-                transition-property: opacity
-            }
-
-            .swiper-fade .swiper-slide .swiper-slide {
-                pointer-events: none
-            }
-
-            .swiper-fade .swiper-slide-active,.swiper-fade .swiper-slide-active .swiper-slide-active {
-                pointer-events: auto
-            }
-
-            .swiper-cube {
-                overflow: visible
-            }
-
-            .swiper-cube .swiper-slide {
-                pointer-events: none;
-                -webkit-backface-visibility: hidden;
-                backface-visibility: hidden;
-                z-index: 1;
-                visibility: hidden;
-                transform-origin: 0 0;
-                width: 100%;
-                height: 100%
-            }
-
-            .swiper-cube .swiper-slide .swiper-slide {
-                pointer-events: none
-            }
-
-            .swiper-cube.swiper-rtl .swiper-slide {
-                transform-origin: 100% 0
-            }
-
-            .swiper-cube .swiper-slide-active,.swiper-cube .swiper-slide-active .swiper-slide-active {
-                pointer-events: auto
-            }
-
-            .swiper-cube .swiper-slide-active,.swiper-cube .swiper-slide-next,.swiper-cube .swiper-slide-next+.swiper-slide,.swiper-cube .swiper-slide-prev {
-                pointer-events: auto;
-                visibility: visible
-            }
-
-            .swiper-cube .swiper-slide-shadow-bottom,.swiper-cube .swiper-slide-shadow-left,.swiper-cube .swiper-slide-shadow-right,.swiper-cube .swiper-slide-shadow-top {
-                z-index: 0;
-                -webkit-backface-visibility: hidden;
-                backface-visibility: hidden
-            }
-
-            .swiper-cube .swiper-cube-shadow {
-                position: absolute;
-                left: 0;
-                bottom: 0px;
-                width: 100%;
-                height: 100%;
-                opacity: .6;
-                z-index: 0
-            }
-
-            .swiper-cube .swiper-cube-shadow:before {
-                content: '';
-                background: #000;
-                position: absolute;
-                left: 0;
-                top: 0;
-                bottom: 0;
-                right: 0;
-                filter: blur(50px)
-            }
-
-            .swiper-flip {
-                overflow: visible
-            }
-
-            .swiper-flip .swiper-slide {
-                pointer-events: none;
-                -webkit-backface-visibility: hidden;
-                backface-visibility: hidden;
-                z-index: 1
-            }
-
-            .swiper-flip .swiper-slide .swiper-slide {
-                pointer-events: none
-            }
-
-            .swiper-flip .swiper-slide-active,.swiper-flip .swiper-slide-active .swiper-slide-active {
-                pointer-events: auto
-            }
-
-            .swiper-flip .swiper-slide-shadow-bottom,.swiper-flip .swiper-slide-shadow-left,.swiper-flip .swiper-slide-shadow-right,.swiper-flip .swiper-slide-shadow-top {
-                z-index: 0;
-                -webkit-backface-visibility: hidden;
-                backface-visibility: hidden
-            }
-
-            .swiper-creative .swiper-slide {
-                -webkit-backface-visibility: hidden;
-                backface-visibility: hidden;
-                overflow: hidden;
-                transition-property: transform,opacity,height
-            }
-
-            .swiper-cards {
-                overflow: visible
-            }
-
-            .swiper-cards .swiper-slide {
-                transform-origin: center bottom;
-                -webkit-backface-visibility: hidden;
-                backface-visibility: hidden;
-                overflow: hidden
-            }
-        </style>
-        <style id='lightning-common-style-css' type='text/css'>
-            .container {
-                width: 100%;
-                padding-right: 15px;
-                padding-left: 15px;
-                margin-right: auto;
-                margin-left: auto
-            }
-
-            .row {
-                display: flex;
-                flex-wrap: wrap;
-                margin-right: -15px;
-                margin-left: -15px
-            }
-
-            .col-lg-12 {
-                position: relative;
-                width: 100%;
-                padding-right: 15px;
-                padding-left: 15px
-            }
-
-            .btn {
-                display: inline-block;
-                font-weight: 400;
-                color: #212529;
-                text-align: center;
-                vertical-align: middle;
-                -webkit-user-select: none;
-                -moz-user-select: none;
-                user-select: none;
-                background-color: transparent;
-                border: 1px solid transparent;
-                padding: .375rem .75rem;
-                font-size: 1rem;
-                line-height: 1.5;
-                border-radius: .25rem;
-                transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out
-            }
-
-            .btn:hover {
-                color: #212529;
-                text-decoration: none
-            }
-
-            .btn:focus {
-                outline: 0;
-                box-shadow: 0 0 0 .2rem rgba(0,123,255,.25)
-            }
-
-            .btn:disabled {
-                opacity: .65
-            }
-
-            .btn:not(:disabled):not(.disabled) {
-                cursor: pointer
-            }
-
-            fieldset:disabled a.btn {
-                pointer-events: none
-            }
-
-            .btn-primary {
-                color: #fff;
-                background-color: #007bff;
-                border-color: #007bff
-            }
-
-            .btn-primary:hover {
-                color: #fff;
-                background-color: #0069d9;
-                border-color: #0062cc
-            }
-
-            .btn-primary:focus {
-                color: #fff;
-                background-color: #0069d9;
-                border-color: #0062cc;
-                box-shadow: 0 0 0 .2rem rgba(38,143,255,.5)
-            }
-
-            .btn-primary:disabled {
-                color: #fff;
-                background-color: #007bff;
-                border-color: #007bff
-            }
-
-            .btn-primary:not(:disabled):not(.disabled).active,.btn-primary:not(:disabled):not(.disabled):active {
-                color: #fff;
-                background-color: #0062cc;
-                border-color: #005cbf
-            }
-
-            .btn-primary:not(:disabled):not(.disabled).active:focus,.btn-primary:not(:disabled):not(.disabled):active:focus {
-                box-shadow: 0 0 0 .2rem rgba(38,143,255,.5)
-            }
-
-            .btn-lg {
-                padding: .5rem 1rem;
-                font-size: 1.25rem;
-                line-height: 1.5;
-                border-radius: .3rem
-            }
-
-            .card {
-                position: relative;
-                display: flex;
-                flex-direction: column;
-                min-width: 0;
-                word-wrap: break-word;
-                background-color: #fff;
-                background-clip: border-box;
-                border: 1px solid rgba(0,0,0,.125);
-                border-radius: .25rem
-            }
-
-            :root {
-                --vk-font-size-xs: 11px;
-                --vk-color-link-text: #007bff;
-                --vk-color-link-text-hover: #0056b3;
-                --vk-color-text-body: #333;
-                --vk-color-text-light: #666;
-                --vk-color-border-hr: #e5e5e5;
-                --vk-color-border-image: #e5e5e5;
-                --vk-line-height-low: 1.5em
-            }
-
-            .vk_post {
-                margin-left: 15px;
-                margin-right: 15px
-            }
-
-            .vk_post a:hover {
-                text-decoration: none
-            }
-
-            .vk_post.card {
-                padding: 0;
-                margin-bottom: 30px;
-                box-sizing: border-box;
-                max-width: 100%
-            }
-
-            .card {
-                overflow: hidden;
-                box-shadow: none
-            }
-
-            .card a {
-                color: inherit
-            }
-
-            .card a.btn-primary {
-                color: #fff
-            }
-
-            .card img:is([sizes=auto i],[sizes^="auto,"i]) {
-                contain-intrinsic-size: revert
-            }
-
-            .card-noborder.card {
-                border: none;
-                background: 0 0
-            }
-
-            :root {
-                --vk-color-text-body: #333333;
-                --vk-color-text-link: #666666;
-                --vk-color-text-link-hover: #1e73be;
-                --vk-color-text-header: #444444;
-                --vk-color-text-meta: #666666;
-                --vk-color-text-light: #666666;
-                --vk-color-border: rgba(0,0,0,0.2);
-                --vk-color-border-hr: rgba(0,0,0,0.06);
-                --vk-color-border-image: #e5e5e5;
-                --vk-color-border-form: rgba(0,0,0,0.2);
-                --vk-color-primary: #007bff;
-                --vk-color-primary-dark: #0056b3;
-                --vk-color-primary-vivid: #0090ff;
-                --vk-color-accent-bg: rgba(0,0,0,0.02);
-                --vk-color-header-bg: #fff;
-                --vk-color-footer-bg: #f5f5f5;
-                --vk-width-container: 100svw;
-                --vk-width-container-padding: 15px;
-                --vk-width-full: 100svw;
-                --vk-width-col-2-main: 66.6%;
-                --vk-width-col-2-sub: calc(var(--vk-width-container) * 0.27);
-                --vk-margin-meta: 0.5rem;
-                --vk-margin-headding-bottom: 1em;
-                --vk-margin-element-bottom: 1.5rem;
-                --vk-margin-block-bottom: 2rem;
-                --vk-margin-section-bottom: 3rem;
-                --vk-size-text: 16px;
-                --vk-size-text-meta: 0.75rem;
-                --vk-size-text-lg: 1.5rem;
-                --vk-size-text-sm: 0.875rem;
-                --vk-size-text-xs: 0.75rem;
-                --vk-size-radius: 4px;
-                --vk-size-radius-sm: calc(var(--vk-size-radius) * 0.5);
-                --vk-size-radius-lg: calc(var(--vk-size-radius) * 1.5);
-                --vk-line-height: 1.7em;
-                --vk-line-height-low: 1.4em
-            }
-
-            :root {
-                --vk-size-admin-bar: 46px;
-                --wp--preset--font-family--system-font: "ヒラギノ角ゴ ProN","Hiragino Kaku Gothic ProN","メイリオ",Meiryo,"ＭＳ Ｐゴシック","MS PGothic",sans-serif
-            }
-
-            dl,ol,p,ul {
-                margin-bottom: var(--vk-margin-element-bottom)
-            }
-
-            a {
-                text-decoration: none;
-                color: var(--vk-color-text-link)
-            }
-
-            a:hover {
-                color: var(--vk-color-text-link-hover);
-                text-decoration-color: var(--vk-color-text-link-hover)
-            }
-
-            li a,p a {
-                text-decoration: underline;
-                text-decoration-style: dotted;
-                text-underline-offset: 2px;
-                text-decoration-color: rgba(0,0,0,.3);
-                text-decoration-thickness: 1px
-            }
-
-            li a:hover,p a:hover {
-                text-decoration: none
-            }
-
-            p {
-                line-height: var(--vk-line-height);
-                margin-block-start:0}
-
-            dl+h1,dl+h2,ol+h1,ol+h2,p+h1,p+h2,ul+h1,ul+h2 {
-                margin-top: 2em
-            }
-
-            h1,h2 {
-                margin-top: 0;
-                margin-bottom: var(--vk-margin-headding-bottom);
-                line-height: var(--vk-line-height-low)
-            }
-
-            h1 a,h2 a {
-                text-decoration: none
-            }
-
-            h1 {
-                font-size: 2rem
-            }
-
-            h2 {
-                font-size: 1.75rem
-            }
-
-            ol,ul {
-                padding-left: 1.5em
-            }
-
-            li {
-                margin-top: .5em;
-                margin-bottom: .5em
-            }
-
-            img {
-                height: auto;
-                max-width: 100%
-            }
-
-            i {
-                margin-right: .4em
-            }
-
-            input[type=button],input[type=submit] {
-                -webkit-box-sizing: border-box;
-                -webkit-appearance: button;
-                -moz-appearance: button;
-                appearance: button
-            }
-
-            input[type=button]::-webkit-search-decoration,input[type=submit]::-webkit-search-decoration {
-                display: none
-            }
-
-            input[type=button]::focus,input[type=submit]::focus {
-                outline-offset: -2px
-            }
-
-            input:where(:not([type=checkbox],[type=radio])),select {
-                -webkit-appearance: none;
-                -moz-appearance: none;
-                appearance: none
-            }
-
-            input[type=date],input[type=email],input[type=number],input[type=password],input[type=tel],input[type=text],input[type=url],select {
-                font-size: 1rem;
-                border: 1px solid var(--vk-color-border-form);
-                border-radius: var(--vk-size-radius);
-                padding: .8em 1em;
-                margin: 0 0 .5rem;
-                width: 100%;
-                color: var(--vk-color-text-body);
-                background-color: #fff
-            }
-
-            input[type=file] {
-                margin: .5rem 0
-            }
-
-            input[type=submit] {
-                font-size: 1rem;
-                border: 1px solid var(--vk-color-primary-dark);
-                background-color: var(--vk-color-primary);
-                color: #fff;
-                padding: .5em 2em;
-                border-radius: var(--vk-size-radius)
-            }
-
-            input[type=submit]:not(:disabled):hover {
-                color: #fff;
-                cursor: pointer;
-                background-color: var(--vk-color-primary-dark)
-            }
-
-            dt {
-                font-weight: 700;
-                margin-bottom: .5em
-            }
-
-            dd {
-                margin-left: 0
-            }
-
-            .screen-reader-text {
-                border: 0;
-                clip: rect(1px,1px,1px,1px);
-                clip-path: inset(50%);
-                height: 1px;
-                margin: -1px;
-                overflow: hidden;
-                padding: 0;
-                position: absolute!important;
-                width: 1px;
-                word-wrap: normal!important;
-                word-break: normal
-            }
-
-            a.btn {
-                text-decoration: none
-            }
-
-            .vk_post .row {
-                margin: 0
-            }
-
-            .nav,nav {
-                margin: 0;
-                padding: 0
-            }
-
-            .nav li,nav li {
-                list-style: none;
-                margin: 0
-            }
-
-            .nav li a,nav li a {
-                color: var(--vk-color-text-body);
-                text-decoration: none
-            }
-
-            .nav--line li {
-                display: inline-block
-            }
-
-            .searchform div {
-                display: flex
-            }
-
-            .searchform input {
-                margin: 0
-            }
-
-            .searchform input[type=text] {
-                border-top-right-radius: 0;
-                border-bottom-right-radius: 0
-            }
-
-            .searchform input[type=submit] {
-                border: 1px solid var(--vk-color-border-form);
-                border-left: none;
-                padding-left: .5em;
-                padding-right: .5em;
-                border-top-left-radius: 0;
-                border-bottom-left-radius: 0;
-                letter-spacing: 1px;
-                width: 30%
-            }
-
-            .card.card-noborder {
-                border-radius: 0
-            }
-
-            .btn {
-                border-radius: var(--vk-size-radius)
-            }
-
-            .btn-primary {
-                background-color: var(--vk-color-primary);
-                border-color: var(--vk-color-primary-dark)
-            }
-
-            .btn-primary:active,.btn-primary:focus,.btn-primary:hover,.btn-primary:not(:disabled):not(.disabled):active {
-                background-color: var(--vk-color-primary-vivid);
-                border-color: var(--vk-color-primary)
-            }
-
-            .btn-primary:active,.btn-primary:focus,.btn-primary:not(:disabled):not(.disabled).active:focus,.btn-primary:not(:disabled):not(.disabled):active:focus,.btn-primary:not(:disabled):not(.disabled):focus {
-                box-shadow: 0 0 0 .2rem rgba(0,0,0,.1)
-            }
-
-            a.btn {
-                text-decoration: none
-            }
-
-            .site-footer .veu_contact .contact_frame {
-                padding: 1.4rem 1.3rem
-            }
-
-            .site-footer .veu_contact .contact_txt {
-                margin-bottom: .8rem
-            }
-
-            .site-footer .veu_contact .contact_txt_tel {
-                font-size: 22px;
-                white-space: nowrap
-            }
-
-            .site-footer .veu_contact .contact_txt_time {
-                font-size: 10px
-            }
-
-            .site-footer .veu_contact .contact_bt {
-                padding-left: .5rem;
-                padding-right: .5rem
-            }
-
-            .site-footer .veu_contact .contact_bt_txt {
-                font-size: 1.2rem
-            }
-
-            .card {
-                border-radius: var(--vk-size-radius)
-            }
-
-            .main-section,.site-body,.site-body-container,.site-footer {
-                position: relative
-            }
-
-            .main-section:after,.site-body-container:after,.site-body:after,.site-footer:after {
-                content: "";
-                display: block;
-                clear: both
-            }
-
-            .site-body {
-                padding: 2rem 0 2rem
-            }
-
-            .main-section>aside:last-child,.main-section>div:last-child {
-                margin-bottom: 0
-            }
-
-            :root {
-                --vk-width-base-padding: 1.4rem;
-                --vk-width-base-padding-side: var(--vk-width-base-padding)
-            }
-
-            :root {
-                --vk-margin-list-menu-left-first: 1em;
-                --vk-margin-list-menu-left: 1em
-            }
-
-            .widget {
-                display: block;
-                margin-bottom: var(--vk-margin-block-bottom)
-            }
-
-            .widget ul {
-                padding-left: 1.5em
-            }
-
-            .widget li {
-                margin-top: .8em
-            }
-
-            .widget:last-child {
-                margin-bottom: 0
-            }
-
-            .widget:after {
-                content: "";
-                clear: both;
-                display: block
-            }
-
-            .site-header {
-                width: 100%;
-                overflow: visible;
-                z-index: 1000;
-                position: relative;
-                box-shadow: 0 1px 3px rgba(0,0,0,.05)
-            }
-
-            .site-header-logo {
-                text-align: center;
-                font-weight: 700;
-                font-size: 1.5rem;
-                white-space: nowrap;
-                line-height: var(--vk-line-height-low)
-            }
-
-            .site-header-logo img {
-                max-height: 60px;
-                max-width: 100%;
-                display: block;
-                margin-left: auto;
-                margin-right: auto
-            }
-
-            .site-header-logo a {
-                color: var(--vk-color-text-body);
-                text-decoration: none
-            }
-
-            .site-header::after {
-                content: "";
-                clear: both;
-                display: block
-            }
-
-            .header_scrolled .site-header-logo {
-                display: none
-            }
-
-            .header_scrolled .site-header {
-                background-color: var(--vk-color-header-bg)
-            }
-
-            .page-header {
-                margin-top: 0;
-                margin-bottom: 0;
-                padding-bottom: 0;
-                display: flex;
-                align-items: center;
-                position: relative;
-                z-index: 1;
-                min-height: 8rem;
-                text-align: center
-            }
-
-            .page-header-inner {
-                position: relative;
-                z-index: 5;
-                margin: 1.5em auto
-            }
-
-            .page-header-title,h1.page-header-title {
-                font-size: 2rem;
-                font-weight: 700;
-                line-height: var(--vk-line-height-low);
-                margin: 0
-            }
-
-            .breadcrumb {
-                font-size: 12px
-            }
-
-            .breadcrumb-list {
-                margin: 0;
-                padding: 6px 0
-            }
-
-            .breadcrumb-list li {
-                display: inline-block;
-                margin: 0;
-                list-style: none
-            }
-
-            .breadcrumb-list li:after {
-                content: "/";
-                margin-left: .5em;
-                margin-right: .5em
-            }
-
-            .breadcrumb-list li:last-child:after {
-                content: "";
-                margin-left: 0;
-                margin-right: 0
-            }
-
-            .site-footer {
-                --vk-size-text-sm: 12px;
-                display: block;
-                overflow: hidden;
-                font-size: var(--vk-size-text-sm);
-                content-visibility: auto;
-                contain-intrinsic-size: 370px
-            }
-
-            .site-footer-content {
-                position: relative;
-                padding-top: var(--vk-margin-section-bottom)
-            }
-
-            .site-footer-content>.customize-partial-edit-shortcut {
-                position: absolute;
-                left: -30px
-            }
-
-            .site-footer .widget:last-child() {
-                margin-bottom: var(--vk-margin-block-bottom)
-            }
-
-            .site-footer-copyright {
-                padding: 1rem
-            }
-
-            .site-footer-copyright p {
-                text-align: center;
-                margin: .5rem;
-                font-size: var(--vk-size-text-xs)
-            }
-
-            .footer-nav {
-                padding: 1em 0;
-                line-height: 1
-            }
-
-            .footer-nav li {
-                padding: 0 1.5em
-            }
-
-            .vk-mobile-nav-menu-btn {
-                position: fixed;
-                top: 5px;
-                left: 5px;
-                z-index: 2100;
-                overflow: hidden;
-                border: 1px solid #333;
-                border-radius: 2px;
-                width: 34px;
-                height: 34px;
-                cursor: pointer;
-                text-indent: -9999px;
-                background-size: 24px 24px;
-                transition: border-color .5s ease-out
-            }
-
-            .vk-mobile-nav-menu-btn.menu-open {
-                border: 1px solid rgba(255,255,255,.8)
-            }
-
-            .vk-mobile-nav {
-                position: fixed;
-                z-index: 2000;
-                width: 100%;
-                height: 100%;
-                display: block;
-                padding: 45px 10px;
-                overflow: scroll;
-                top: 0;
-                transition: all .5s ease-out
-            }
-
-            .vk-mobile-nav .vk-mobile-nav-menu-outer {
-                margin-bottom: 1.5em
-            }
-
-            .vk-mobile-nav nav ul {
-                padding: 0;
-                margin: 0
-            }
-
-            .vk-mobile-nav nav ul li {
-                list-style: none;
-                line-height: 1.65
-            }
-
-            .vk-mobile-nav nav ul li a {
-                padding: .7em .5em;
-                position: relative;
-                display: block;
-                overflow: hidden;
-                text-decoration: none
-            }
-
-            .vk-mobile-nav nav ul li li a {
-                padding-left: 1.5em
-            }
-
-            .vk-mobile-nav nav ul li li li a {
-                padding-left: 2.5em
-            }
-
-            .vk-mobile-nav nav ul li li li li a {
-                padding-left: 3.5em
-            }
-
-            .vk-mobile-nav.vk-mobile-nav-drop-in {
-                top: -2000px
-            }
-
-            .vk-mobile-nav.vk-mobile-nav-open.vk-mobile-nav-drop-in {
-                top: 0
-            }
-
-            .vk-mobile-nav-widget {
-                margin-bottom: 1.5em
-            }
-
-            .vk-menu-acc {
-                position: relative
-            }
-
-            .vk-menu-acc li {
-                position: relative;
-                margin-bottom: 0
-            }
-
-            .vk-menu-acc li.menu-item-has-children>a {
-                padding-right: 3em
-            }
-
-            .vk-menu-acc .acc-btn {
-                position: absolute;
-                right: 8px;
-                top: 8px;
-                width: 28px;
-                height: 28px;
-                border: 1px solid rgba(255,255,255,.8);
-                border-radius: 2px;
-                background: var(--vk-menu-acc-icon-open-white-bg-src) center 50% no-repeat;
-                background-size: 28px 28px;
-                cursor: pointer;
-                z-index: 1000;
-                transition: transform .5s ease-out
-            }
-
-            .vk-menu-acc .acc-btn:before {
-                position: relative;
-                top: -5px;
-                left: 4px;
-                font-size: 16px
-            }
-
-            .vk-menu-acc .acc-btn-close {
-                background: var(--vk-menu-acc-icon-close-white-bg-src) center 50% no-repeat
-            }
-
-            .vk-menu-acc ul.sub-menu {
-                max-height: 0;
-                opacity: 0;
-                overflow: hidden;
-                transition: all .5s ease-in;
-                position: relative;
-                z-index: 1;
-                display: block
-            }
-
-            .vk-menu-acc ul.sub-menu li a {
-                display: block;
-                overflow: hidden
-            }
-
-            .vk-menu-acc ul.acc-child-open {
-                transition: all .5s ease-in;
-                max-height: 80vh;
-                overflow-y: auto;
-                opacity: 1
-            }
-
-            .vk-mobile-nav-menu-btn {
-                border-color: #333;
-                background: var(--vk-mobile-nav-menu-btn-bg-src) center 50% no-repeat rgba(255,255,255,.8)
-            }
-
-            .vk-mobile-nav-menu-btn.menu-open {
-                border-color: #333;
-                background: var(--vk-mobile-nav-menu-btn-close-bg-src) center 50% no-repeat rgba(255,255,255,.8)
-            }
-
-            .vk-mobile-nav {
-                background-color: #fff;
-                border-bottom: 1px solid #e5e5e5
-            }
-
-            .vk-mobile-nav nav>ul {
-                border-top: 1px solid #ccc
-            }
-
-            .vk-mobile-nav nav ul li a {
-                color: #333;
-                border-bottom: 1px solid #ccc
-            }
-
-            .vk-menu-acc .acc-btn {
-                border: 1px solid #333;
-                background: var(--vk-menu-acc-icon-open-black-bg-src) center 50% no-repeat
-            }
-
-            .vk-menu-acc .acc-btn-close {
-                background: var(--vk-menu-acc-icon-close-black-bg-src) center 50% no-repeat
-            }
-
-            .vk-mobile-nav .acc-btn {
-                border-width: 1px;
-                border-style: solid
-            }
-
-            .customize-partial-edit-shortcut {
-                z-index: 10000000
-            }
-
-            .page-header span[class*=common] {
-                bottom: 4em
-            }
-
-            .page-header .customize-partial-edit-shortcut {
-                bottom: 7em;
-                left: 3em
-            }
-
-            body,html {
-                font-family: var(--wp--preset--font-family--system-font)
-            }
-
-            *,::after,::before {
-                box-sizing: border-box
-            }
-
-            body,html {
-                overflow-x: hidden
-            }
-
-            body,html {
-                font-size: var(--vk-size-text);
-                color: var(--vk-color-text-body);
-                padding: 0;
-                margin: 0;
-                -ms-word-wrap: break-word;
-                word-wrap: break-word;
-                background-color: #fff
-            }
-
-            @media (prefers-reduced-motion:reduce) {
-                .btn {
-                    transition: none
-                }
-            }
-
-            @media (min-width: 576px) {
-                .container {
-                    max-width:540px
-                }
-
-                :root {
-                    --vk-width-container: 540px
-                }
-
-                :root {
-                    --vk-width-base-padding: 1.7rem
-                }
-            }
-
-            @media (min-width: 576px) and (max-width:767.98px) {
-                .card.vk_post-col-sm-12 {
-                    margin-bottom:20px
-                }
-
-                .card-imageRound.vk_post-col-sm-12,.card-noborder.vk_post-col-sm-12 {
-                    margin-bottom: 40px
-                }
-            }
-
-            @media (min-width: 768px) {
-                .container {
-                    max-width:720px
-                }
-
-                :root {
-                    --vk-width-container: 720px
-                }
-
-                .site-body {
-                    padding: 2.5rem 0 2.5rem
-                }
-
-                :root {
-                    --vk-width-base-padding: 2rem
-                }
-            }
-
-            @media (min-width: 768px) and (max-width:991.98px) {
-                .card.vk_post-col-md-12 {
-                    margin-bottom:20px
-                }
-
-                .card-imageRound.vk_post-col-md-12,.card-noborder.vk_post-col-md-12 {
-                    margin-bottom: 40px
-                }
-            }
-
-            @media (min-width: 783px) {
-                :root {
-                    --vk-size-admin-bar:32px
-                }
-            }
-
-            @media (min-width: 992px) {
-                .container {
-                    max-width:960px
-                }
-
-                .col-lg-12 {
-                    flex: 0 0 100%;
-                    max-width: 100%
-                }
-
-                :root {
-                    --vk-width-container: 960px
-                }
-
-                .site-body {
-                    padding: 3rem 0 3.5rem
-                }
-
-                :root {
-                    --vk-width-base-padding: 2.4rem;
-                    --vk-width-base-padding-side: 1.7rem
-                }
-
-                body.device-mobile .vk-mobile-nav-menu-btn {
-                    display: none
-                }
-
-                .site-header-logo {
-                    text-align: left;
-                    padding-top: 1.1rem;
-                    margin-bottom: 1rem;
-                    margin-left: 0
-                }
-
-                .site-header--layout--nav-float .site-header-container {
-                    display: flex;
-                    flex-direction: row
-                }
-
-                .site-header--layout--nav-float .site-header-logo {
-                    margin-right: 2em;
-                    width: 100%
-                }
-
-                .site-header--layout--nav-float .site-header-logo img {
-                    margin-left: 0
-                }
-
-                .site-header--layout--nav-float .site-header-logo a {
-                    display: block;
-                    width: -moz-fit-content;
-                    width: fit-content
-                }
-
-                .header_scrolled .site-header {
-                    clear: both;
-                    z-index: 1000;
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    width: 100vw;
-                    max-width: 100vw;
-                    min-height: unset;
-                    box-shadow: 0 1px 3px rgba(0,0,0,.1);
-                    animation: header_drop .5s ease-out 0s 1 alternate none running
-                }
-
-                body.device-pc .vk-mobile-nav-menu-btn {
-                    display: none
-                }
-
-                body.device-pc .vk-mobile-nav {
-                    display: none
-                }
-            }
-
-            @media (min-width: 992px) and (max-width:1199.98px) {
-                .card.vk_post-col-lg-12 {
-                    margin-bottom:20px
-                }
-
-                .card-imageRound.vk_post-col-lg-12,.card-noborder.vk_post-col-lg-12 {
-                    margin-bottom: 40px
-                }
-            }
-
-            @media (min-width: 1200px) {
-                .container {
-                    max-width:1140px
-                }
-
-                .card.vk_post-col-xl-12 {
-                    margin-bottom: 20px
-                }
-
-                .card-imageRound.vk_post-col-xl-12,.card-noborder.vk_post-col-xl-12 {
-                    margin-bottom: 40px
-                }
-
-                :root {
-                    --vk-width-container: 1140px
-                }
-
-                .site-body {
-                    padding: 3.5rem 0 4rem
-                }
-
-                :root {
-                    --vk-width-base-padding-side: 2rem
-                }
-            }
-
-            @media (min-width: 1400px) {
-                .card.vk_post-col-xxl-12 {
-                    margin-bottom:20px
-                }
-
-                .card-imageRound.vk_post-col-xxl-12,.card-noborder.vk_post-col-xxl-12 {
-                    margin-bottom: 40px
-                }
-            }
-
-            @media (max-width: 991.98px) {
-                .main-section {
-                    width:100%;
-                    flex-basis: unset
-                }
-
-                .main-section {
-                    margin-bottom: 2rem
-                }
-
-                .site-header-logo {
-                    padding-top: .5rem;
-                    margin-bottom: .5rem;
-                    white-space: normal
-                }
-
-                .site-header-logo img {
-                    max-height: 50px
-                }
-
-                .site-header-container {
-                    display: block;
-                    overflow: hidden
-                }
-
-                body,html {
-                    font-size: calc(var(--vk-size-text) * .875)
-                }
-            }
-
-            @media (max-width: 767.98px) {
-                .footer-nav {
-                    padding:0
-                }
-
-                .footer-nav-list li {
-                    display: block;
-                    padding: 0
-                }
-
-                .footer-nav-list li a {
-                    display: block;
-                    padding-top: 1em;
-                    padding-bottom: 1em
-                }
-
-                .footer-nav-list li:last-child a {
-                    border-bottom: none
-                }
-            }
-
-            @media (max-width: 575.98px) {
-                .card.vk_post-col-xs-12 {
-                    margin-bottom:20px
-                }
-
-                .card-imageRound.vk_post-col-xs-12,.card-noborder.vk_post-col-xs-12 {
-                    margin-bottom: 40px
-                }
-            }
-
-            @media print {
-                #page_top {
-                    display: none!important
-                }
-
-                .vk-mobile-nav,.vk-mobile-nav-menu-btn {
-                    display: none
-                }
-
-                a {
-                    text-decoration: none!important
-                }
-
-                a[href]:after {
-                    content: ""!important
-                }
-            }
-
-            @keyframes header_drop {
-                0% {
-                    top: -63px
-                }
-
-                100% {
-                    top: 0
-                }
-            }
-
-            @keyframes header_drop_admin {
-                0% {
-                    top: -31px
-                }
-
-                100% {
-                    top: 32px
-                }
-            }
-        </style>
-        <style id='lightning-common-style-inline-css' type='text/css'>
-            /* Lightning */
-            :root {
-                --vk-color-primary: #007bff;
-                --vk-color-primary-dark: #0056b3;
-                --vk-color-primary-vivid: #0090ff;
-                --g_nav_main_acc_icon_open_url: url(https://www.kyoto-shinpan.co.jp/wp/wp-content/themes/lightning/_g3/inc/vk-mobile-nav/package/images/vk-menu-acc-icon-open-black.svg);
-                --g_nav_main_acc_icon_close_url: url(https://www.kyoto-shinpan.co.jp/wp/wp-content/themes/lightning/_g3/inc/vk-mobile-nav/package/images/vk-menu-close-black.svg);
-                --g_nav_sub_acc_icon_open_url: url(https://www.kyoto-shinpan.co.jp/wp/wp-content/themes/lightning/_g3/inc/vk-mobile-nav/package/images/vk-menu-acc-icon-open-white.svg);
-                --g_nav_sub_acc_icon_close_url: url(https://www.kyoto-shinpan.co.jp/wp/wp-content/themes/lightning/_g3/inc/vk-mobile-nav/package/images/vk-menu-close-white.svg);
-            }
-
-            :root {
-                --swiper-navigation-color: #fff;
-            }
-
-            html {
-                scroll-padding-top: var(--vk-size-admin-bar);
-            }
-
-            /* vk-mobile-nav */
-            :root {
-                --vk-mobile-nav-menu-btn-bg-src: url("https://www.kyoto-shinpan.co.jp/wp/wp-content/themes/lightning/_g3/inc/vk-mobile-nav/package/images/vk-menu-btn-black.svg");
-                --vk-mobile-nav-menu-btn-close-bg-src: url("https://www.kyoto-shinpan.co.jp/wp/wp-content/themes/lightning/_g3/inc/vk-mobile-nav/package/images/vk-menu-close-black.svg");
-                --vk-menu-acc-icon-open-black-bg-src: url("https://www.kyoto-shinpan.co.jp/wp/wp-content/themes/lightning/_g3/inc/vk-mobile-nav/package/images/vk-menu-acc-icon-open-black.svg");
-                --vk-menu-acc-icon-open-white-bg-src: url("https://www.kyoto-shinpan.co.jp/wp/wp-content/themes/lightning/_g3/inc/vk-mobile-nav/package/images/vk-menu-acc-icon-open-white.svg");
-                --vk-menu-acc-icon-close-black-bg-src: url("https://www.kyoto-shinpan.co.jp/wp/wp-content/themes/lightning/_g3/inc/vk-mobile-nav/package/images/vk-menu-close-black.svg");
-                --vk-menu-acc-icon-close-white-bg-src: url("https://www.kyoto-shinpan.co.jp/wp/wp-content/themes/lightning/_g3/inc/vk-mobile-nav/package/images/vk-menu-close-white.svg");
-            }
-        </style>
-        <style id='lightning-design-style-css' type='text/css'>
-            body,html {
-                font-family: Lato,"Noto Sans JP","ヒラギノ角ゴ ProN","Hiragino Kaku Gothic ProN","メイリオ",Meiryo,"ＭＳ Ｐゴシック","MS PGothic",sans-serif
-            }
+            .has-vk-color-primary-color { color: var(--wp--preset--color--vk-color-primary) !important; }
+            .has-vk-color-primary-background-color { background-color: var(--wp--preset--color--vk-color-primary) !important; }
+            .has-vk-color-primary-border-color { border-color: var(--wp--preset--color--vk-color-primary) !important; }
+            .has-vk-color-primary-dark-color { color: var(--wp--preset--color--vk-color-primary-dark) !important; }
+            .has-vk-color-primary-dark-background-color { background-color: var(--wp--preset--color--vk-color-primary-dark) !important; }
+            .has-vk-color-primary-dark-border-color { border-color: var(--wp--preset--color--vk-color-primary-dark) !important; }
+            .has-vk-color-primary-vivid-color { color: var(--wp--preset--color--vk-color-primary-vivid) !important; }
+            .has-vk-color-primary-vivid-background-color { background-color: var(--wp--preset--color--vk-color-primary-vivid) !important; }
+            .has-vk-color-primary-vivid-border-color { border-color: var(--wp--preset--color--vk-color-primary-vivid) !important; }
 
             h2:where(:not(.wp-block-post-title)) {
-                padding: .5em 0;
                 border-top: 2px solid var(--vk-color-primary);
-                border-bottom: 1px solid var(--vk-color-border-hr)
             }
-
-            body,html {
-                font-family: Lato,"Noto Sans JP","ヒラギノ角ゴ ProN","Hiragino Kaku Gothic ProN","メイリオ",Meiryo,"ＭＳ Ｐゴシック","MS PGothic",sans-serif
-            }
-
-            .site-header {
-                background-color: #fff
-            }
-
             .page-header {
-                color: #fff;
-                background-color: var(--vk-color-primary)
+                background-color: var(--vk-color-primary);
             }
-
-            .breadcrumb {
-                border-top: 1px solid var(--vk-color-border-hr);
-                border-bottom: 1px solid var(--vk-color-border-hr)
-            }
-
             .site-footer {
-                border-top: 1px solid var(--vk-color-primary)
+                border-top: 1px solid var(--vk-color-primary);
             }
-
-            .footer-nav {
-                border-bottom: 1px solid var(--vk-color-border-hr)
-            }
-
-            .footer-nav-list li:first-child {
-                border-left: 1px solid var(--vk-color-border)
-            }
-
             .footer-nav-list li {
-                border-right: 1px solid var(--vk-color-border)
+                border-right: 1px solid #007bff;
+            }
+             .vk_post_imgOuter_singleTermLabel, .postList_terms a {
+                background-color: #007bff!important;
+            }
+             .mini-content-container-1 .btn, .mini-content-container-2 .btn, .mini-content-container-3 .btn {
+                background-color: #007bff!important;
+                border-color: #007bff!important;
+            }
+            .language-markup {
+                color: #007bff!important;
             }
 
-            @media (max-width: 767.98px) {
-                .footer-nav {
-                    border-bottom:none
-                }
 
-                .footer-nav-list li:first-child {
-                    border-left: none
-                }
-
-                .footer-nav-list li {
-                    border-right: none;
-                    border-bottom: 1px solid var(--vk-color-border-hr)
-                }
-            }
-        </style>
-        <style id='lightning-design-style-inline-css' type='text/css'>
-            .tagcloud a:before {
-                font-family: "Font Awesome 5 Free";
-                content: "\f02b";
-                font-weight: bold;
-            }
-        </style>
-        <link rel='preload' id='vk-blog-card-css-preload' href='https://www.kyoto-shinpan.co.jp/wp/wp-content/themes/lightning/_g3/inc/vk-wp-oembed-blog-card/package/css/blog-card.css?ver=6.0.9' as='style' onload="this.onload=null;this.rel='stylesheet'"/>
-        <link rel='stylesheet' id='vk-blog-card-css' href='https://www.kyoto-shinpan.co.jp/wp/wp-content/themes/lightning/_g3/inc/vk-wp-oembed-blog-card/package/css/blog-card.css?ver=6.0.9' media='print' onload="this.media='all'; this.onload=null;">
-        <style id='vk-blocks-build-css-css' type='text/css'>
-            :root {
-                --vk-margin-elem: 2rem
-            }
-
-            :root {
-                --vk-margin-xs: 0.75rem;
-                --vk-margin-sm: 1.5rem;
-                --vk-margin-md: 2.4rem;
-                --vk-margin-lg: 4rem;
-                --vk-margin-xl: 6rem
-            }
-
-            @-webkit-keyframes trembling {
-                0% {
-                    -webkit-transform: rotate(-0.5deg);
-                    transform: rotate(-0.5deg)
-                }
-
-                50% {
-                    -webkit-transform: rotate(0.5deg);
-                    transform: rotate(0.5deg)
-                }
-            }
-
-            @keyframes trembling {
-                0% {
-                    -webkit-transform: rotate(-0.5deg);
-                    transform: rotate(-0.5deg)
-                }
-
-                50% {
-                    -webkit-transform: rotate(0.5deg);
-                    transform: rotate(0.5deg)
-                }
-            }
-
-            @-webkit-keyframes trembling-x {
-                0% {
-                    -webkit-transform: scale(1,1);
-                    transform: scale(1,1)
-                }
-
-                50% {
-                    -webkit-transform: scale(0.99,0.96);
-                    transform: scale(0.99,0.96)
-                }
-            }
-
-            @keyframes trembling-x {
-                0% {
-                    -webkit-transform: scale(1,1);
-                    transform: scale(1,1)
-                }
-
-                50% {
-                    -webkit-transform: scale(0.99,0.96);
-                    transform: scale(0.99,0.96)
-                }
-            }
-
-            @-webkit-keyframes pounding {
-                0% {
-                    -webkit-transform: scale(1.05);
-                    transform: scale(1.05)
-                }
-
-                5% {
-                    -webkit-transform: scale(1);
-                    transform: scale(1)
-                }
-
-                95% {
-                    -webkit-transform: scale(1);
-                    transform: scale(1)
-                }
-
-                100% {
-                    -webkit-transform: scale(1.05);
-                    transform: scale(1.05)
-                }
-            }
-
-            @keyframes pounding {
-                0% {
-                    -webkit-transform: scale(1.05);
-                    transform: scale(1.05)
-                }
-
-                5% {
-                    -webkit-transform: scale(1);
-                    transform: scale(1)
-                }
-
-                95% {
-                    -webkit-transform: scale(1);
-                    transform: scale(1)
-                }
-
-                100% {
-                    -webkit-transform: scale(1.05);
-                    transform: scale(1.05)
-                }
-            }
-
-            @-webkit-keyframes shaking {
-                0% {
-                    -webkit-transform: translate(1px,1px);
-                    transform: translate(1px,1px)
-                }
-
-                25% {
-                    -webkit-transform: translate(1px,-1px);
-                    transform: translate(1px,-1px)
-                }
-
-                50% {
-                    -webkit-transform: translate(-1px,-1px);
-                    transform: translate(-1px,-1px)
-                }
-
-                75% {
-                    -webkit-transform: translate(-1px,1px);
-                    transform: translate(-1px,1px)
-                }
-
-                100% {
-                    -webkit-transform: translate(1px,1px);
-                    transform: translate(1px,1px)
-                }
-            }
-
-            @keyframes shaking {
-                0% {
-                    -webkit-transform: translate(1px,1px);
-                    transform: translate(1px,1px)
-                }
-
-                25% {
-                    -webkit-transform: translate(1px,-1px);
-                    transform: translate(1px,-1px)
-                }
-
-                50% {
-                    -webkit-transform: translate(-1px,-1px);
-                    transform: translate(-1px,-1px)
-                }
-
-                75% {
-                    -webkit-transform: translate(-1px,1px);
-                    transform: translate(-1px,1px)
-                }
-
-                100% {
-                    -webkit-transform: translate(1px,1px);
-                    transform: translate(1px,1px)
-                }
-            }
-
-            :root {
-                --vk-color-border-red: #007bff;
-                --vk-color-background-red: #007bff;
-                --vk-color-border-orange: #ffa536;
-                --vk-color-background-orange: #ffa536;
-                --vk-color-border-blue: #4267b2;
-                --vk-color-background-blue: #4267b2;
-                --vk-color-border-green: #28a745;
-                --vk-color-background-green: #28a745;
-                --vk-color-border-black: #222;
-                --vk-color-background-black: #222
-            }
-
-            @-webkit-keyframes shine {
-                0% {
-                    left: -40%
-                }
-
-                10% {
-                    left: 120%
-                }
-
-                100% {
-                    left: 120%
-                }
-            }
-
-            @keyframes shine {
-                0% {
-                    left: -40%
-                }
-
-                10% {
-                    left: 120%
-                }
-
-                100% {
-                    left: 120%
-                }
-            }
-
-            :root {
-                --vk-color-border: rgba(0,0,0,.12)
-            }
-
-            :root {
-                --vk-color-background-white-translucent: rgba(255,255,255,0.5)
-            }
-
-            .swiper-pagination-bullet {
-                border-radius: unset;
-                width: 30px;
-                height: 5px;
-                background-color: #ccc;
-                opacity: unset;
-                outline: 1px solid var(--vk-color-background-white-translucent)
-            }
-
-            .swiper-pagination-bullet-active {
-                background: #666
-            }
-
-            :root {
-                --vk-heading-has-background-padding: 0.6em 0.7em 0.5em
-            }
-
+            /* シミュレーターの結果表示エリアのスタイルを追加 */
             .calculation-result {
                 margin-top: 20px;
                 padding: 15px;
@@ -2803,44 +93,64 @@
                 background-color: #e9ecef;
                 border: 1px solid #ced4da;
                 cursor: default;
-            }
-        </style>
-        <style id='vk-blocks-build-css-inline-css' type='text/css'>
-            :root {
-                --vk_flow-arrow: url(https://www.kyoto-shinpan.co.jp/wp/wp-content/plugins/vk-blocks/inc/vk-blocks/images/arrow_bottom.svg);
-                --vk_image-mask-wave01: url(https://www.kyoto-shinpan.co.jp/wp/wp-content/plugins/vk-blocks/inc/vk-blocks/images/wave01.svg);
-                --vk_image-mask-wave02: url(https://www.kyoto-shinpan.co.jp/wp/wp-content/plugins/vk-blocks/inc/vk-blocks/images/wave02.svg);
-                --vk_image-mask-wave03: url(https://www.kyoto-shinpan.co.jp/wp/wp-content/plugins/vk-blocks/inc/vk-blocks/images/wave03.svg);
-                --vk_image-mask-wave04: url(https://www.kyoto-shinpan.co.jp/wp/wp-content/plugins/vk-blocks/inc/vk-blocks/images/wave04.svg);
+                padding: .4em .8em; /* 調整 */
             }
 
-            :root {
-                --vk-balloon-border-width: 1px;
-                --vk-balloon-speech-offset: -12px;
+            /* シミュレーターフォームのスタイル調整 */
+            .calc-form label {
+                display: inline-block;
+                margin-bottom: 5px;
+                font-weight: bold;
+                width: 150px; /* ラベル幅を固定して揃える */
+                margin-right: 10px;
+                vertical-align: middle;
             }
-        </style>
-        <link rel='preload' id='vk-font-awesome-css-preload' href='https://www.kyoto-shinpan.co.jp/wp/wp-content/plugins/vk-post-author-display/vendor/vektor-inc/font-awesome-versions/src/versions/6/css/all.min.css?ver=6.4.2' as='style' onload="this.onload=null;this.rel='stylesheet'"/>
-        <link rel='stylesheet' id='vk-font-awesome-css' href='https://www.kyoto-shinpan.co.jp/wp/wp-content/plugins/vk-post-author-display/vendor/vektor-inc/font-awesome-versions/src/versions/6/css/all.min.css?ver=6.4.2' media='print' onload="this.media='all'; this.onload=null;">
-        <link rel='preload' id='lightning-theme-style-css-preload' href='https://www.kyoto-shinpan.co.jp/wp/wp-content/themes/lightning-child/style.css?ver=15.29.6' as='style' onload="this.onload=null;this.rel='stylesheet'"/>
-        <link rel='stylesheet' id='lightning-theme-style-css' href='https://www.kyoto-shinpan.co.jp/wp/wp-content/themes/lightning-child/style.css?ver=15.29.6' media='print' onload="this.media='all'; this.onload=null;">
-        <script type='text/javascript' src='https://www.kyoto-shinpan.co.jp/wp/wp-includes/js/jquery/jquery.min.js?ver=3.6.0' id='jquery-core-js'></script>
-        <script type='text/javascript' src='https://www.kyoto-shinpan.co.jp/wp/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2' id='jquery-migrate-js'></script>
-        <script type='text/javascript' id='custom_script-js'>
+            .calc-form input[type="number"],
+            .calc-form select {
+                 width: 150px; /* input幅を調整 */
+                 display: inline-block;
+                 margin-bottom: 10px;
+                 vertical-align: middle;
+            }
+            .calc-form input[type="button"] {
+                 margin-top: 10px;
+                 margin-right: 10px;
+            }
+            .calc-form fieldset {
+                 margin-bottom: 20px;
+            }
+             .calc-form ul {
+                 margin-top: 10px;
+                 font-size: 0.9rem;
+                 color: #555;
+             }
+             .calc-form ul li {
+                 margin-bottom: 5px;
+             }
 
+        </style>
+
+        <!-- jQueryのみ残す -->
+        <script type='text/javascript' src='https://www.kyoto-shinpan.co.jp/wp/wp-includes/js/jquery/jquery.min.js?ver=3.6.0'></script>
+
+        <script type='text/javascript'>
+            // frequency2per関数は元のコードから変更なし
             function frequency2per(frequency) {
                 var p = new Array(1.67,2.51,3.35,4.2,5.06,5.91,6.78,7.64,8.52,9.39,10.28,11.16,12.05,12.95,13.85,14.75,15.66,16.57,17.49,18.41,19.34,20.27,21.21,22.15,23.1,24.04,25,25.96,26.92,27.89,28.86,29.84,30.82,31.8,32.79,33.79,34.79,35.79,36.8,37.81,38.83,39.85,40.87,41.9,42.94,43.98,45.02,46.07,47.12,48.17,49.23,50.3,51.37,52.44,53.52,54.6,55.68,56.77,57.87,58.96);
                 if (frequency < 1 || frequency > p.length) {
                      console.warn(`Invalid frequency: ${frequency}. Returning 0.`);
                      return 0;
                 }
-                return p[frequency - 1]; // 配列は0-indexedなので frequency - 1 を使用
+                return p[frequency - 1];
             }
 
+            // frequencycheck関数は元のコードから変更なし
             function frequencycheck(frequency) {
                 var p = new Array(3,6,10,12,15,18,20,24,30,36,42,48,54,60);
                 return p.includes(frequency);
             }
 
+            // calcFDate関数は元のコードから変更なし
             function calcFDate(interviewDay) {
                 const today = new Date();
                 const currentMonth = today.getMonth() + 1; // 1-12
@@ -2856,6 +166,7 @@
                 }
             }
 
+            // displayFirstPaymentDate関数は元のコードから変更なし
             function displayFirstPaymentDate(formId) {
                 const form = document.getElementById(formId);
                 const interviewDateInput = form.querySelector('input[name="interviewDate"]');
@@ -2867,7 +178,7 @@
 
                 const interviewDateValue = interviewDateInput.value;
                 if (!interviewDateValue) {
-                    firstPaymentDateElement.innerHTML = "初回支払日: 記入面談日を選択してください。";
+                    firstPaymentDateElement.innerHTML = "<strong>初回支払日:</strong> 記入面談日を選択してください。";
                     return;
                 }
 
@@ -2891,20 +202,17 @@
                 firstPaymentDateElement.innerHTML = `<strong>初回支払日:</strong> ${firstPaymentYearCalc}年${firstPaymentMonthCalc}月${firstPaymentDay}日`;
             }
 
-
+            // calcBCount関数は元のコードから変更なし
             function calcBCount(frequency, bmonth1, bmonth2, interviewDay) {
                 let count = 0;
-                // 初回支払月を計算 (1-12)
                 const firstPaymentMonth = calcFDate(interviewDay);
 
                 for (let i = 0; i < frequency; i++) {
-                    // 初回支払月を基準に i 回目の支払月を計算 (1-12)
                     let currentMonth = firstPaymentMonth + i;
                     while (currentMonth > 12) {
                         currentMonth -= 12;
                     }
 
-                    // 当月の支払いがボーナス月か判定
                     if (currentMonth === bmonth1 || currentMonth === bmonth2) {
                         count++;
                     }
@@ -2919,6 +227,7 @@
                 resultDiv.innerHTML = '';
 
                 const price = parseInt(form.price.value);
+                // 修正: プルダウンから値を取得
                 const frequency = parseInt(form.frequency.value);
                 const dpay = parseInt(form.dpay.value);
                 const bmonth1 = parseInt(form.bmonth1.value);
@@ -2927,14 +236,14 @@
                 const interviewDateInput = form.querySelector('input[name="interviewDate"]');
                 const interviewDateValue = interviewDateInput ? interviewDateInput.value : '';
 
-
+                // バリデーション
                 if (isNaN(price) || isNaN(frequency) || isNaN(dpay) || isNaN(bmonth1) || isNaN(bmonth2) || isNaN(baddpay) || !interviewDateValue) {
                     resultDiv.innerHTML = '<p style="color: red;">全ての項目に数値を入力し、記入面談日を選択してください。</p>';
                     return;
                 }
 
-                 if (price < 50000 || price > 1500000 || frequency < 3 || frequency > 60 || dpay < 0 || baddpay < 0) {
-                     resultDiv.innerHTML = '<p style="color: red;">入力された数値が条件を満たしていません。<br>商品金額: 5万円以上150万円以下, 支払回数: 3～60回, 頭金・ボーナス加算額: 0円以上</p>';
+                if (price < 50000 || price > 5000000 || frequency < 3 || frequency > 60 || dpay < 0 || baddpay < 0) {
+                     resultDiv.innerHTML = '<p style="color: red;">入力された数値が条件を満たしていません。<br>商品金額: 5万円以上500万円以下, 支払回数: 3～60回, 頭金・ボーナス加算額: 0円以上</p>';
                      return;
                  }
 
@@ -2946,10 +255,14 @@
                  const interviewDay = parseInt(interviewDateValue.split('-')[2], 10);
 
                 const advance = price - dpay;
-                // 修正: frequency2perの引数を frequency - 1 から frequency に変更
-                const fee = Math.floor(advance * frequency2per(frequency) / 100);
-                const payment = advance + fee; // 分割支払金合計 = 立替額 + 手数料
-                const total = payment + dpay; // 支払総額 = 分割支払金合計 + 頭金
+
+                // 元コードの payment 計算ロジックを採用 (frequency2perの引数はfrequency-1のまま)
+                const payment = advance + Math.floor(advance * (frequency2per(frequency - 1) * 100) / 10000);
+
+                // 手数料は payment - advance で計算
+                const fee = payment - advance;
+
+                const total = payment + dpay;
 
                 const bcount = calcBCount(frequency, bmonth1, bmonth2, interviewDay);
 
@@ -2957,28 +270,21 @@
 
                 // 通常回支払額の計算
                 // 元コードの rest = Math.floor((payment - bcount * baddpay) / frequency / 100) * 100; を採用
-                // paymentは分割支払金合計（手数料込み）
-                // payment - bcount * baddpay は「ボーナス加算額以外の合計支払額」
-                // それを総回数 frequency で割って、100円未満切り捨て
                 let totalMonthlyPay = payment - bcount * baddpay;
                 if (totalMonthlyPay < 0) totalMonthlyPay = 0; // 念のためマイナスにならないように
 
                 rest = Math.floor(totalMonthlyPay / frequency / 100) * 100;
 
-
-                // 初回支払額の計算
-                // 元コードの first = payment - rest * (frequency - 1) - bcount * baddpay; + (初回ボーナス月の場合はbaddpay加算) を採用
-                // この計算式は独特だが、元のロジックを再現する
+                // 初回支払額の計算 (元コードのロジックに合わせる)
                  const firstPaymentMonth = calcFDate(interviewDay);
                  const isFirstMonthBonus = (firstPaymentMonth === bmonth1 || firstPaymentMonth === bmonth2);
 
-                // 元コードの first の計算ロジック
-                 first = payment - rest * (frequency - 1) - bcount * baddpay;
+                first = payment - rest * (frequency - 1) - bcount * baddpay;
                  if (isFirstMonthBonus) {
                       first = first + baddpay;
                  }
 
-                // --- 結果表示 ---
+                 // --- 結果表示 ---
                  let resultsHtml = '<h3>計算結果</h3>';
                  resultsHtml += `<p class="first-payment-date"></p>`; // 初回支払日表示用
 
@@ -2990,23 +296,9 @@
                  }
                  resultsHtml += `</p>`;
 
-
                  let normalCount = frequency - bcount; // 通常回数 = 総回数 - ボーナス回数
-                 // 初回がボーナス加算支払いを含む場合、通常回支払いの回数は frequency - bcount です。
-                 // 表示上の回数を調整
-                 let displayNormalCount = normalCount;
-                 if (isFirstMonthBonus && bcount > 0 && baddpay > 0) {
-                     // 初回がボーナス加算ありの場合、初回はボーナス回に含めて表示するとして、通常回数は frequency - bcount のまま。
-                     // ただし、もし全ての回がボーナス月だった場合（ありえないが）、normalCountが0になる。
-                     // normalCountが負数になることはないようにMath.maxで調整
-                     displayNormalCount = Math.max(0, frequency - bcount);
-                 } else {
-                     // 初回が通常支払いの場合、初回を除いた回数で通常回は表示されるべきか？
-                     // 元コードは first = payment - rest * (frequency - 1) で計算しており、通常回は frequency - 1 回と示唆される。
-                     // しかし、ボーナスありの場合は first = payment - rest * (frequency - 1) - bcount * baddpay;
-                     // 通常回数の表示は `freq = frequency - 1` と表示していたので、それに合わせる
-                     displayNormalCount = frequency - 1; // 元コードの表示に合わせる
-                 }
+                 // 元コードの表示に合わせる
+                 let displayNormalCount = frequency - 1;
 
 
                  resultsHtml += `<p><strong>通常回(${Math.max(0, displayNormalCount)}回)のお支払い額:</strong> ${rest.toLocaleString()} 円</p>`;
@@ -3044,13 +336,11 @@
 
                  resultDiv.innerHTML = resultsHtml;
 
-                 // 初回支払日の表示を別途呼び出す
                  displayFirstPaymentDate('KS_calcEMP');
 
-                 // 支払回数の適合チェックメッセージを表示
                 if (frequencycheck(frequency) === false) {
                     const checkMsg = document.createElement('p');
-                    checkMsg.style.color = 'orange'; // 警告色で表示
+                    checkMsg.style.color = 'orange';
                     checkMsg.innerText = `※ 注意: 支払回数「${frequency}回」は当社で選択出来る支払回数と異なりますので、計算結果は参考数値としてご利用下さい。`;
                     resultDiv.appendChild(checkMsg);
                 }
@@ -3085,8 +375,8 @@
                     resultDiv.innerHTML = '<p style="color: red;">全ての項目に数値を入力し、記入面談日を選択してください。</p>';
                     return;
                 }
-                 if (price < 50000 || price > 1500000 || expect <= 0 || dpay < 0 || baddpay < 0) {
-                      resultDiv.innerHTML = '<p style="color: red;">入力された数値が条件を満たしていません。<br>商品金額: 5万円以上150万円以下, 月々のご希望支払額: 1円以上, 頭金・ボーナス加算額: 0円以上</p>';
+                 if (price < 50000 || price > 5000000 || expect <= 0 || dpay < 0 || baddpay < 0) {
+                      resultDiv.innerHTML = '<p style="color: red;">入力された数値が条件を満たしていません。<br>商品金額: 5万円以上500万円以下, 月々のご希望支払額: 1円以上, 頭金・ボーナス加算額: 0円以上</p>';
                      return;
                  }
                   if (dpay > price) {
@@ -3103,9 +393,8 @@
 
                 for (let i = 0; i < KSfrequency.length; i++) {
                     let currentFrequency = KSfrequency[i];
-                    // 修正: frequency2perの引数を currentFrequency - 1 から currentFrequency に変更
-                    let tmp_fee = Math.floor(advance * frequency2per(currentFrequency) / 100);
-                    let tmp_payment = advance + tmp_fee; // 分割支払金合計
+                     // 元コードの payment 計算ロジックを採用 (frequency2perの引数はcurrentFrequency-1のまま)
+                    let tmp_payment = advance + Math.floor(advance * (frequency2per(currentFrequency - 1) * 100) / 10000);
 
                     let tmp_bcount = calcBCount(currentFrequency, bmonth1, bmonth2, interviewDay);
 
@@ -3113,21 +402,22 @@
                     let tmp_totalMonthlyPay = tmp_payment - tmp_bcount * baddpay;
                     if (tmp_totalMonthlyPay < 0) tmp_totalMonthlyPay = 0;
 
-                    // 通常回支払額の計算
                     tmp_rest = Math.floor(tmp_totalMonthlyPay / currentFrequency / 100) * 100;
+
 
                     // 希望額との差の絶対値で比較
                     const diff = Math.abs(tmp_rest - expect);
 
-                    // より差が小さい場合、または同じ差で回数が少ない方を優先（元のロジック不明のため、差が小さい方を優先）
+                    // より差が小さい場合を優先
                     if (diff < minDiff) {
                         minDiff = diff;
                         KSfreq = currentFrequency;
                     }
+                     // 同じ差の場合、回数が少ない方を優先するなどのロジックは元コードに無いため、差が小さい方を単純に優先する。
+                     // 差が全く同じ場合は、先にリストに出てくる回数（少ない回数）が優先される
                 }
 
                  if (KSfreq === -1) {
-                     // 見つからなかった場合（通常発生しないはずだが念のため）
                       resultDiv.innerHTML = '<p style="color: red;">計算可能な支払回数が見つかりませんでした。</p>';
                      return;
                  }
@@ -3135,9 +425,12 @@
 
                 // 最適な回数 (KSfreq) で再度計算
                 frequency = KSfreq;
-                 // 修正: frequency2perの引数を frequency - 1 から frequency に変更
-                const fee = Math.floor(advance * frequency2per(frequency) / 100);
-                payment = advance + fee;
+                 // 元コードの payment 計算ロジックを採用 (frequency2perの引数はfrequency-1のまま)
+                payment = advance + Math.floor(advance * (frequency2per(frequency - 1) * 100) / 10000);
+
+                // 手数料は payment - advance で計算
+                const fee = payment - advance;
+
                 total = payment + dpay;
 
                 bcount = calcBCount(frequency, bmonth1, bmonth2, interviewDay);
@@ -3165,13 +458,14 @@
 
                  resultsHtml += `<p><strong>手数料額:</strong> ${fee.toLocaleString()} 円</p>`; // 手数料表示を追加
 
+
                  resultsHtml += `<p><strong>第1回目お支払い額:</strong> ${first.toLocaleString()} 円`;
                  if (isFirstMonthBonus && baddpay > 0) {
                      resultsHtml += ` (ボーナス月)`;
                  }
                  resultsHtml += `</p>`;
 
-                 let normalCount = frequency - bcount;
+                  let normalCount = frequency - bcount;
                   let displayNormalCount = frequency - 1; // 元コードの表示に合わせる
 
                  resultsHtml += `<p><strong>通常回(${Math.max(0, displayNormalCount)}回)のお支払い額:</strong> ${rest.toLocaleString()} 円</p>`;
@@ -3237,401 +531,31 @@
                         input.value = today;
                      }
                  });
+
+                // 支払回数プルダウンの生成
+                 const frequencySelect = document.getElementById('frequency-select');
+                 const frequencies = [3, 6, 10, 12, 15, 18, 20, 24, 30, 36, 42, 48, 54, 60];
+                 let optionsHtml = '';
+                 frequencies.forEach(freq => {
+                     optionsHtml += `<option value="${freq}">${freq}回</option>`;
+                 });
+                 frequencySelect.innerHTML = optionsHtml;
+                 frequencySelect.value = 12; // デフォルト値として12回を選択
              };
 
         </script>
-        <link rel='https://api.w.org/' href='https://www.kyoto-shinpan.co.jp/wp-json/'/>
-        <link rel="alternate" type="application/json" href="https://www.kyoto-shinpan.co.jp/wp-json/wp/v2/pages/2848"/>
-        <link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.kyoto-shinpan.co.jp/wp/xmlrpc.php?rsd"/>
-        <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.kyoto-shinpan.co.jp/wp/wp-includes/wlwmanifest.xml"/>
-        <meta name="generator" content="WordPress 6.0.9"/>
-        <link rel="canonical" href="https://www.kyoto-shinpan.co.jp/%e3%81%8a%e6%94%af%e6%89%95%e3%81%84%e3%82%b7%e3%83%9f%e3%83%a5%e3%83%ac%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3/"/>
-        <link rel='shortlink' href='https://www.kyoto-shinpan.co.jp/?p=2848'/>
-        <link rel="alternate" type="application/json+oembed" href="https://www.kyoto-shinpan.co.jp/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.kyoto-shinpan.co.jp%2F%25e3%2581%258a%25e6%2594%25af%25e6%2589%2595%25e3%2581%2584%25e3%2582%25b7%25e3%2583%259f%25e3%2583%25a5%25e3%2583%25ac%25e3%2583%25bc%25e3%2582%2%e3%83%a7%25e3%2583%b3%2F"/>
-        <link rel="alternate" type="text/xml+oembed" href="https://www.kyoto-shinpan.co.jp/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.kyoto-shinpan.co.jp%2F%25e3%2581%258a%25e6%2594%25af%25e6%2589%2595%25e3%2581%2584%25e3%2582%25b7%25e3%2583%259f%25e3%2583%25a5%25e3%2583%ac%25e3%2583%25bc%25e3%2582%25b7%25e3%2583%2%e3%83%a7%25e3%2583%b3%2F&#038;format=xml"/>
+
         <style type="text/css" id="custom-background-css">
             body.custom-background {
                 background-color: #ffffff;
             }
         </style>
-        <!-- [ VK All in One Expansion Unit OGP ] -->
-        <meta property="og:site_name" content="京都信販株式会社"/>
-        <meta property="og:url" content="https://www.kyoto-shinpan.co.jp/%e3%81%8a%e6%94%af%e6%89%95%e3%81%84%e3%82%b7%e3%83%9f%e3%83%a5%e3%83%ac%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3/"/>
-        <meta property="og:title" content="お支払いシミュレーション | 京都信販株式会社"/>
-        <meta property="og:description" content="お支払いシミュレーション  当社のクレジット契約におけるお支払い額やお支払い回数のシミュレーションを行うことが出来ます。以下のシミュレーションは実質年率を20%とした場合の計算になります。  当社のご契約条件は下記のようになっております。  お申込者様ご年齢  申込時20歳以上完済時76歳未満  お申込可能商品金額  5万円以上150万円以下(消費税込)  お支払い回数    3, 6, 10, 12, 15, 18, 20, 24, 30, 36,"/>
-        <meta property="og:type" content="article"/>
-        <meta property="og:image" content="https://www.kyoto-shinpan.co.jp/wp/wp-includes/images/media/default.png"/>
-        <meta property="og:image:width" content="48"/>
-        <meta property="og:image:height" content="64"/>
-        <!-- [ / VK All in One Expansion Unit OGP ] -->
-        <!-- [ VK All in One Expansion Unit twitter card ] -->
-        <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:description" content="お支払いシミュレーション  当社のクレジット契約におけるお支払い額やお支払い回数のシミュレーションを行うことが出来ます。以下のシミュレーションは実質年率を20%とした場合の計算になります。  当社のご契約条件は下記のようになっております。  お申込者様ご年齢  申込時20歳以上完済時76歳未満  お申込可能商品金額  5万円以上150万円以下(消費税込)  お支払い回数    3, 6, 10, 12, 15, 18, 20, 24, 30, 36,">
-        <meta name="twitter:title" content="お支払いシミュレーション | 京都信販株式会社">
-        <meta name="twitter:url" content="https://www.kyoto-shinpan.co.jp/%e3%81%8a%e6%94%af%e6%89%95%e3%81%84%e3%82%b7%e3%83%9f%e3%83%a5%e3%83%ac%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3/">
-        <meta name="twitter:image" content="https://www.kyoto-shinpan.co.jp/wp/wp-includes/images/media/default.png">
-        <meta name="twitter:domain" content="www.kyoto-shinpan.co.jp">
-        <!-- [ / VK All in One Expansion Unit twitter card ] -->
-        <link rel="icon" href="https://www.kyoto-shinpan.co.jp/wp/wp-content/uploads/2022/07/cropped-9e370aa6011aadc3a19c4f69e4ef9aed-32x32.png" sizes="32x32"/>
-        <link rel="icon" href="https://www.kyoto-shinpan.co.jp/wp/wp-content/uploads/2022/07/cropped-9e370aa6011aadc3a19c4f69e4ef9aed-192x192.png" sizes="192x192"/>
-        <link rel="apple-touch-icon" href="https://www.kyoto-shinpan.co.jp/wp/wp-content/uploads/2022/07/cropped-9e370aa6011aadc3a19c4f69e4ef9aed-180x180.png"/>
-        <meta name="msapplication-TileImage" content="https://www.kyoto-shinpan.co.jp/wp/wp-content/uploads/2022/07/cropped-9e370aa6011aadc3a19c4f69e4ef9aed-270x270.png"/>
-        <style type="text/css" id="wp-custom-css">
-            @media (max-width: 992px) {
-                .vk-mobile-nav-menu-btn {
-                    top:16px!important;
-                    bottom: auto;
-                }
-
-                ul#lcp_instance_0 a {
-                    display: block;
-                    padding: 0!important;
-                }
-
-                .lcp_catlist {
-                    padding: 5px;
-                }
-            }
-
-            @media (min-width: 992px) {
-                body.device-pc .vk-mobile-nav-menu-btn, body.device-pc .vk-mobile-nav {
-                    display: block;
-                }
-
-                .vk-mobile-nav-menu-btn {
-                    width: 50px;
-                    height: 50px;
-                }
-
-                header {
-                    height: 70px;
-                }
-
-                .site-header-logo {
-                    padding-top: 0!important;
-                }
-
-                .footer-nav-list li {
-                    border-right: 1px solid #007bff
-                }
-            }
-
-            .vk-mobile-nav-menu-btn {
-                left: auto;
-                right: 25px;
-                top: 10px;
-            }
-
-            .site-header {
-                border-bottom: solid #007bff !important;
-                position: fixed;
-            }
-
-            .wp-block-cover {
-                min-height: 80px!important;
-            }
-
-            #global-nav {
-                visibility: hidden !important;
-            }
-
-            /* =====================
-
-フッターのライセンス表記を非表示に変更
-
-===================== */
-            .site-footer-copyright p:nth-child(2) {
-                display: none;
-            }
-
-            /*=======フッターの高さ調整=================*/
-            .site-footer-content {
-                padding-top: 10px;
-            }
-
-            .site-footer-copyright {
-                padding-top: 0;
-            }
-
-            .widget, .widget_wp_widget_vkexunit_profile, #wp_widget_vkexunit_profile-6 {
-                margin-bottom: 10px;
-            }
-
-            #search-4.widget {
-                display: none;
-            }
-
-            .footer-nav {
-                line-height: 1.5em
-            }
-
-            .vk_post_imgOuter_singleTermLabel {
-                background-color: #007bff!important;
-            }
-
-            .postList_terms a {
-                background-color: #007bff!important;
-            }
-
-            /* =====================
-
-スライドショー縁取り
-
-===================== */
-            .ltg-slide-text-title {
-                text-shadow: #444 1px 1px 0, #444 -1px -1px 0,/*右下、左上*/ #444 -1px 1px 0, #444 1px -1px 0,/*右上、左下*/ #444 0px 1px 0, #444 0-1px 0,/*右、左*/ #444 -1px 0 0, #444 1px 0 0;
-                /*上、下*/
-            }
-
-            .mini-content-container-1 .btn, .mini-content-container-2 .btn, .mini-content-container-3 .btn {
-                background-color: #007bff!important;
-                border-color: #007bff!important;
-                margin-top: 4em;
-            }
-
-            .wp-block-image .wp-image-2451, .wp-block-image .wp-image-2447, .wp-block-image .wp-image-2432, .wp-block-image .wp-image-2453, .wp-block-image .wp-image-2443, {
-                border-radius: 50%!important;
-            }
-
-            .page-header {
-                margin-top: 60px;
-                min-height: 6rem;
-            }
-
-            .wp-block-vk-blocks-alert {
-                background-color: #f5f5f5;
-                border: none;
-            }
-
-            .wp-block-vk-blocks-alert p {
-                font-size: 75%;
-                color: #777!important;
-            }
-
-            h2, .page-header-title {
-                font-size: 150%!important;
-            }
-
-            @media (max-width: 780px) {
-                .wp-container-3 {
-                    gap:1px!important;
-                }
-
-                .page-header {
-                    min-height: 2rem;
-                }
-
-                .wp-container-9 {
-                    margin-right: 65px;
-                    margin-left: 65px;
-                }
-
-                .wp-container-9 p, .wp-container-6 p {
-                    font-size: 80%!important;
-                }
-            }
-
-            .wp-block-navigation-item__content {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                margin: 0 auto;
-                padding-right: 1rem!important;
-                padding-left: 1rem!important;
-                color: #fff!important;
-                background-color: #999;
-                border-radius: 1vh;
-            }
-
-            .wp-block-columns {
-                justify-content: center!important;
-            }
-
-            .sp-tab__section_title_2749 {
-                display: none;
-            }
-
-            .lcp_catlist li {
-                list-style-type: none;
-            }
-
-            .lcp_catlist li a {
-                text-decoration: underline;
-            }
-
-            .language-markup {
-                color: #007bff!important;
-            }
-
-            #sp-wp-tabs-wrapper_2749 .sp-tab__tab-pane {
-                padding: 5px!important;
-            }
-
-            .sp-tab__nav-link {
-                padding: 8px!important;
-            }
-
-            .sp-tab__tab_title {
-                font-weight: 200!important;
-            }
-
-        </style>
     </head>
-    <body data-rsssl=1 class="page-template-default page page-id-2848 custom-background wp-embed-responsive post-name-%e3%81%8a%e6%94%af%e6%89%95%e3%81%84%e3%82%b7%e3%83%9f%e3%83%a5%e3%83%ac%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3 post-type-page vk-blocks fa_v6_css device-pc">
-        <a class="skip-link screen-reader-text" href="#main">コンテンツへスキップ</a>
-        <a class="skip-link screen-reader-text" href="#vk-mobile-nav">ナビゲーションに移動</a>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
-            <defs>
-                <filter id="wp-duotone-dark-grayscale">
-                    <feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "/>
-                    <feComponentTransfer color-interpolation-filters="sRGB">
-                        <feFuncR type="table" tableValues="0 0.49803921568627"/>
-                        <feFuncG type="table" tableValues="0 0.49803921568627"/>
-                        <feFuncB type="table" tableValues="0 0.49803921568627"/>
-                        <feFuncA type="table" tableValues="1 1"/>
-                    </feComponentTransfer>
-                    <feComposite in2="SourceGraphic" operator="in"/>
-                </filter>
-            </defs>
-        </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
-            <defs>
-                <filter id="wp-duotone-grayscale">
-                    <feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "/>
-                    <feComponentTransfer color-interpolation-filters="sRGB">
-                        <feFuncR type="table" tableValues="0 1"/>
-                        <feFuncG type="table" tableValues="0 1"/>
-                        <feFuncB type="table" tableValues="0 1"/>
-                        <feFuncA type="table" tableValues="1 1"/>
-                    </feComponentTransfer>
-                    <feComposite in2="SourceGraphic" operator="in"/>
-                </filter>
-            </defs>
-        </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
-            <defs>
-                <filter id="wp-duotone-purple-yellow">
-                    <feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "/>
-                    <feComponentTransfer color-interpolation-filters="sRGB">
-                        <feFuncR type="table" tableValues="0.54901960784314 0.98823529411765"/>
-                        <feFuncG type="table" tableValues="0 1"/>
-                        <feFuncB type="table" tableValues="0.71764705882353 0.25490196078431"/>
-                        <feFuncA type="table" tableValues="1 1"/>
-                    </feComponentTransfer>
-                    <feComposite in2="SourceGraphic" operator="in"/>
-                </filter>
-            </defs>
-        </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
-            <defs>
-                <filter id="wp-duotone-blue-red">
-                    <feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "/>
-                    <feComponentTransfer color-interpolation-filters="sRGB">
-                        <feFuncR type="table" tableValues="0 1"/>
-                        <feFuncG type="table" tableValues="0 0.27843137254902"/>
-                        <feFuncB type="table" tableValues="0.5921568627451 0.27843137254902"/>
-                        <feFuncA type="table" tableValues="1 1"/>
-                    </feComponentTransfer>
-                    <feComposite in2="SourceGraphic" operator="in"/>
-                </filter>
-            </defs>
-        </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
-            <defs>
-                <filter id="wp-duotone-midnight">
-                    <feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "/>
-                    <feComponentTransfer color-interpolation-filters="sRGB">
-                        <feFuncR type="table" tableValues="0 0"/>
-                        <feFuncG type="table" tableValues="0 0.64705882352941"/>
-                        <feFuncB type="table" tableValues="0 1"/>
-                        <feFuncA type="table" tableValues="1 1"/>
-                    </feComponentTransfer>
-                    <feComposite in2="SourceGraphic" operator="in"/>
-                </filter>
-            </defs>
-        </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
-            <defs>
-                <filter id="wp-duotone-magenta-yellow">
-                    <feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "/>
-                    <feComponentTransfer color-interpolation-filters="sRGB">
-                        <feFuncR type="table" tableValues="0.78039215686275 1"/>
-                        <feFuncG type="table" tableValues="0 0.94901960784314"/>
-                        <feFuncB type="table" tableValues="0.35294117647059 0.47058823529412"/>
-                        <feFuncA type="table" tableValues="1 1"/>
-                    </feComponentTransfer>
-                    <feComposite in2="SourceGraphic" operator="in"/>
-                </filter>
-            </defs>
-        </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
-            <defs>
-                <filter id="wp-duotone-purple-green">
-                    <feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "/>
-                    <feComponentTransfer color-interpolation-filters="sRGB">
-                        <feFuncR type="table" tableValues="0.65098039215686 0.40392156862745"/>
-                        <feFuncG type="table" tableValues="0 1"/>
-                        <feFuncB type="table" tableValues="0.44705882352941 0.4"/>
-                        <feFuncA type="table" tableValues="1 1"/>
-                    </feComponentTransfer>
-                    <feComposite in2="SourceGraphic" operator="in"/>
-                </filter>
-            </defs>
-        </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
-            <defs>
-                <filter id="wp-duotone-blue-orange">
-                    <feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "/>
-                    <feComponentTransfer color-interpolation-filters="sRGB">
-                        <feFuncR type="table" tableValues="0.098039215686275 1"/>
-                        <feFuncG type="table" tableValues="0 0.66274509803922"/>
-                        <feFuncB type="table" tableValues="0.84705882352941 0.41960784313725"/>
-                        <feFuncA type="table" tableValues="1 1"/>
-                    </feComponentTransfer>
-                    <feComposite in2="SourceGraphic" operator="in"/>
-                </filter>
-            </defs>
-        </svg>
-        <header id="site-header" class="site-header site-header--layout--nav-float">
-            <div id="site-header-container" class="site-header-container container">
-                <div class="site-header-logo">
-                    <a href="https://www.kyoto-shinpan.co.jp/">
-                        <span>
-                            <img src="https://www.kyoto-shinpan.co.jp/wp/wp-content/uploads/2022/08/4a332f05ade4ac7bb3c46c472cb5eac8-1.png" alt="京都信販株式会社"/>
-                        </span>
-                    </a>
-                </div>
-            </div>
-        </header>
-        <div class="page-header">
-            <div class="page-header-inner container">
-                <h1 class="page-header-title">お支払いシミュレーション</h1>
-            </div>
-        </div>
-        <!-- [ /.page-header ] -->
-        <!-- [ #breadcrumb ] -->
-        <div id="breadcrumb" class="breadcrumb">
-            <div class="container">
-                <ol class="breadcrumb-list" itemscope itemtype="https://schema.org/BreadcrumbList">
-                    <li class="breadcrumb-list__item breadcrumb-list__item--home" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                        <a href="https://www.kyoto-shinpan.co.jp" itemprop="item">
-                            <i class="fas fa-fw fa-home"></i>
-                            <span itemprop="name">HOME</span>
-                        </a>
-                        <meta itemprop="position" content="1"/>
-                    </li>
-                    <li class="breadcrumb-list__item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                        <span itemprop="name">お支払いシミュレーション</span>
-                        <meta itemprop="position" content="2"/>
-                    </li>
-                </ol>
-            </div>
-        </div>
-        <!-- [ /#breadcrumb ] -->
+    <body>
         <div class="site-body">
             <div class="site-body-container container">
                 <div class="main-section" id="main" role="main">
-                    <div id="post-2848" class="entry entry-full post-2848 page type-page status-publish has-post-thumbnail hentry">
+                    <div id="post-2848" class="entry entry-full post-2848 page type-page status-publish hentry">
                         <div class="entry-body">
                             <h1>お支払いシミュレーション</h1>
                             <p>
@@ -3642,9 +566,11 @@
                                 <dt>お申込者様ご年齢</dt>
                                 <dd>申込時20歳以上完済時76歳未満</dd>
                                 <dt>お申込可能商品金額</dt>
-                                <dd>5万円以上150万円以下(消費税込)</dd>
+                                <!-- 修正: 表示金額を500万円に拡大 -->
+                                <dd>5万円以上500万円以下(消費税込)</dd>
                                 <dt>お支払い回数</dt>
                                 <dd>
+                                    <!-- 修正: 回数リストのテキスト表示を削除 -->
                                     3, 6, 10, 12, 15, 18, 20, 24, 30, 36, 42, 48, 54, 60回<br>※ ただし、通常回のお支払い額が3千円以上になる場合のみ。
                                 </dd>
                                 <dt>分割手数料率</dt>
@@ -3657,7 +583,8 @@
                                 <fieldset>
                                     <legend>入力項目</legend>
                                     <label for="price">商品金額</label>
-                                    <input id="price" type="number" name="price" value="500000" min="50000" max="1500000">
+                                    <!-- 修正: maxを500万円に設定 -->
+                                    <input id="price" type="number" name="price" value="500000" min="50000" max="5000000">
                                     <label for="price">円</label>
                                     <br>
                                     <label for="dpay">頭金</label>
@@ -3686,15 +613,15 @@
                                      <label for="interviewDateEMP">記入面談日</label>
                                      <input id="interviewDateEMP" type="date" name="interviewDate" value="">
                                      <br>
-                                    <label for="frequency">お支払回数</label>
-                                    <input id="frequency" type="number" name="frequency" value="12" min="3" max="60">
-                                    <label for="frequency">回</label>
+                                    <label for="frequency-select">お支払回数</label>
+                                    <!-- 修正: 入力フィールドをプルダウンに変更 -->
+                                    <select id="frequency-select" name="frequency"></select>
+                                    <label for="frequency-select">回</label>
                                     <br>
                                     <input onclick="calcEMP()" type="button" value="計算" class="button-primary">
                                     <input onclick="resetEMP()" type="button" value="計算結果削除" class="button-primary">
                                     <ul>
-                                        <li>※ 当社で選択出来るお支払い回数以外の回数をご入力された場合は、参考情報としてご利用下さい。</li>
-                                        <li>※ お支払回数61回以上は計算出来ません。</li>
+                                        <li>※ 当社で選択出来るお支払い回数以外の回数をご希望の場合は、お問合せください。</li>
                                          <li>※ ボーナス払いの場合、ご入力頂いた記入面談日を基準に計算しております。</li>
                                         <li>※ 全ての項目に入力が必要です。頭金・ボーナス払いを利用しないときは0円とご入力下さい。</li>
                                     </ul>
@@ -3707,7 +634,8 @@
                                 <fieldset>
                                     <legend>入力項目</legend>
                                     <label for="price">商品金額</label>
-                                    <input id="price" type="number" name="price" value="500000" min="50000" max="1500000">
+                                     <!-- 修正: maxを500万円に設定 -->
+                                    <input id="price" type="number" name="price" value="500000" min="50000" max="5000000">
                                     <label for="price">円</label>
                                     <br>
                                     <label for="dpay">頭金</label>
@@ -3759,210 +687,6 @@
             <!-- [ /.site-body-container ] -->
         </div>
         <!-- [ /.site-body ] -->
-        <footer class="site-footer">
-            <nav class="footer-nav">
-                <div class="container">
-                    <ul id="menu-footernavigation" class="menu footer-nav-list nav nav--line">
-                        <li id="menu-item-2381" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2381">
-                            <a href="https://www.kyoto-shinpan.co.jp/%e3%82%af%e3%83%ac%e3%82%b8%e3%83%83%e3%83%88%e3%83%9d%e3%83%aa%e3%82%b7%e3%83%bc/">クレジットポリシー</a>
-                        </li>
-                        <li id="menu-item-568" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-568">
-                            <a href="https://www.kyoto-shinpan.co.jp/privacy/">プライバシーポリシー</a>
-                        </li>
-                        <li id="menu-item-2127" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2127">
-                            <a href="https://www.kyoto-shinpan.co.jp/%e5%80%8b%e4%ba%ba%e6%83%85%e5%a0%b1%e4%bf%9d%e8%ad%b7%e6%96%b9%e9%87%9d/">個人情報保護方針</a>
-                        </li>
-                        <li id="menu-item-2131" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2131">
-                            <a href="https://www.kyoto-shinpan.co.jp/%e5%8a%a0%e7%9b%9f%e5%ba%97%e6%83%85%e5%a0%b1%e3%81%ae%e5%85%b1%e5%90%8c%e5%88%a9%e7%94%a8%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6/">加盟店情報の共同利用について</a>
-                        </li>
-                        <li id="menu-item-2380" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2380">
-                            <a href="https://www.kyoto-shinpan.co.jp/%e5%bd%93%e7%a4%be%e3%81%8c%e5%8a%a0%e7%9b%9f%e3%81%99%e3%82%8b%e5%9b%a3%e4%bd%93%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6/">当社が加盟する団体について</a>
-                        </li>
-                        <li id="menu-item-2129" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2129">
-                            <a href="https://www.kyoto-shinpan.co.jp/%e5%8f%8d%e7%a4%be%e4%bc%9a%e7%9a%84%e5%8b%a2%e5%8a%9b%e3%81%ab%e5%af%be%e3%81%99%e3%82%8b%e5%9f%ba%e6%9c%ac%e6%96%b9%e9%87%9d/">反社会的勢力に対する基本方針</a>
-                        </li>
-                        <li id="menu-item-2411" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2411">
-                            <a href="https://www.caa.go.jp/policies/policy/consumer_system/consumer_contract_act/public_relations/pdf/public_relations_190401_0001.pdf">消費者契約法</a>
-                        </li>
-                        <li id="menu-item-2412" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2412">
-                            <a href="https://www.gov-online.go.jp/useful/article/201007/6.html">割賦販売法</a>
-                        </li>
-                        <li id="menu-item-2413" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2413">
-                            <a href="https://www.no-trouble.caa.go.jp/">特定商取引に関する法律</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-            <div class="container site-footer-content">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <aside class="widget widget_wp_widget_vkexunit_profile" id="wp_widget_vkexunit_profile-4">
-                            <div class="veu_profile">
-                                <div class="profile">
-                                    <div class="media_outer media_center" style="width:250px;">
-                                        <img class="profile_media" src="https://www.kyoto-shinpan.co.jp/wp/wp-content/uploads/2022/08/4a332f05ade4ac7bb3c46c472cb5eac8-1.png" alt="ロゴ"/>
-                                    </div>
-                                </div>
-                                <!-- / .site-profile -->
-                            </div>
-                        </aside>
-                    </div>
-                </div>
-            </div>
-            <div class="container site-footer-copyright">
-                <p>Copyright &copy;京都信販株式会社 All Rights Reserved.</p>
-                <p>
-                    Powered by <a href="https://wordpress.org/">WordPress</a>
-                    with <a href="https://wordpress.org/themes/lightning/" target="_blank" title="Free WordPress Theme Lightning">Lightning Theme</a>
-                    &amp;<a href="https://wordpress.org/plugins/vk-all-in-one-expansion-unit/" target="_blank">VK All in One Expansion Unit</a>
-                </p>
-            </div>
-        </footer>
-        <div id="vk-mobile-nav-menu-btn" class="vk-mobile-nav-menu-btn">MENU</div>
-        <div class="vk-mobile-nav vk-mobile-nav-drop-in" id="vk-mobile-nav">
-            <aside class="widget vk-mobile-nav-widget widget_search" id="search-4">
-                <form role="search" method="get" id="searchform" class="searchform" action="https://www.kyoto-shinpan.co.jp/">
-                    <div>
-                        <label class="screen-reader-text" for="s">検索:</label>
-                        <input type="text" value="" name="s" id="s"/>
-                        <input type="submit" id="searchsubmit" value="検索"/>
-                    </div>
-                </form>
-            </aside>
-            <nav class="vk-mobile-nav-menu-outer" role="navigation">
-                <ul id="menu-headernavigation" class="vk-menu-acc menu">
-                    <li id="menu-item-564" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-564">
-                        <a href="https://www.kyoto-shinpan.co.jp/">ホーム</a>
-                    </li>
-                    <li id="menu-item-2136" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-2136">
-                        <a href="https://www.kyoto-shinpan.co.jp/%e4%bc%9a%e7%a4%be%e6%a1%88%e5%86%85/">会社案内</a>
-                        <ul class="sub-menu">
-                            <li id="menu-item-2342" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2342 menu-item-anchor">
-                                <a href="https://www.kyoto-shinpan.co.jp/wp/%e4%bc%9a%e7%a4%be%e6%a1%88%e5%86%85/#Philosophy">基本理念</a>
-                            </li>
-                            <li id="menu-item-2343" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2343 menu-item-anchor">
-                                <a href="https://www.kyoto-shinpan.co.jp/wp/%e4%bc%9a%e7%a4%be%e6%a1%88%e5%86%85/#company">会社概要</a>
-                            </li>
-                            <li id="menu-item-2344" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2344 menu-item-anchor">
-                                <a href="https://www.kyoto-shinpan.co.jp/wp/%e4%bc%9a%e7%a4%be%e6%a1%88%e5%86%85/#access">アクセス</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li id="menu-item-2137" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-2137">
-                        <a href="https://www.kyoto-shinpan.co.jp/%e3%81%94%e5%a5%91%e7%b4%84%e4%b8%ad%e3%81%ae%e3%81%8a%e5%ae%a2%e6%a7%98/">ご契約中のお客様</a>
-                        <ul class="sub-menu">
-                            <li id="menu-item-2353" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2353 menu-item-anchor">
-                                <a href="https://www.kyoto-shinpan.co.jp/wp/%e3%81%94%e5%a5%91%e7%b4%84%e4%b8%ad%e3%81%ae%e3%81%8a%e5%ae%a2%e6%a7%98/#simulation">ご契約条件</a>
-                            </li>
-                            <li id="menu-item-2354" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2354 menu-item-anchor">
-                                <a href="https://www.kyoto-shinpan.co.jp/wp/%e3%81%94%e5%a5%91%e7%b4%84%e4%b8%ad%e3%81%ae%e3%81%8a%e5%ae%a2%e6%a7%98/#qa">よくある質問</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li id="menu-item-2138" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-2138">
-                        <a href="https://www.kyoto-shinpan.co.jp/%e6%96%b0%e8%a6%8b%e5%8a%a0%e7%9b%9f%e5%ba%97%e3%81%8a%e7%94%b3%e3%81%97%e8%be%bc%e3%81%bf%e3%81%ae%e3%81%8a%e5%ae%a2%e6%a7%98/">新規加盟店お申込ご検討の方</a>
-                        <ul class="sub-menu">
-                            <li id="menu-item-2321" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2321 menu-item-anchor">
-                                <a href="https://www.kyoto-shinpan.co.jp/wp/%e6%96%b0%e8%a6%8b%e5%8a%a0%e7%9b%9f%e5%ba%97%e3%81%8a%e7%94%b3%e3%81%97%e8%be%bc%e3%81%bf%e3%81%ae%e3%81%8a%e5%ae%a2%e6%a7%98/#no1">京都信販5つのNo.1</a>
-                            </li>
-                            <li id="menu-item-2322" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2322 menu-item-anchor">
-                                <a href="https://www.kyoto-shinpan.co.jp/wp/%e6%96%b0%e8%a6%8b%e5%8a%a0%e7%9b%9f%e5%ba%97%e3%81%8a%e7%94%b3%e3%81%97%e8%be%bc%e3%81%bf%e3%81%ae%e3%81%8a%e5%ae%a2%e6%a7%98/#merit">加盟店契約を結ぶメリット</a>
-                            </li>
-                            <li id="menu-item-2323" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2323 menu-item-anchor">
-                                <a href="https://www.kyoto-shinpan.co.jp/wp/%e6%96%b0%e8%a6%8b%e5%8a%a0%e7%9b%9f%e5%ba%97%e3%81%8a%e7%94%b3%e3%81%97%e8%be%bc%e3%81%bf%e3%81%ae%e3%81%8a%e5%ae%a2%e6%a7%98/#qa2">よくある質問</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li id="menu-item-2595" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2595">
-                        <a href="https://www.kyoto-shinpan.co.jp/information/">お知らせ</a>
-                    </li>
-                    <li id="menu-item-846" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-846">
-                        <a href="https://www.kyoto-shinpan.co.jp/contact/">お問い合わせ</a>
-                    </li>
-                </ul>
-            </nav>
-            <aside class="widget vk-mobile-nav-widget widget_vkexunit_contact_section" id="vkexunit_contact_section-5">
-                <section class="veu_contact veu_contentAddSection vk_contact veu_card veu_contact-layout-horizontal">
-                    <div class="contact_frame veu_card_inner">
-                        <p class="contact_txt">
-                            <span class="contact_txt_catch">お気軽にお問い合わせください。</span>
-                            <span class="contact_txt_tel veu_color_txt_key">
-                                <i class="contact_txt_tel_icon fas fa-phone-square"></i>
-                                075-585-4180
-                            </span>
-                            <span class="contact_txt_time">受付時間 9:00-19:00 [ 土日祝除く ]</span>
-                        </p>
-                        <a href="https://www.kyoto-shinpan.co.jp/wp/contact/" class="btn btn-primary btn-lg contact_bt">
-                            <span class="contact_bt_txt">
-                                <i class="far fa-envelope"></i>
-                                お問い合わせ <i class="far fa-arrow-alt-circle-right"></i>
-                            </span>
-                            <span class="contact_bt_subTxt">お気軽にお問い合わせください</span>
-                        </a>
-                    </div>
-                </section>
-            </aside>
-        </div>
-        <a href="#top" id="page_top" class="page_top_btn">PAGE TOP</a>
-        <link rel='preload' id='add_google_fonts_Lato-css-preload' href='//fonts.googleapis.com/css2?family=Lato%3Awght%40400%3B700&#038;display=swap&#038;subset=japanese&#038;ver=15.29.6' as='style' onload="this.onload=null;this.rel='stylesheet'"/>
-        <link rel='stylesheet' id='add_google_fonts_Lato-css' href='//fonts.googleapis.com/css2?family=Lato%3Awght%40400%3B700&#038;display=swap&#038;subset=japanese&#038;ver=15.29.6' media='print' onload="this.media='all'; this.onload=null;">
-        <link rel='preload' id='add_google_fonts_noto_sans-css-preload' href='//fonts.googleapis.com/css2?family=Noto+Sans+JP%3Awght%40400%3B700&#038;display=swap&#038;subset=japanese&#038;ver=15.29.6' as='style' onload="this.onload=null;this.rel='stylesheet'"/>
-        <link rel='stylesheet' id='add_google_fonts_noto_sans-css' href='//fonts.googleapis.com/css2?family=Noto+Sans+JP%3Awght%40400%3B700&#038;display=swap&#038;subset=japanese&#038;ver=15.29.6' media='print' onload="this.media='all'; this.onload=null;">
-        <script type='text/javascript' id='vk-ltc-js-js-extra'>
-            /* <![CDATA[ */
-            var vkLtc = {
-                "ajaxurl": "https:\/\/www.kyoto-shinpan.co.jp\/wp\/wp-admin\/admin-ajax.php"
-            };
-            /* ]]> */
-        </script>
-        <script type='text/javascript' src='https://www.kyoto-shinpan.co.jp/wp/wp-content/plugins/vk-link-target-controller/js/script.min.js?ver=1.7.8.0' id='vk-ltc-js-js'></script>
-        <script type='text/javascript' src='https://www.kyoto-shinpan.co.jp/wp/wp-includes/js/clipboard.min.js?ver=2.0.10' id='clipboard-js'></script>
-        <script type='text/javascript' src='https://www.kyoto-shinpan.co.jp/wp/wp-content/plugins/vk-all-in-one-expansion-unit/inc/sns/assets/js/copy-button.js' id='copy-button-js'></script>
-        <script type='text/javascript' src='https://www.kyoto-shinpan.co.jp/wp/wp-content/plugins/vk-all-in-one-expansion-unit/inc/smooth-scroll/js/smooth-scroll.min.js?ver=9.99.1.0' id='smooth-scroll-js-js'></script>
-        <script type='text/javascript' id='vkExUnit_master-js-js-extra'>
-            /* <![CDATA[ */
-            var vkExOpt = {
-                "ajax_url": "https:\/\/www.kyoto-shinpan.co.jp\/wp\/wp-admin\/admin-ajax.php",
-                "hatena_entry": "https:\/\/www.kyoto-shinpan.co.jp\/wp-json\/vk_ex_unit\/v1\/hatena_entry\/",
-                "facebook_entry": "https:\/\/www.kyoto-shinpan.co.jp\/wp-json\/vk_ex_unit\/v1\/facebook_entry\/",
-                "facebook_count_enable": "",
-                "entry_count": "1",
-                "entry_from_post": ""
-            };
-            /* ]]> */
-        </script>
-        <script type='text/javascript' src='https://www.kyoto-shinpan.co.jp/wp/wp-content/plugins/vk-all-in-one-expansion-unit/assets/js/all.min.js?ver=9.99.1.0' id='vkExUnit_master-js-js'></script>
-        <script type='text/javascript' src='https://www.kyoto-shinpan.co.jp/wp/wp-content/plugins/vk-blocks/vendor/vektor-inc/vk-swiper/src/assets/js/swiper-bundle.min.js?ver=9.3.2' id='vk-swiper-script-js'></script>
-        <script type='text/javascript' id='vk-swiper-script-js-after'>
-            var lightning_swiper = new Swiper('.lightning_swiper',{
-                "slidesPerView": 1,
-                "spaceBetween": 0,
-                "loop": true,
-                "autoplay": {
-                    "delay": "4000"
-                },
-                "pagination": {
-                    "el": ".swiper-pagination",
-                    "clickable": true
-                },
-                "navigation": {
-                    "nextEl": ".swiper-button-next",
-                    "prevEl": ".swiper-button-prev"
-                },
-                "effect": "slide",
-                "speed": 1000
-            });
-        </script>
-        <script type='text/javascript' src='https://www.kyoto-shinpan.co.jp/wp/wp-content/plugins/vk-blocks/build/vk-slider.min.js?ver=1.60.0.1' id='vk-blocks-slider-js'></script>
-        <script type='text/javascript' id='lightning-js-js-extra'>
-            /* <![CDATA[ */
-            var lightningOpt = {
-                "header_scrool": "",
-                "add_header_offset_margin": "1"
-            };
-            /* ]]> */
-        </script>
-        <script type='text/javascript' src='https://www.kyoto-shinpan.co.jp/wp/wp-content/themes/lightning/_g3/assets/js/main.js?ver=15.29.6' id='lightning-js-js'></script>
+        <!-- フッターやナビゲーション関連は削除 -->
     </body>
 </html>
-```
