@@ -388,27 +388,24 @@
             // displayFirstPaymentDate関数はEMPフォーム専用に調整
             function displayFirstPaymentDate() {
                 const form = document.getElementById('KS_calcEMP');
-                // 結果エリア内の要素を探す
-                const firstPaymentDateElement = form.querySelector('#result-emp .first-payment-date-value'); // ★セレクタ変更
+                const firstPaymentDateElement = form.querySelector('#result-emp .first-payment-date-value');
 
-                // 結果エリアが表示されていない場合は日付も表示しない
                 if (!firstPaymentDateElement || document.getElementById('result-emp').innerHTML.trim() === '') {
-                    if(firstPaymentDateElement) firstPaymentDateElement.textContent = ''; // ★textContentでクリア
+                    if(firstPaymentDateElement) firstPaymentDateElement.textContent = '';
                     return;
                 }
 
                 const interviewDateInput = form.querySelector('input[name="interviewDate"]');
                 const interviewDateValue = interviewDateInput ? interviewDateInput.value : '';
 
-                // 日付が入力されていない場合の表示
                 if (!interviewDateValue) {
-                    firstPaymentDateElement.textContent = "記入面談日を選択してください。"; // ★strongタグ除去, textContent
+                    firstPaymentDateElement.textContent = "記入面談日を選択してください。";
                     return;
                 }
 
                 const dateParts = interviewDateValue.split('-');
                 if (dateParts.length !== 3) {
-                    firstPaymentDateElement.textContent = "無効な日付形式です。"; // ★strongタグ除去, textContent
+                    firstPaymentDateElement.textContent = "無効な日付形式です。";
                     return;
                 }
 
@@ -417,11 +414,11 @@
                 const day = parseInt(dateParts[2], 10);
 
                 if (isNaN(year) || isNaN(month) || isNaN(day) || year < 1000 || month < 1 || month > 12 || day < 1 || day > 31) {
-                    firstPaymentDateElement.textContent = "無効な日付が入力されました。"; // ★strongタグ除去, textContent
+                    firstPaymentDateElement.textContent = "無効な日付が入力されました。";
                     return;
                 }
 
-                let firstPaymentMonthCalc = month; // 1-12
+                let firstPaymentMonthCalc = month;
                 let firstPaymentYearCalc = year;
 
                 if (day >= 15) {
@@ -433,7 +430,7 @@
                 }
 
                 const firstPaymentDay = 27;
-                firstPaymentDateElement.textContent = `${firstPaymentYearCalc}年${firstPaymentMonthCalc}月${firstPaymentDay}日`; // ★strongタグ除去, textContent
+                firstPaymentDateElement.textContent = `${firstPaymentYearCalc}年${firstPaymentMonthCalc}月${firstPaymentDay}日`;
             }
 
 
@@ -504,22 +501,40 @@
                 const bonusPaymentsAfterFirst = (bcount - (isFirstMonthBonus ? 1 : 0)) * baddpay;
                 first = payment - normalPaymentsAfterFirst - bonusPaymentsAfterFirst;
 
-                // --- 結果表示 (★ここから修正) ---
+                // --- 結果表示 (★指定の順序に変更) ---
                 let resultsHtml = '<h3>計算結果</h3>';
+
+                // 1. 売買代金
                 resultsHtml += `<p><strong>売買代金:</strong> ${price.toLocaleString()} 円</p>`;
-                resultsHtml += `<p><strong>支払日:</strong> <span class="first-payment-date-value"></span></p>`;
-                resultsHtml += `<p><strong>引き落とし日:</strong> 毎月27日</p>`;
+
+                // 2. お支払い総額（頭金を含む）
+                resultsHtml += `<p><strong>お支払い総額（頭金を含む）:</strong> ${total.toLocaleString()} 円</p>`;
+
+                // 3. 手数料
                 resultsHtml += `<p><strong>手数料:</strong> ${fee.toLocaleString()} 円</p>`;
+
+                // 4. 分割回数
+                resultsHtml += `<p><strong>分割回数:</strong> ${frequency}回</p>`;
+
+                // 5. 支払日
+                resultsHtml += `<p><strong>支払日:</strong> <span class="first-payment-date-value"></span></p>`;
+
+                // 6. 引き落とし日
+                resultsHtml += `<p><strong>引き落とし日:</strong> 毎月27日</p>`;
+
+                // 7. 初回金額
                 resultsHtml += `<p><strong>初回金額:</strong> ${first.toLocaleString()} 円`;
                 if (isFirstMonthBonus && baddpay > 0) {
                     resultsHtml += ` (ボーナス月加算あり)`;
                 }
                 resultsHtml += `</p>`;
-                resultsHtml += `<p><strong>分割回数:</strong> ${frequency}回</p>`;
+
+                // 8. 2回目以降
                 if (frequency > 1) {
                     resultsHtml += `<p><strong>2回目以降:</strong> ${rest.toLocaleString()} 円</p>`;
                 }
 
+                // ボーナス回のお支払い額 (表示を維持)
                 if (baddpay > 0) {
                     let bonusOnlyCount = bcount - (isFirstMonthBonus ? 1 : 0);
                     if (bonusOnlyCount > 0) {
@@ -528,12 +543,13 @@
                         resultsHtml += `<p class="note">※ ボーナス回(1回)は初回金額に含まれます。</p>`;
                     }
                 }
-                resultsHtml += `<p><strong>お支払い総額（頭金を含む）:</strong> ${total.toLocaleString()} 円</p>`;
+
+                // 9. 分割支払金合計
                 resultsHtml += `<p><strong>分割支払金合計:</strong> ${payment.toLocaleString()} 円</p>`;
                 // --- 結果表示 (★ここまで修正) ---
 
                 resultDiv.innerHTML = resultsHtml;
-                displayFirstPaymentDate();
+                displayFirstPaymentDate(); // この呼び出しは resultsHtml がDOMに挿入された後である必要あり
 
                 if (frequencycheck(frequency) === false) {
                     const checkMsg = document.createElement('p');
@@ -546,7 +562,7 @@
                     const checkMsg = document.createElement('p');
                     checkMsg.style.color = 'var(--color-warning)';
                     checkMsg.classList.add('note');
-                    checkMsg.innerText = `※ 注意: 計算結果の2回目以降のお支払い額(${rest.toLocaleString()}円)は、当社の契約条件である3千円を下回っています。`; // ★文言修正
+                    checkMsg.innerText = `※ 注意: 計算結果の2回目以降のお支払い額(${rest.toLocaleString()}円)は、当社の契約条件である3千円を下回っています。`;
                     resultDiv.appendChild(checkMsg);
                 }
             }
@@ -568,9 +584,9 @@
                 if (resultDiv) {
                     resultDiv.innerHTML = '';
                 }
-                const firstPaymentDateElement = form.querySelector('#result-emp .first-payment-date-value'); // ★セレクタ変更
+                const firstPaymentDateElement = form.querySelector('#result-emp .first-payment-date-value');
                 if (firstPaymentDateElement) {
-                    firstPaymentDateElement.textContent = ''; // ★textContentでクリア
+                    firstPaymentDateElement.textContent = '';
                 }
             }
 
